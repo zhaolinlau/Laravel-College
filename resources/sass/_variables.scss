@@ -1,0 +1,14 @@
+$primary: #15a195;
+$minor: #285192;
+
+$custom-colors: (
+    "minor": $minor,
+);
+
+$theme-colors: (
+  "primary": $primary,
+  "minor": $minor
+);
+
+
+$theme-colors: map-merge($theme-colors, $custom-colors);
