@@ -31,7 +31,7 @@
 						<a class="nav-link" href="#">FAQs</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">Contact Us</a>
+						<a class="nav-link" href="/contactUs">Contact Us</a>
 					</li>
 					@if (Route::has('login'))
 					<div class="d-flex align-items-center">
