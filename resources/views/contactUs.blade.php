@@ -23,14 +23,14 @@
                             </div>
                         @endif
                      
-                        <form method="POST"  id="contactUSForm">
+                        <form method="GET" action='submit' id="contactUSForm">
                             {{ csrf_field() }}
                               
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <strong>Name:</strong>
-                                        <input type="text" name="name" class="form-control" placeholder="Name" value="{{ old('name') }}">
+                                        <input type="text" name="yourname" class="form-control" placeholder="Name" value="{{ old('name') }}">
                                         @if ($errors->has('name'))
                                             <span class="text-danger">{{ $errors->first('name') }}</span>
                                         @endif
@@ -39,7 +39,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <strong>Email:</strong>
-                                        <input type="text" name="email" class="form-control" placeholder="Email" value="{{ old('email') }}">
+                                        <input type="text" name="youremail" class="form-control" placeholder="Email" value="{{ old('email') }}">
                                         @if ($errors->has('email'))
                                             <span class="text-danger">{{ $errors->first('email') }}</span>
                                         @endif
@@ -50,7 +50,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <strong>Phone:</strong>
-                                        <input type="text" name="phone" class="form-control" placeholder="Phone" value="{{ old('phone') }}">
+                                        <input type="text" name="yourphone" class="form-control" placeholder="Phone" value="{{ old('phone') }}">
                                         @if ($errors->has('phone'))
                                             <span class="text-danger">{{ $errors->first('phone') }}</span>
                                         @endif
@@ -59,7 +59,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <strong>Subject:</strong>
-                                        <input type="text" name="subject" class="form-control" placeholder="Subject" value="{{ old('subject') }}">
+                                        <input type="text" name="yoursubject" class="form-control" placeholder="Subject" value="{{ old('subject') }}">
                                         @if ($errors->has('subject'))
                                             <span class="text-danger">{{ $errors->first('subject') }}</span>
                                         @endif
@@ -70,7 +70,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <strong>Message:</strong>
-                                        <textarea name="message" rows="3" class="form-control">{{ old('message') }}</textarea>
+                                        <textarea name="yourmessage" rows="3" class="form-control">{{ old('message') }}</textarea>
                                         @if ($errors->has('message'))
                                             <span class="text-danger">{{ $errors->first('message') }}</span>
                                         @endif
