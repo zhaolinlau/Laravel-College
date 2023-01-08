@@ -16,6 +16,6 @@ class ContactformController extends Controller
         $var->subject = $req->yoursubject;
         $var->message = $req->yourmessage;
         $var->save();
-        return view('success');
+        return back()->with('success','Noted With thanks.');
     }
 }
