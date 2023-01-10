@@ -26,6 +26,12 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::get('/applyCourse', function () {
+    return view('applyCourse');
+});
+
+Route::get('Next','App\Http\Controllers\ContactformController@savingtodatabase');
+
 Route::get('/contactUs', function () {
     return view('contactUs');
 });
