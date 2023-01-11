@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,19 +17,29 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', function () {
-    return view('index');
+	return view('index');
 });
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Route::get('/contactUs', function () {
-    return view('contactUs');
+Route::middleware(['auth', 'user-role:user'])->group(function () {
+	Route::get("/home", [HomeController::class, 'userHome'])->name("home");
 });
 
-Route::get('submit','App\Http\Controllers\ContactformController@savingtodatabase');
+Route::middleware(['auth', 'user-role:editor'])->group(function () {
+	Route::get("/editor/home", [HomeController::class, 'editorHome'])->name("editor.home");
+});
+
+Route::middleware(['auth', 'user-role:admin'])->group(function () {
+	Route::get("/admin/home", [HomeController::class, 'adminHome'])->name("admin.home");
+});
+
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/contact_us', function () {
+	return view('contact_us');
+});
+
+Route::post('/Contact/insert', [ContactController::class, 'insert']);

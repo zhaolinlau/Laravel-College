@@ -13,13 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('contactforms', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('email');
-            $table->string('phone');
-            $table->string('subject');
-            $table->text('message');
+        Schema::create('basicdetails', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('type');
+            $table->string('level');
+            $table->string('application');
+            $table->string('nationality');
+            $table->string('nric');
             $table->timestamps();
         });
     }
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('contactforms');
+        Schema::dropIfExists('basicdetails');
     }
 };
