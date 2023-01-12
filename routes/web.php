@@ -43,3 +43,14 @@ Route::get('/contact_us', function () {
 });
 
 Route::post('/Contact/insert', [ContactController::class, 'insert']);
+
+//FAQ
+Route::get('/faqdata','App\Http\Controllers\FAQcontroller@FAQindex');
+Route::post('/faqdata/createProgramme','App\Http\Controllers\FAQcontroller@create1');
+Route::post('/faqdata/createAdmission','App\Http\Controllers\FAQcontroller@create2');
+Route::get('/faqdata/{id}/editProgramme','App\Http\Controllers\FAQcontroller@edit1');
+Route::get('/faqdata/{id}/editAdmission','App\Http\Controllers\FAQcontroller@edit2');
+Route::post('/faqdata/{id}/updateProgramme','App\Http\Controllers\FAQcontroller@update1');
+Route::post('/faqdata/{id}/updateAdmission','App\Http\Controllers\FAQcontroller@update2');
+Route::get('/faqdata/{id}/deleteProgramme','App\Http\Controllers\FAQcontroller@delete1');
+Route::get('/faqdata/{id}/deleteAdmission','App\Http\Controllers\FAQcontroller@delete2');
