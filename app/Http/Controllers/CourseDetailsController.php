@@ -25,11 +25,11 @@ class CourseDetailsController extends Controller
     public function basicDetailsPost(Request $request)
     {
         $this->validate($request, [
-        		'campus1' => 'required',
-                'mode1' => 'required',
-        		'levelofstudy1' => 'required',
-                'intake1' => 'required',
-        		'month1' => 'required',
+        		'campus' => 'required',
+                'mode' => 'required',
+        		'levelofstudy' => 'required',
+                'intake' => 'required',
+        		'month' => 'required',
                 'programme1' => 'required',
                 'faculty1' => 'required',
                 'programme2' => 'required',
