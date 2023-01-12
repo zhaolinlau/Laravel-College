@@ -22,9 +22,19 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::middleware(['auth', 'user-role:user'])->group(function () {
+	Route::get("/home", [HomeController::class, 'userHome'])->name("home");
+});
 
-Auth::routes();
+Route::middleware(['auth', 'user-role:editor'])->group(function () {
+	Route::get("/editor/home", [HomeController::class, 'editorHome'])->name("editor.home");
+});
+
+Route::middleware(['auth', 'user-role:admin'])->group(function () {
+	Route::get("/admin/home", [HomeController::class, 'adminHome'])->name("admin.home");
+});
+
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
