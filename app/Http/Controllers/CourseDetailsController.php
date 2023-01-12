@@ -32,18 +32,8 @@ class CourseDetailsController extends Controller
         		'month1' => 'required',
                 'programme1' => 'required',
                 'faculty1' => 'required',
-                'campus2' => 'required',
-                'mode2' => 'required',
-        		'levelofstudy2' => 'required',
-                'intake2' => 'required',
-        		'month2' => 'required',
                 'programme2' => 'required',
                 'faculty2' => 'required',
-                'campus3' => 'required',
-                'mode3' => 'required',
-        		'levelofstudy3' => 'required',
-                'intake3' => 'required',
-        		'month3' => 'required',
                 'programme3' => 'required',
                 'faculty3' => 'required'
         	]);
