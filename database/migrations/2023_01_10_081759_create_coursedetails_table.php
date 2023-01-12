@@ -15,25 +15,15 @@ return new class extends Migration
     {
         Schema::create('coursedetails', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('campus1');
-            $table->string('mode1');
-            $table->string('levelofstudy1');
-            $table->integer('intake1');
-            $table->string('month1');
+            $table->string('campus');
+            $table->string('mode');
+            $table->string('levelofstudy');
+            $table->integer('intake');
+            $table->string('month');
             $table->string('programme1');
             $table->string('faculty1');
-            $table->string('campus2');
-            $table->string('mode2');
-            $table->string('levelofstudy2');
-            $table->integer('intake2');
-            $table->string('month2');
             $table->string('programme2');
             $table->string('faculty2');
-            $table->string('campus3');
-            $table->string('mode3');
-            $table->string('levelofstudy3');
-            $table->integer('intake3');
-            $table->string('month3');
             $table->string('programme3');
             $table->string('faculty3');
             $table->timestamps();
