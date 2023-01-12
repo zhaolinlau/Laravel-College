@@ -54,3 +54,5 @@ Route::post('/faqdata/{id}/updateProgramme','App\Http\Controllers\FAQcontroller@
 Route::post('/faqdata/{id}/updateAdmission','App\Http\Controllers\FAQcontroller@update2');
 Route::get('/faqdata/{id}/deleteProgramme','App\Http\Controllers\FAQcontroller@delete1');
 Route::get('/faqdata/{id}/deleteAdmission','App\Http\Controllers\FAQcontroller@delete2');
+
+//Route::get('/faqdata/{id}/deleteAdmission','App\Http\Controllers\FAQcontroller@delete2');
