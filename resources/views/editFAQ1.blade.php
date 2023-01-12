@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>FAQ</title>
+        <title>FAQ | UPDATE PROGRAMME</title>
 
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 
@@ -20,21 +20,22 @@
 
         <div class="container">
             <div class="row">
-                <h1>FAQ</h1>
+                <h1 style="padding:10px; margin-bottom: 40px;">Update FAQ for Programme</h1>
 
-                <form action="/faqdata/{{$data_faqprogramme->id}}/updateProgramme" method="POST">
-                {{csrf_field()}}
-                    <div class="form-floating" style="margin-bottom:20px;">
-                        <textarea name="Question" class="form-control" placeholder="Enter question here" id="floatingtextarea">{{$data_faqprogramme->Question}}</textarea>
-                        <label for="floatingtextarea">Question</label>
-                    </div>
-                    <div class="form-floating" style="margin-bottom:20px;">
-                        <textarea name="Answer" class="form-control" placeholder="Enter answer here" id="floatingtextarea">{{$data_faqprogramme->Answer}}</textarea>
-                        <label for="floatingtextarea">Answer</label>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Update</button>
-                </form>
-
+                <div class="col-6" style="margin:auto;">
+                    <form action="/faqdata/{{$data_faqprogramme->id}}/updateProgramme" method="POST">
+                    {{csrf_field()}}
+                        <div class="form-floating" style="margin-bottom:20px;">
+                            <textarea name="Question" class="form-control" placeholder="Enter question here" id="floatingtextarea" style="min-height:100px;">{{$data_faqprogramme->Question}}</textarea>
+                            <label for="floatingtextarea">Question</label>
+                        </div>
+                        <div class="form-floating" style="margin-bottom:20px;">
+                            <textarea name="Answer" class="form-control" placeholder="Enter answer here" id="floatingtextarea" style="min-height:300px;">{{$data_faqprogramme->Answer}}</textarea>
+                            <label for="floatingtextarea">Answer</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="background-color: #3a9b8c; border:none;">UPDATE</button>
+                    </form>
+                </div>
             </div>
         </div>
 
