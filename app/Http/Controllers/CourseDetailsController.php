@@ -27,9 +27,6 @@ class CourseDetailsController extends Controller
         $this->validate($request, [
         		'campus' => 'required',
                 'mode' => 'required',
-        		'levelofstudy' => 'required',
-                'intake' => 'required',
-        		'month' => 'required',
                 'programme1' => 'required',
                 'faculty1' => 'required',
                 'programme2' => 'required',

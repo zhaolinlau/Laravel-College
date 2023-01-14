@@ -9,8 +9,7 @@ class PersonalDetails extends Model
 {
     public $table = 'personaldetails';
 
-    public $fillable = ['salutation', 
-                        'fullname', 
+    public $fillable = ['fullname', 
                         'phone', 
                         'email', 
                         'guardianname', 

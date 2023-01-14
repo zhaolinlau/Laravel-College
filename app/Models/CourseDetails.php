@@ -12,8 +12,6 @@ class CourseDetails extends Model
     public $fillable = ['campus',
                         'mode', 
                         'levelofstudy', 
-                        'intake',
-                        'month',
                         'programme1', 
                         'faculty1',
                         'programme2', 
