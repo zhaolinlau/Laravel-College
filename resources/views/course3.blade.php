@@ -64,25 +64,19 @@ body {
     <div class="course border-top">
         <div class= row>
             <div class="col-md-6">
-                <h1>Diploma in Creative Multimedia</h1>
-                <div class="course-faculty">Faculty of Management (FOM)</div>
+                <h1>Diploma in Accounting</h1>
+                <div class="course-faculty">Faculty of Business (FOB)</div>
             </div>
             <p>
-            <strong> (N/213/4/0356) 11/24 (MQA/PSA12833) </strong>
+            <strong> (R/344/4/0371) 06/20 (A6297) </strong>
             </p>
         </div>
     </div>
     <p>
-    The programme focuses on nurturing creative mindset and the ability to solve design
-        problems through creative conventions; the ability to empower key visual components 
-        and practical processes in solving complex communication issues; as well as establish 
-        creative design innovations which purposes translated into entertainment, advertising, 
-        online media, motion graphics and multimedia application provided to a range of 
-        industry needs. Creative Multimedia programme is designed based on contemporary digital
-        media trend,covers a wide spectrum of digital media technical modules ranging from 
-        computer graphics, digital imaging, videography and interactive media.
+    The programme has been designed with the objective of exposing students to the latest standards, trends and issues in the areas of accounting such as financial accounting, management accounting, auditing, taxation and accounting information system. This programme incorporates value added courses with applications of IT knowledge such as e-commerce and computer applications.
     </p>
-    
+    <p>Students will also be equipped with some business skills such as economics, finance, investment, entrepreneurship and management, and will also be exposed to the real world experience through internship programme in various accounting firms and selected organisations. This programme is also recognised by professional accounting bodies at the international level.</p>
+    <p>After completion of the diploma programme you can opt for a related degree programme from either FOB or FOM, except for the Bachelor of Financial Engineering (Hons.)</p>
 
     <div class="col-12">
 		<!--<button class="btn btn-primary" type="button">Enquire Now</button>-->
@@ -154,21 +148,20 @@ body {font-family: "Lato", sans-serif;}
 <div class="tab">
 <button class="tablinks" onmouseover="openCity(event, 'Entry Requirements')">Entry Requirements</button>
 <button class="tablinks" onmouseover="openCity(event, 'Programme Structure')">Programme Structure</button>
-<button class="tablinks" onmouseover="openCity(event, 'Career Prospects')">Career Prospects</button>
   
 </div>
 
 <div id="Entry Requirements" class="tabcontent">
   <h3>Entry Requirements</h3>
- <li>Pass SPM/O-Level or its equivalent with a minimum of Grade C in at least three (3) subjects; OR</li>
+ <li>Pass SPM/O-Level or its equivalent with a minimum of Grade C in at least three (3) subjects inclusive of Mathematics and a Pass in English; OR</li>
  <br>
- <li>Pass UEC with a minimum of Grade B in at least three (3) subjects; OR" </li>
+ <li>Pass STAM with a minimum Grade of Maqbul (Pass) AND a Credit in Mathematics and a Pass in English at SPM Level or its equivalent; OR </li>
  <br>
  <li>Pass STPM or its equivalent with a minimum of Grade C (GP 2.00) in at least one (1) subject; OR </li>
  <br>
- <li> Pass STAM with Grade Maqbul (Pass); OR </li>
+ <li> Pass UEC with a minimum of Grade B in at least three (3) subjects inclusive of Mathematics and a Pass in English; OR </li>
  <br>
- <li> Recognised Creative Multimedia Certificate or its equivalent; OR
+ <li> Pass SKM Level 3 in a related field AND Pass SPM with a Credit in Mathematics and a Pass in English; OR
  </li>
 </div>
 
@@ -179,14 +172,14 @@ body {font-family: "Lato", sans-serif;}
                     <p>Year 1</p>
                     <ul>
                         <li class="course-text">
-                            3D Modelling
+                            Mathematics
                             <br>
                             <br>
-                            <li>Visual Communication</li>
+                            <li>Computer & Software Applications</li>
                             <br>
-                            <li>Drawing Fundamental/li>
+                            <li>Financial Accounting 1</li>
                             <br>
-                            <li>Internet Application</li>
+                            <li>Introductory Microeconomics</li>
                             
                         </li>
                     </ul>
@@ -195,37 +188,24 @@ body {font-family: "Lato", sans-serif;}
                     <p>Year 2</p>
                     <ul>
                         <li class="course-text">
-                            Creative Design 2
+                            Financial Accounting 2
                             <br>
                             <br>
-                            <li>Principles of Managerial Accounting</li>
+                            <li>Introductory Macroeconomics</li>
                             <br>
-                            <li>Creative Multimedia Project</li>
+                            <li>Principles of Finance</li>
                             <br>
-                            <li>Information Design</li>
+                            <li>Management Accounting 1</li>
                             <br>
-                            <li>Generative Audio Visual</li>
+                            <li>Business Communication in the Digital Age</li>
                             <br>
-                            <li>Digital Sound Protection</li>
+                            <li>Elective 1</li>
                             <br>
                         </li>
                     </ul>
                 
 </div>
 
-<div id="Career Prospects" class="tabcontent">
- <h3>Career Prospects</h3>
- <li>New Media artist, UX/UI Interface designer,Real-time event 
-designer,Online media designer,Projection Mapping artist, Concept 
-Artist, Visualiser, Multimedia Designer,Graphic Designer, Web Designers, 
-Layout Artists, Videographer, Video Editor, Video Compositor, 2D 
-Animators, 3D Animators, Modelers, Storyboard artists, Art Director, 
-Creative Director , CG Supervisor, Effects Designer, Environment 
- Designer, Video Game Animator, Video Game Artist, Visual Effects Artist, 
-Entrepreneur, Illustrators, Photographer</li>
- 
- 
-</div>
 
 <div class="clearfix"></div>
 
