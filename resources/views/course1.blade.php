@@ -19,9 +19,6 @@
             <div class="col-md-6">
                 <h1>DIPLOMA IN CREATIVE MULTIMEDIA</h1>
                 <div class="course-faculty">Faculty of Creative Multimedia (FCM)</div>
-                <p>
-                    <div class = ">Faculty of Creative Multimedia (FCM)</div>
-                </p>
             </div>
             <p>
             <strong> (N/213/4/0356) 11/24 (MQA/PSA12833)</strong>
@@ -34,7 +31,7 @@
         and practical processes in solving complex communication issues; as well as establish 
         creative design innovations which purposes translated into entertainment, advertising, 
         online media, motion graphics and multimedia application provided to a range of 
-        industry needs.Creative Multimedia programme is designed based on contemporary digital
+        industry needs. Creative Multimedia programme is designed based on contemporary digital
         media trend,covers a wide spectrum of digital media technical modules ranging from 
         computer graphics, digital imaging, videography and interactive media.
     </p>
