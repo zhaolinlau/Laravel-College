@@ -25,7 +25,6 @@ class PersonalDetailsController extends Controller
     public function basicDetailsPost(Request $request)
     {
         $this->validate($request, [
-        		'salutation' => 'required',
                 'fullname' => 'required',
         		'phone' => 'required',
                 'email' => 'required|email',

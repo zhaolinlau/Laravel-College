@@ -9,8 +9,7 @@ class BasicDetails extends Model
 {
     public $table = 'basicdetails';
 
-    public $fillable = ['type', 
-                        'level', 
+    public $fillable = ['type',  
                         'application', 
                         'nationality', 
                         'nric'];

@@ -28,7 +28,6 @@ class BasicDetailsController extends Controller
     {
         $this->validate($request, [
         		'type' => 'required',
-                'level' => 'required',
         		'application' => 'required',
                 'nationality' => 'required',
         		'nric' => 'required'
