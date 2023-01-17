@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\UserApplyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,6 +44,10 @@ Route::get('/contact_us', function () {
 });
 
 Route::post('/Contact/insert', [ContactController::class, 'insert']);
+
+//student application
+Route::get('user_apply', [UserApplyController::class, 'index']);
+Route::post('store_user_apply', [UerApplyController::class, 'store']);
 
 //FAQ
 Route::get('/faqdata','App\Http\Controllers\FAQcontroller@FAQindex');
