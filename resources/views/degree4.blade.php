@@ -73,10 +73,18 @@ body {
         </div>
     </div>
     <p>
-    In this information-driven 21st century, computerized information systems are playing key roles to the success of organizations. Hence, there is an increasing demand for information systems graduates that are capable to design, develop and implement effective digital solutions to meet the needs for information and decision support of organizations.
+    In this information-driven 21st century, computerized information systems are playing 
+    key roles to the success of organizations. Hence, there is an increasing demand for 
+    information systems graduates that are capable to design, develop and implement effective
+     digital solutions to meet the needs for information and decision support of organizations.
     </p>
      <p>
-    This three-year programme prepares students with a strong foundation in information systems applications development as well as current and emerging technologies related to information systems. The knowledge and skills are essential not only in using information systems effectively, but also to contribute significantly in planning, design, implement and maintain information systems solutions for critical business problems. Graduates of this programme will take leading roles in shaping our information-driven future.
+    This three-year programme prepares students with a strong foundation in information 
+    systems applications development as well as current and emerging technologies related 
+    to information systems. The knowledge and skills are essential not only in using 
+    information systems effectively, but also to contribute significantly in planning, 
+    design, implement and maintain information systems solutions for critical business 
+    problems. Graduates of this programme will take leading roles in shaping our information-driven future.
     </p>
 
     <div class="col-12">

@@ -73,7 +73,17 @@ body {
         </div>
     </div>
     <p>
-    The three-and-a-half-year programme equips students with the knowledge blend in IT, mathematics and finance as well as financial modelling skills crucial for the financial technology (FINTECH) industry. The programme will provide students with financial acumen and thorough understanding of strategic technology in business finance. Students will delve into fundamental financial subjects such as Principles of Finance, Investment, Financial Derivatives, Mathematics for Finance and others. The finance fundamentals are then supplemented with fintech-related subjects to produce tech-savvy and competitive graduates. The subjects included are Financial Modelling, Mathematical Programming, Digital Transformation Technologies, Analytical Programming, Monte Carlo Simulation Technique and Numerical Analysis. In addition, hands-on practice with finance-related software and database such as Datastream and Bloomberg for their Research Project greatly enhance their experience and resumes that will impress potential employers.
+    The three-and-a-half-year programme equips students with the knowledge blend in IT, mathematics 
+    and finance as well as financial modelling skills crucial for the financial technology (FINTECH) 
+    industry. The programme will provide students with financial acumen and thorough understanding of
+    strategic technology in business finance. Students will delve into fundamental financial subjects
+    such as Principles of Finance, Investment, Financial Derivatives, Mathematics for Finance and others. 
+    The finance fundamentals are then supplemented with fintech-related subjects to produce tech-savvy and 
+    competitive graduates. The subjects included are Financial Modelling, Mathematical Programming, 
+    Digital Transformation Technologies, Analytical Programming, Monte Carlo Simulation Technique and Numerical
+    Analysis. In addition, hands-on practice with finance-related software and database such as Datastream 
+    and Bloomberg for their Research Project greatly enhance their experience and resumes that will impress 
+    potential employers.
     </p>
 
     <div class="col-12">

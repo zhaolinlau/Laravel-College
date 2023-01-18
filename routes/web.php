@@ -63,12 +63,6 @@ Route::middleware(['auth', 'user-role:admin'])->group(function(){
     Route::get('/faqdata/{id}/deleteAdmission','App\Http\Controllers\FAQcontroller@delete2');
 });
 
-
-
-//Route::get('/faqdata/{id}/deleteAdmission','App\Http\Controllers\FAQcontroller@delete2');
-
-
-
 //Course
 Route::get('/diploma', function () {
 	return view('diploma');
@@ -81,3 +75,33 @@ Route::get('/degree', function () {
 Route::get('/diploma_creative_multimedia', function () {
 	return view('course1');
 });
+
+Route::get('/diploma_finance', function () {
+	return view('course2');
+});
+
+Route::get('/diploma_accounting', function () {
+	return view('course3');
+});
+
+Route::get('/diploma_InfoTech', function () {
+	return view('course4');
+});
+
+Route::get('/degree_financialEng', function () {
+	return view('degree1');
+});
+
+Route::get('/degree_EngElectronics', function () {
+	return view('degree2');
+});
+
+Route::get('/degree_ScienceComp', function () {
+	return view('degree3');
+});
+
+Route::get('/degree_InfoTech', function () {
+	return view('degree4');
+});
+
+

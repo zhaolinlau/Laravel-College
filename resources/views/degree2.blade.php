@@ -73,10 +73,24 @@ body {
         </div>
     </div>
     <p>
-    For students aiming for a professional career in computer systems and information technology, this four-year computer engineering programme provides a comprehensive undergraduate training in the design and development of both hardware and software aspects of computers and digital systems. Our graduates are equipped with the knowledge and practical experience on computer hardware, software applications and computer networking.
+    For students aiming for a professional career in computer systems and information technology, 
+    this four-year computer engineering programme provides a comprehensive undergraduate training 
+    in the design and development of both hardware and software aspects of computers and digital 
+    systems. Our graduates are equipped with the knowledge and practical experience on computer 
+    hardware, software applications and computer networking.
     </p>
     <p>
-    The programme begins with deep embedding of engineering fundamentals such as circuit and signal analysis, field theory, electronics, control theory, power systems, machines and engineering mathematics. The curriculum encompasses specialised training in computer programming, computer organisation and architecture, microcontroller and microprocessor systems, object-oriented programming, high-performance computing, data communications and networking; and followed by advanced modules such as embedded Internet of Things (IoT), Artificial Intelligence (AI) and cybersecurity. Courses in management, economics, accounting and law are included to ensure that graduates are well-rounded and marketable to future employers. Capping off the programme in the third and fourth years are the industrial training, capstone and final year projects, which serve to cultivate skills and capabilities in research, system design, practical problem-solving, and project management.
+    The programme begins with deep embedding of engineering fundamentals such as circuit 
+    and signal analysis, field theory, electronics, control theory, power systems, 
+    machines and engineering mathematics. The curriculum encompasses specialised training 
+    in computer programming, computer organisation and architecture, microcontroller and 
+    microprocessor systems, object-oriented programming, high-performance computing, data 
+    communications and networking; and followed by advanced modules such as embedded Internet 
+    of Things (IoT), Artificial Intelligence (AI) and cybersecurity. Courses in management, 
+    economics, accounting and law are included to ensure that graduates are well-rounded and 
+    marketable to future employers. Capping off the programme in the third and fourth years are 
+    the industrial training, capstone and final year projects, which serve to cultivate skills 
+    and capabilities in research, system design, practical problem-solving, and project management.
     </p>
     
 

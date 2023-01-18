@@ -73,7 +73,12 @@ body {
         </div>
     </div>
     <p>
-    This three-year programme equips students with fundamental computing knowledge and the latest technology. In year 1, all students learn common subjects before specialising in one of the following areas – Software Engineering, Game Development, Data Science or Cybersecurity – in the second year. Each designed specialisation prepares students with specific skills. Students will also complete a final year project and undergo industrial training to acquire practical industry experience.
+    This three-year programme equips students with fundamental computing knowledge and the 
+    latest technology. In year 1, all students learn common subjects before specialising in 
+    one of the following areas Software Engineering, Game Development, Data Science or 
+    Cybersecurity in the second year. Each designed specialisation prepares students with 
+    specific skills. Students will also complete a final year project and undergo industrial 
+    training to acquire practical industry experience.
     </p>
 
     <div class="col-12">
@@ -207,7 +212,11 @@ body {font-family: "Lato", sans-serif;}
 
 <div id="Career Prospects" class="tabcontent">
   <h3>Career Prospects</h3>
- <p>Career Prospects: Researcher, Programmer, Software Development, Project Manager, System Analyst, Database Administrator, IS/SE Consultant, Game Producer, Game Artist & Visualiser, Data Analyst, Data Scientist, Data Engineer, Cyber Risk Analyst, Security Penetration Tester, Incident Responder, Digital Forensic Specialist, Security Architect, Security Engineer.</p>
+ <p>Career Prospects: Researcher, Programmer, Software Development, Project Manager,
+   System Analyst, Database Administrator, IS/SE Consultant, Game Producer, Game Artist 
+   & Visualiser, Data Analyst, Data Scientist, Data Engineer, Cyber Risk Analyst, Security 
+   Penetration Tester, Incident Responder, Digital Forensic Specialist, Security Architect, 
+   Security Engineer.</p>
 </div>
 
 
