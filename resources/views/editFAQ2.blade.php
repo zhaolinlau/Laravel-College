@@ -1,16 +1,11 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>FAQ | UPDATE ADMISSIONS</title>
+@extends('layouts.app')
 
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+@section('title')
+	Update FAQ Admissions
+@endsection
 
-        <script src="https://kit.fontawesome.com/6b5e8c15a7.js" crossorigin="anonymous"></script>
-
-    </head>
-
-    <body>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+@section('content')
+	@include('layouts.navbar')
 
         @if(session('success'))
         <div class="alert alert-primary" role="alert">
@@ -20,7 +15,7 @@
 
         <div class="container">
             <div class="row">
-                <h1 style="padding:10px; margin-bottom: 40px;">Update FAQ for Admissions</h1>
+            <b><h3 style="padding:10px; margin-top: 20px; margin-bottom: 40px;">UPDATE FAQ FOR ADMISSIONS</h3></b>
 
                 <div class="col-6" style="margin:auto;">
                     <form action="/faqdata/{{$data_faqadmission->id}}/updateAdmission" method="POST">
@@ -39,6 +34,5 @@
             </div>
         </div>
 
-    </body>
-</html>
-</html>
+	@include('layouts.footer')
+@endsection

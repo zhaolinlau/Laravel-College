@@ -17,7 +17,7 @@
 					<a class="nav-link" href="#">Courses</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#">FAQs</a>
+					<a class="nav-link" href="/faqdata">FAQs</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="/contact_us">Contact Us</a>
