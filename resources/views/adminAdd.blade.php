@@ -17,7 +17,7 @@
 					@endif
 					<div class="card">
 						<div class="card-body">
-							<h3>Drop us a message</h3>
+							<h3>Course Information</h3>
 							<p>We are here for you! How can we help?</p>
 							<form class="row g-3 needs-validation" method="POST" action="/Contact/insert" novalidate>
 								@csrf
