@@ -66,3 +66,18 @@ Route::middleware(['auth', 'user-role:admin'])->group(function(){
 
 
 //Route::get('/faqdata/{id}/deleteAdmission','App\Http\Controllers\FAQcontroller@delete2');
+
+
+
+//Course
+Route::get('/diploma', function () {
+	return view('diploma');
+});
+
+Route::get('/degree', function () {
+	return view('degree');
+});
+
+Route::get('/diploma_creative_multimedia', function () {
+	return view('course1');
+});
