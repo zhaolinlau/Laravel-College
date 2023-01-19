@@ -51,7 +51,7 @@ Route::get('user_apply', [UserApplyController::class, 'index']);
 Route::post('store_user_apply', [UerApplyController::class, 'store']);
 
 //FAQ
-Route::middleware(['auth', 'user-role:admin'])->group(function(){
+Route::middleware(['auth', 'user-role:admin', 'checkIPAdd'])->group(function(){
     Route::get('/faqdata','App\Http\Controllers\FAQcontroller@FAQindex');
     Route::post('/faqdata/createProgramme','App\Http\Controllers\FAQcontroller@create1');
     Route::post('/faqdata/createAdmission','App\Http\Controllers\FAQcontroller@create2');
