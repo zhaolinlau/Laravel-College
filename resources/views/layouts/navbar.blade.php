@@ -15,28 +15,22 @@
 				</li>
 
 
-				{{--start course links --}}
+				{{-- start course links --}}
 				<li class="nav-item dropdown">
-        <a
-          class="nav-link dropdown-toggle"
-          href="#"
-          id="navbarDropdownMenuLink"
-          role="button"
-          data-mdb-toggle="dropdown"
-          aria-expanded="false"
-        >
-          Courses
-        </a>
-        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <li>
-            <a class="dropdown-item" href="/diploma">Diploma</a>
-          </li>
-          <li>
-            <a class="dropdown-item" href="/degree">Bachelor Degree</a>
-          </li>
-        </ul>
-      </li>
-			{{--end course links --}}
+					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+						data-mdb-toggle="dropdown" aria-expanded="false">
+						Courses
+					</a>
+					<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+						<li>
+							<a class="dropdown-item" href="/diploma">Diploma</a>
+						</li>
+						<li>
+							<a class="dropdown-item" href="/degree">Bachelor Degree</a>
+						</li>
+					</ul>
+				</li>
+				{{-- end course links --}}
 
 				<li class="nav-item">
 					<a class="nav-link" href="/faqdata">FAQs</a>
@@ -71,9 +65,17 @@
 							</a>
 
 							<div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+								<a class="dropdown-item" href="/admin">
+									{{ __('Dashboard') }}
+								</a>
+
+								<a class="dropdown-item" href="/admin/profile">
+									{{ __('My Profile') }}
+								</a>
+
 								<a class="dropdown-item" href="{{ route('logout') }}"
 									onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                  document.getElementById('logout-form').submit();">
 									{{ __('Logout') }}
 								</a>
 

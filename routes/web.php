@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\UserApplyController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,13 +32,15 @@ Route::middleware(['auth', 'user-role:staff'])->group(function () {
 	Route::get("/staff", [HomeController::class, 'staffHome'])->name("staff.home");
 });
 
-Route::middleware(['auth', 'user-role:admin'])->group(function () {
+Route::middleware(['auth', 'user-role:admin', 'checkIPAdd'])->group(function () {
 	Route::get("/admin", [HomeController::class, 'adminHome'])->name("admin.home");
+	Route::get('/admin/staff_list', [AdminController::class, 'readStaff']);
+	Route::get('/admin/create_staff', [AdminController::class, 'createStaff']);
+	Route::get('/admin/update_staff', [AdminController::class, 'updateStaff']);
+	Route::get('/admin/delete_staff', [AdminController::class, 'deleteStaff']);
+
+	
 });
-
-Route::get('/home', [HomeController::class, 'index'])->name('home');
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 //ContactUs
 Route::get('/contact_us', function () {
