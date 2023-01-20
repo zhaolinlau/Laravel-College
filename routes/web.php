@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\UserApplyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,21 +39,69 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+//ContactUs
 Route::get('/contact_us', function () {
 	return view('contact_us');
 });
 
 Route::post('/Contact/insert', [ContactController::class, 'insert']);
 
-//FAQ
-Route::get('/faqdata','App\Http\Controllers\FAQcontroller@FAQindex');
-Route::post('/faqdata/createProgramme','App\Http\Controllers\FAQcontroller@create1');
-Route::post('/faqdata/createAdmission','App\Http\Controllers\FAQcontroller@create2');
-Route::get('/faqdata/{id}/editProgramme','App\Http\Controllers\FAQcontroller@edit1');
-Route::get('/faqdata/{id}/editAdmission','App\Http\Controllers\FAQcontroller@edit2');
-Route::post('/faqdata/{id}/updateProgramme','App\Http\Controllers\FAQcontroller@update1');
-Route::post('/faqdata/{id}/updateAdmission','App\Http\Controllers\FAQcontroller@update2');
-Route::get('/faqdata/{id}/deleteProgramme','App\Http\Controllers\FAQcontroller@delete1');
-Route::get('/faqdata/{id}/deleteAdmission','App\Http\Controllers\FAQcontroller@delete2');
+//student application
+Route::get('user_apply', [UserApplyController::class, 'index']);
+Route::post('store_user_apply', [UerApplyController::class, 'store']);
 
-//Route::get('/faqdata/{id}/deleteAdmission','App\Http\Controllers\FAQcontroller@delete2');
+//FAQ
+Route::middleware(['auth', 'user-role:admin', 'checkIPAdd'])->group(function(){
+    Route::get('/faqdata','App\Http\Controllers\FAQcontroller@FAQindex');
+    Route::post('/faqdata/createProgramme','App\Http\Controllers\FAQcontroller@create1');
+    Route::post('/faqdata/createAdmission','App\Http\Controllers\FAQcontroller@create2');
+    Route::get('/faqdata/{id}/editProgramme','App\Http\Controllers\FAQcontroller@edit1');
+    Route::get('/faqdata/{id}/editAdmission','App\Http\Controllers\FAQcontroller@edit2');
+    Route::post('/faqdata/{id}/updateProgramme','App\Http\Controllers\FAQcontroller@update1');
+    Route::post('/faqdata/{id}/updateAdmission','App\Http\Controllers\FAQcontroller@update2');
+    Route::get('/faqdata/{id}/deleteProgramme','App\Http\Controllers\FAQcontroller@delete1');
+    Route::get('/faqdata/{id}/deleteAdmission','App\Http\Controllers\FAQcontroller@delete2');
+});
+
+//Course
+Route::get('/diploma', function () {
+	return view('diploma');
+});
+
+Route::get('/degree', function () {
+	return view('degree');
+});
+
+Route::get('/diploma_creative_multimedia', function () {
+	return view('course1');
+});
+
+Route::get('/diploma_finance', function () {
+	return view('course2');
+});
+
+Route::get('/diploma_accounting', function () {
+	return view('course3');
+});
+
+Route::get('/diploma_InfoTech', function () {
+	return view('course4');
+});
+
+Route::get('/degree_financialEng', function () {
+	return view('degree1');
+});
+
+Route::get('/degree_EngElectronics', function () {
+	return view('degree2');
+});
+
+Route::get('/degree_ScienceComp', function () {
+	return view('degree3');
+});
+
+Route::get('/degree_InfoTech', function () {
+	return view('degree4');
+});
+
+

@@ -13,11 +13,33 @@
 				<li class="nav-item">
 					<a class="nav-link" href="#">About</a>
 				</li>
+
+
+				{{--start course links --}}
+				<li class="nav-item dropdown">
+        <a
+          class="nav-link dropdown-toggle"
+          href="#"
+          id="navbarDropdownMenuLink"
+          role="button"
+          data-mdb-toggle="dropdown"
+          aria-expanded="false"
+        >
+          Courses
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <li>
+            <a class="dropdown-item" href="/diploma">Diploma</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="/degree">Bachelor Degree</a>
+          </li>
+        </ul>
+      </li>
+			{{--end course links --}}
+
 				<li class="nav-item">
-					<a class="nav-link" href="#">Courses</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#">FAQs</a>
+					<a class="nav-link" href="/faqdata">FAQs</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="/contact_us">Contact Us</a>

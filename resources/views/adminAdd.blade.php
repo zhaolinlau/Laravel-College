@@ -17,7 +17,7 @@
 					@endif
 					<div class="card">
 						<div class="card-body">
-							<h3>Drop us a message</h3>
+							<h3>Course Information</h3>
 							<p>We are here for you! How can we help?</p>
 							<form class="row g-3 needs-validation" method="POST" action="/Contact/insert" novalidate>
 								@csrf
@@ -106,3 +106,24 @@
 		})();
 	</script>
 @endsection
+
+
+<form method="POST" action="/courses">
+    @csrf
+    <label for="course_name">Course Name:</label>
+    <input type="text" id="course_name" name="course_name" required><br><br>
+    <label for="description">Description:</label>
+    <textarea id="description" name="description" required></textarea><br><br>
+    <label for="price">Price:</label>
+    <input type="number" id="price" name="price" min="0" required><br><br>
+    <label for="duration">Duration:</label>
+    <input type="text" id="duration" name="duration" required><br><br>
+    <label for="level">Level:</label>
+    <select id="level" name="level" required>
+        <option value="">Select</option>
+        <option value="Beginner">Beginner</option>
+        <option value="Intermediate">Intermediate</option>
+        <option value="Advanced">Advanced</option>
+    </select><br><br>
+    <input type="submit" value="Submit">
+</form>
