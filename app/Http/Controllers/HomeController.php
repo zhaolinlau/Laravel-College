@@ -21,9 +21,9 @@ class HomeController extends Controller
 	 *
 	 * @return \Illuminate\Contracts\Support\Renderable
 	 */
-	public function userHome()
+	public function studentHome()
 	{
-		return view('home', ["msg" => "Hello! I am user"]);
+		return view('student', ["msg" => "Hello! I am student"]);
 	}
 
 	/**
@@ -31,9 +31,9 @@ class HomeController extends Controller
 	 *
 	 * @return \Illuminate\Contracts\Support\Renderable
 	 */
-	public function editorHome()
+	public function staffHome()
 	{
-		return view('home', ["msg" => "Hello! I am editor"]);
+		return view('staff', ["msg" => "Hello! I am staff"]);
 	}
 
 
@@ -44,6 +44,6 @@ class HomeController extends Controller
 	 */
 	public function adminHome()
 	{
-		return view('home', ["msg" => "Hello! I am admin"]);
+		return view('admin', ["msg" => "Hello! I am admin"]);
 	}
 }

@@ -27,7 +27,9 @@ class LoginController extends Controller
 	 *
 	 * @var string
 	 */
-	protected $redirectTo = RouteServiceProvider::HOME;
+	protected $redirectToStudent = RouteServiceProvider::STUDENT;
+	protected $redirectToStaff = RouteServiceProvider::STAFF;
+	protected $redirectToAdmin = RouteServiceProvider::ADMIN;
 
 	/**
 	 * Create a new controller instance.
@@ -51,10 +53,10 @@ class LoginController extends Controller
 		if (auth()->attempt(array('email' => $input['email'], 'password' => $input['password']))) {
 			if (auth()->user()->role == 'admin') {
 				return redirect()->route('admin.home');
-			} else if (auth()->user()->role == 'editor') {
-				return redirect()->route('editor.home');
+			} else if (auth()->user()->role == 'staff') {
+				return redirect()->route('staff.home');
 			} else {
-				return redirect()->route('home');
+				return redirect()->route('student.home');
 			}
 		} else {
 			return redirect()
