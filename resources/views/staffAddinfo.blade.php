@@ -23,10 +23,10 @@
 								@csrf
 								<div class="col-md-6">
 									<div class="form-outline">
-										<input type="text" id="name" name="name" class="form-control" required>
-										<label for="name" class="form-label">Name</label>
+										<input type="text" id="course" name="course" class="form-control" required>
+										<label for="name" class="form-label">Course Name</label>
 										<div class="invalid-feedback">Please fill out this field.</div>
-										@error('name')
+										@error('course')
 											<div class="invalid-feedback">Please fill out this field.</div>
 										@enderror
 									</div>
