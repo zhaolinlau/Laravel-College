@@ -34,12 +34,13 @@ Route::middleware(['auth', 'user-role:staff'])->group(function () {
 
 Route::middleware(['auth', 'user-role:admin', 'checkIPAdd'])->group(function () {
 	Route::get("/admin", [HomeController::class, 'adminHome'])->name("admin.home");
-	Route::get('/admin/staff_list', [AdminController::class, 'readStaff']);
-	Route::get('/admin/create_staff', [AdminController::class, 'createStaff']);
-	Route::get('/admin/update_staff', [AdminController::class, 'updateStaff']);
-	Route::get('/admin/delete_staff', [AdminController::class, 'deleteStaff']);
-
-	
+	Route::get('/admin/staff_list', [AdminController::class, 'readStaff'])->name("admin.staff_list");
+	Route::get('/admin/staff_list/{id}/profile', [AdminController::class, 'readProfile']);
+	Route::post('/admin/staff_list/{id}/update', [AdminController::class, 'updateStaff']);
+	Route::post('/admin/staff_list/create', [AdminController::class, 'createStaff']);
+	Route::get('/admin/staff_list/{id}/delete', [AdminController::class, 'deleteStaff']);
+	Route::get('/admin/staff_list/{id}/reset_form', [AdminController::class, 'readPassword']);
+	Route::post('/admin/staff_list/{id}/reset_password', [AdminController::class, 'resetPassword']);
 });
 
 //ContactUs

@@ -8,6 +8,8 @@
 	<title>Laravel College | @yield('title')</title>
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
 	@vite(['resources/js/app.js'])
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css">
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/jszip-2.5.0/dt-1.13.1/b-2.3.3/b-colvis-2.3.3/b-html5-2.3.3/b-print-2.3.3/datatables.min.css"/>
 </head>
 
 <body>
