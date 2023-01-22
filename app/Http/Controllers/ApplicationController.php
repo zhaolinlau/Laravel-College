@@ -65,7 +65,8 @@ class ApplicationController extends Controller
      */
     public function show($id)
     {
-        //
+        $application = Application::all();
+        return view('show_application', compact('application'));
     }
 
     /**
