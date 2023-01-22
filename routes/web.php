@@ -51,6 +51,8 @@ Route::middleware(['auth', 'user-role:student'])->group(function () {
 
 Route::middleware(['auth', 'user-role:admin', 'checkIPAdd'])->group(function(){
     Route::get('/contactStaff','App\Http\Controllers\ContactController@contactStaffindex');
+	Route::get('/contactStaff/{id}/edit','App\Http\Controllers\ContactController@edit');
+	Route::post('/contactStaff/{id}/update','App\Http\Controllers\ContactController@update');
     Route::get('/contactStaff/{id}/delete','App\Http\Controllers\ContactController@delete');
 });
 
