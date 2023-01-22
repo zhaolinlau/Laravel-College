@@ -1,5 +1,13 @@
 @extends('layouts.app')
 
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>Student Application</title>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+   </head>
+
 @section('title')
 	STUDENT APPLICATION
 @endsection
@@ -7,13 +15,18 @@
 @section('content')
     @include('layouts.navbar')
     <style>
-        .container {
-        max-width: 450px;
-        }
+
         .push-top {
-        margin-top: 50px;
+        margin-top: 20px;
+        }
+        .header {
+        padding: 20px;
+        text-align: center;
         }
     </style>
+    <div class="header">
+        <h1>YOUR APPLICATION</h1>
+    </div>
     <div class="card push-top">
     <div class="card-header">
         Fill in the information below to send your application.
@@ -116,8 +129,9 @@
                 <label for="guardianemail">Email Address</label>
                 <input type="email" class="form-control" name="guardianemail"/>
             </div>
-            <button type="submit" class="btn btn-block btn-danger">SUBMIT APPLICATION</button>
+            <button type="submit" class="btn btn-block btn-danger mx-auto d-block" style="max-width:200px;background-color: #3a9b8c;">SUBMIT APPLICATION</button>
         </form>
     </div>
+
     @include('layouts.footer')
 @endsection
