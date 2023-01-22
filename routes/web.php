@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ContactController;
-use App\Http\Controllers\UserApplyController;
+use App\Http\Controllers\ApplicationController;
 use App\Http\Controllers\AdminController;
 
 /*
@@ -51,8 +51,8 @@ Route::get('/contact_us', function () {
 Route::post('/Contact/insert', [ContactController::class, 'insert']);
 
 //student application
-Route::get('user_apply', [UserApplyController::class, 'index']);
-Route::post('store_user_apply', [UerApplyController::class, 'store']);
+Route::resource('applications', ApplicationController::class);
+
 
 //FAQ
 Route::middleware(['auth', 'user-role:admin', 'checkIPAdd'])->group(function(){

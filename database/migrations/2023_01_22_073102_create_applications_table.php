@@ -13,26 +13,22 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('user_applies', function (Blueprint $table) {
-            $table->id();
+        Schema::create('applications', function (Blueprint $table) {
+            $table->bigIncrements('id');
             $table->string('level');
             $table->string('nationality');
-            $table->string('nric');
             $table->string('campus');
-            $table->string('levelofstudy');
             $table->string('programme1');
-            $table->string('faculty1');
             $table->string('programme2');
-            $table->string('faculty2');
             $table->string('programme3');
-            $table->string('faculty3');
             $table->string('fullname');
+            $table->string('nric'); 
             $table->string('phone');
             $table->string('email');
             $table->string('guardianname');
-            $table->string('guardianphone');
+            $table->string('guardianphone'); 
             $table->string('guardiannric');
-            $table->string('guardianemail');
+            $table->string('guardianemail');     
             $table->timestamps();
         });
     }
@@ -44,6 +40,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_applies');
+        Schema::dropIfExists('applications');
     }
 };
