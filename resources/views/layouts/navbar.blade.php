@@ -36,7 +36,7 @@
 					<a class="nav-link" href="/faqdata">FAQs</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="/contact_us">Contact Us</a>
+					<a class="nav-link" href="/contactStaff">Contact Us</a>
 				</li>
 				<div class="d-flex align-items-center">
 					@guest

@@ -44,11 +44,15 @@ Route::middleware(['auth', 'user-role:admin', 'checkIPAdd'])->group(function () 
 });
 
 //ContactUs
-Route::get('/contact_us', function () {
-	return view('contact_us');
+Route::middleware(['auth', 'user-role:student'])->group(function () {
+	Route::get('/contact_us','App\Http\Controllers\ContactController@contactindex');
+	Route::post('/Contact/insert','App\Http\Controllers\ContactController@insert');
 });
 
-Route::post('/Contact/insert', [ContactController::class, 'insert']);
+Route::middleware(['auth', 'user-role:admin', 'checkIPAdd'])->group(function(){
+    Route::get('/contactStaff','App\Http\Controllers\ContactController@contactStaffindex');
+    Route::get('/contactStaff/{id}/delete','App\Http\Controllers\ContactController@delete');
+});
 
 //student application
 Route::resource('applications', ApplicationController::class);
