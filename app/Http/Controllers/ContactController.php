@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Models\Contacts;
 
@@ -21,6 +20,17 @@ class ContactController extends Controller
 	public function contactStaffindex(){
         $data_contact = \App\Models\Contacts::all();
         return view('contactStaff',['data_contact'=> $data_contact]);
+    }
+
+    public function edit($id) {
+        $data_contact = \App\Models\Contacts::find($id);
+        return view('editContact',['data_contact'=>$data_contact]);
+    }
+
+    public function update(Request $request, $id) {
+        $data_contact = \App\Models\Contacts::find($id);
+        $data_contact->update($request->all());
+        return redirect('/contactStaff')->with('success', 'Data Successfully Updated !');
     }
 	public function delete($id){
         $data_contact = \App\Models\Contacts::find($id);
