@@ -75,6 +75,16 @@
 										@enderror
 									</div>
 								</div>
+								<div class="col-md-6">
+									<div class="form-outline">
+										<input type="text" id="status" name="status" class="form-control" required>
+										<label for="status" class="form-label">Status</label>
+										<div class="invalid-feedback">Please fill out this field.</div>
+										@error('status')
+											<div class="invalid-feedback">Please fill out this field.</div>
+										@enderror
+									</div>
+								</div>
 
 								<div class="col-12">
 									<button class="btn btn-primary" type="submit">Send</button>

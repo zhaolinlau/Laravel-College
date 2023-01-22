@@ -19,6 +19,7 @@
                     <th>Phone Number</th>
                     <th>Subject</th>
                     <th>Message</th>
+                    <th>Status</th>
                <th style="width:125px;">Action</p></th>
                 </tr>
             </thead>
@@ -28,9 +29,10 @@
                     <td>{{$contacts->id}}</td>
                         <td>{{$contacts->name}}</td>
                         <td>{{$contacts->email}}</td>
-                        <td>{{$contacts->Phone_number}}</td>
+                        <td>{{$contacts->phone_number}}</td>
                         <td>{{$contacts->subject}}</td>
                         <td>{{$contacts->message}}</td>
+                        <td>{{$contacts->status}}</td>
                         <td>
 							<a href="contactStaff/{{$contacts->id}}/edit" class="btn btn-minor">EDIT</a>
                             <a href="contactStaff/{{$contacts->id}}/delete" class="btn btn-danger" title="Delete" onclick="return confirm('Confirm to delete?')">DELETE</a>
