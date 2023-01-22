@@ -30,10 +30,6 @@ class RedirectIfAuthenticated
 				} elseif (Auth::user()->role == 'student') {
 					return redirect(RouteServiceProvider::STUDENT);
 				}
-			} else {
-				return redirect()
-					->route('login')
-					->with('error', 'Incorrect email or password!.');
 			}
 		}
 
