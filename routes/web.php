@@ -78,7 +78,8 @@ Route::middleware(['auth', 'user-role:admin', 'checkIPAdd'])->group(function(){
     Route::get('/faqdata/{id}/deleteAdmission','App\Http\Controllers\FAQcontroller@delete2');
 });
 
-//Course
+//Course Student
+Route::middleware(['auth', 'user-role:student', 'checkheader'])->group(function(){
 Route::get('/diploma', function () {
 	return view('diploma');
 });
@@ -117,6 +118,26 @@ Route::get('/degree_ScienceComp', function () {
 
 Route::get('/degree_InfoTech', function () {
 	return view('degree4');
+});
+});
+
+//Course Staff
+Route::middleware(['auth', 'user-role:staff', 'checkheader'])->group(function(){
+Route::get('/diploma', function () {
+	return view('diploma');
+});
+
+Route::get('/addCourse', function () {
+	return view('staffAddinfo');
+});
+
+Route::get('/editCourse', function () {
+	return view('editCourse');
+});
+
+Route::get('/deleteCourse', function () {
+	return view('deleteCourse');
+});
 });
 
 
