@@ -11,7 +11,7 @@
 			<div class="col py-5">
 				<div class="row g-3">
 					<div class="col">
-						<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staffform">
+						<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#courseform">
 							Add Course Information
 						</button>
 					</div>
@@ -24,8 +24,8 @@
 									<th>Course ID</th>
 									<th>Course Name</th>
 									<th>Faculty</th>
+									<th>Details</th>
 									<th>View</th>
-									<th>Password</th>
 									<th>Deletion</th>
 								</tr>
 							</thead>
@@ -36,8 +36,8 @@
 										<td>{{ $loop->iteration }}</td>
 										<td>{{ $row->course_id }}</td>
 										<td>{{ $row->course_name }}</td>
-										<td>{{ $row->email }}</td>
 										<td>{{ $row->faculty }}</td>
+										<td>{{ $row->details}}</td>
 										<td>
 											<a href="/staff/course_list/{{ $row->id }}/reset_form" class="btn btn-minor">Reset</a>
 										</td>
@@ -83,14 +83,6 @@
 							</div>
 
 							<div class="col-6">
-								<label class="form-label" for="details">Details</label>
-								<input type="details" id="details" class="form-control" name="details" required>
-								<div class="invalid-feedback">
-									Please fill out this field.
-								</div>
-							</div>
-							
-							<div class="col-6">
 								<label class="form-label" for="faculty">Faculty</label>
 								<input type="text" id="faculty" class="form-control" name="faculty" required>
 								<div class="invalid-feedback">
@@ -98,6 +90,13 @@
 								</div>
 							</div>
 
+							<div class="col-6">
+								<label class="form-label" for="details">Details</label>
+								<input type="details" id="details" class="form-control" name="details" required>
+								<div class="invalid-feedback">
+									Please fill out this field.
+								</div>
+							</div>
 						</div>
 					</div>
 					<div class="modal-footer">

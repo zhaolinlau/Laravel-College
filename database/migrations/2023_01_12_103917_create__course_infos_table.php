@@ -15,12 +15,9 @@ return new class extends Migration
     {
         Schema::create('_course_infos', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('CourseName');
-            $table->string('levelofstudy');
-            $table->integer('intake');
-            $table->string('month');
-            $table->string('programme');
+            $table->string('courseName');
             $table->string('faculty');
+            $table->string('details');
             $table->timestamps();
         });
     }
