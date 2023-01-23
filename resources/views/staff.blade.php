@@ -18,6 +18,13 @@
 								<a class="btn btn-primary" href="{{route('staff.banner_list')}}">Banner List</a>
 							</div>
 						</div>
+						<div class="card">
+							<div class="card-body">
+								<h5 class="card-title">Carousel Management</h5>
+								<p class="card-text">Navigate to list of student application.</p>
+								<a class="btn btn-primary" href="{{route('staff.banner_list')}}">Student Application</a>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>

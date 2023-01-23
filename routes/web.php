@@ -62,8 +62,13 @@ Route::middleware(['auth', 'user-role:admin', 'checkheader'])->group(function(){
 });
 
 //student application
-Route::resource('applications', ApplicationController::class);
+Route::middleware(['auth', 'user-role:student','checkheader'])->group(function () {
+	Route::get('/application', 'App\Http\Controllers\ApplicationController@create');
+});
 
+Route::middleware(['auth', 'user-role:admin', 'checkheader'])->group(function(){
+    Route::get('/application', 'App\Http\Controllers\ApplicationController@index');
+});
 
 //FAQ
 Route::middleware(['auth', 'user-role:admin', 'checkIPAdd'])->group(function(){
