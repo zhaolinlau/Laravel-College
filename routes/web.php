@@ -124,7 +124,7 @@ Route::get('/degree_InfoTech', function () {
 //Course Staff
 Route::middleware(['auth', 'user-role:staff', 'checkheader'])->group(function(){
 Route::get('/diploma', function () {
-	return view('diploma');
+	return view('staffAddinfo');
 });
 
 Route::get('/addCourse', function () {

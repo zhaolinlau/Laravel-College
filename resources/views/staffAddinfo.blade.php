@@ -107,3 +107,48 @@
 			</div>
 		</div>
 	</div>
+	@include('layouts.footer')
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+	<script type="text/javascript"
+		src="https://cdn.datatables.net/v/bs5/jszip-2.5.0/dt-1.13.1/b-2.3.3/b-colvis-2.3.3/b-html5-2.3.3/b-print-2.3.3/datatables.min.js">
+	</script>
+
+	<script>
+		(() => {
+			'use strict'
+			const forms = document.querySelectorAll('.needs-validation')
+			Array.from(forms).forEach(form => {
+				form.addEventListener('submit', event => {
+					if (!form.checkValidity()) {
+						event.preventDefault()
+						event.stopPropagation()
+					}
+					form.classList.add('was-validated')
+				}, false)
+			})
+		})()
+	</script>
+
+	<script>
+		$.fn.dataTable.Buttons.defaults.dom.button.className = 'btn btn-primary';
+		$('#staff_list').DataTable({
+			language: {
+				searchPlaceholder: "Search by a field..."
+			},
+			dom: 'Bfrtip',
+			buttons: [
+				'pageLength',
+				{
+					extend: 'collection',
+					text: 'Export',
+					buttons: ['csv', 'excel', 'pdf'],
+				},
+				'print',
+			]
+		});
+	</script>
+@endsection
