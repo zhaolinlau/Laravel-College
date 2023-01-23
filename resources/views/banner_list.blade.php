@@ -12,7 +12,7 @@
 				<div class="row g-3">
 					<div class="col">
 						<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staffform">
-							Add Staff
+							Upload Banner
 						</button>
 					</div>
 
@@ -21,34 +21,30 @@
 							<thead>
 								<tr>
 									<th>No</th>
-									<th>Staff ID</th>
-									<th>Name</th>
-									<th>Email</th>
-									<th>Phone Number</th>
-									<th>Faculty</th>
-									<th>View</th>
-									<th>Password</th>
+									<th>Title</th>
+									<th>Image</th>
+									<th>Publish</th>
+									<th>Modification</th>
+									<th>Preview</th>
 									<th>Deletion</th>
 								</tr>
 							</thead>
 
 							<tbody>
-								@foreach ($staffs as $row)
+								@foreach ($banners as $row)
 									<tr>
 										<td>{{ $loop->iteration }}</td>
-										<td>{{ $row->staff_id }}</td>
-										<td>{{ $row->name }}</td>
-										<td>{{ $row->email }}</td>
-										<td>{{ $row->phone_number }}</td>
-										<td>{{ $row->faculty }}</td>
+										<td>{{ $row->title }}</td>
+										<td>{{ $row->image }}</td>
+										<td>{{ $row->publish }}</td>
 										<td>
-											<a href="/staff/staff_list/{{ $row->id }}/profile" class="btn btn-info">Profile</a>
+											<a href="/staff/banner_list/{{ $row->id }}/banner" class="btn btn-info">Modify</a>
 										</td>
 										<td>
-											<a href="/staff/staff_list/{{ $row->id }}/reset_form" class="btn btn-minor">Reset</a>
+											<a href="{{asset('storage/images/'.$row->image)}}" class="btn btn-secondary" target="_blank">View</a>
 										</td>
 										<td>
-											<a href="/staff/staff_list/{{ $row->id }}/delete" class="btn btn-danger" title="Delete Lecturer"
+											<a href="/staff/banner_list/{{ $row->id }}/delete" class="btn btn-danger" title="Delete Lecturer"
 												onclick="return confirm('Confirm to delete?')">Delete</a>
 										</td>
 									</tr>
@@ -58,13 +54,11 @@
 							<tfoot>
 								<tr>
 									<th>No</th>
-									<th>Staff ID</th>
-									<th>Name</th>
-									<th>Email</th>
-									<th>Phone Number</th>
-									<th>Faculty</th>
-									<th>View</th>
-									<th>Reset</th>
+									<th>Title</th>
+									<th>Image</th>
+									<th>Publish</th>
+									<th>Modification</th>
+									<th>Preview</th>
 									<th>Deletion</th>
 								</tr>
 							</tfoot>
@@ -79,63 +73,42 @@
 	<div class="modal fade" id="staffform" tabindex="-1" aria-labelledby="Label" aria-hidden="true">
 		<div class="modal-dialog modal-dialog-centered">
 			<div class="modal-content">
-				<form action="/admin/staff_list/create" class="needs-validation" method="POST" novalidate>
+				<form action="/staff/banner_list/upload" class="needs-validation" method="POST" enctype="multipart/form-data"
+					novalidate>
 					@csrf
 					<div class="modal-header">
-						<h1 class="modal-title fs-5" id="Label">Staff Account Registration</h1>
+						<h1 class="modal-title fs-5" id="Label">Upload Banner</h1>
 						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					</div>
 					<div class="modal-body">
 
 						<div class="row g-3">
-							<div class="col-6">
-								<label class="form-label" for="staff_id">Staff ID</label>
-								<input type="text" id="staff_id" class="form-control" name="staff_id" required>
+							<div class="col-8">
+								<label class="form-label" for="title">Title</label>
+								<input type="text" id="title" class="form-control" name="title" required>
 								<div class="invalid-feedback">
 									Please fill out this field.
 								</div>
 							</div>
 
-							<div class="col-6">
-								<label class="form-label" for="name">Name</label>
-								<input type="text" id="name" class="form-control" name="name" required>
+							<div class="col-4">
+								<label class="form-label" for="publish">Publish</label>
+								<select name="publish" id="publish" class="form-select" required>
+									<option value="" selected hidden disabled>Yes / No</option>
+									<option value="1">Yes</option>
+									<option value="0">No</option>
+								</select>
 								<div class="invalid-feedback">
-									Please fill out this field.
+									Please select Yes or No to publish.
 								</div>
 							</div>
-
-							<div class="col-6">
-								<label class="form-label" for="email">Email</label>
-								<input type="email" id="email" class="form-control" name="email" required>
+							<div class="col-12">
+								<label class="form-label" for="image">Image</label>
+								<input type="file" id="image" class="form-control" name="image" required>
 								<div class="invalid-feedback">
-									Please enter an email.
+									Please select an image.
 								</div>
 							</div>
-
-							<div class="col-6">
-								<label class="form-label" for="password">Password</label>
-								<input type="password" id="password" class="form-control" name="password" required>
-								<div class="invalid-feedback">
-									Please fill out this field.
-								</div>
-							</div>
-
-							<div class="col-6">
-								<label class="form-label" for="phone_number">Phone Number</label>
-								<input type="tel" id="phone_number" class="form-control" name="phone_number" required>
-								<div class="invalid-feedback">
-									Please fill out this field.
-								</div>
-							</div>
-
-							<div class="col-6">
-								<label class="form-label" for="faculty">Faculty</label>
-								<input type="text" id="faculty" class="form-control" name="faculty" required>
-								<div class="invalid-feedback">
-									Please fill out this field.
-								</div>
-							</div>
-
 						</div>
 					</div>
 					<div class="modal-footer">

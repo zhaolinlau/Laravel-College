@@ -7,6 +7,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ApplicationController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BannerController;
+use App\Http\Controllers\StaffController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,11 +28,16 @@ Route::middleware(['auth', 'user-role:student'])->group(function () {
 	Route::get("/student", [HomeController::class, 'studentHome'])->name("student.home");
 });
 
-Route::middleware(['auth', 'user-role:staff'])->group(function () {
+Route::middleware(['auth', 'user-role:staff', 'checkheader'])->group(function () {
 	Route::get("/staff", [HomeController::class, 'staffHome'])->name("staff.home");
+	Route::get('/staff/banner_list', [StaffController::class, 'readBanner'])->name("staff.banner_list");
+	Route::post('/staff/banner_list/upload', [StaffController::class, 'uploadBanner']);
+	Route::get('/staff/banner_list/{id}/delete', [StaffController::class, 'deleteBanner']);
+	Route::post('/staff/banner_list/{id}/modify', [StaffController::class, 'modifyBanner']);
+	Route::get('/staff/banner_list/{id}/banner', [StaffController::class, 'Banner']);
 });
 
-Route::middleware(['auth', 'user-role:admin', 'checkheader', 'checkIPAdd'])->group(function () {
+Route::middleware(['auth', 'user-role:admin', 'checkheader'])->group(function () {
 	Route::get("/admin", [HomeController::class, 'adminHome'])->name("admin.home");
 	Route::get('/admin/staff_list', [AdminController::class, 'readStaff'])->name("admin.staff_list");
 	Route::get('/admin/staff_list/{id}/profile', [AdminController::class, 'readProfile']);

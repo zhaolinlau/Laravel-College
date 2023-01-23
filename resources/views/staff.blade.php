@@ -6,21 +6,18 @@
 
 @section('content')
 	@include('layouts.navbar')
-	<div class="container">
-		<div class="row justify-content-center">
-			<div class="col-md-8">
-				<div class="card">
-					<div class="card-header">{{ __('Dashboard') }}</div>
-
-					<div class="card-body">
-						@if (session('status'))
-							<div class="alert alert-success" role="alert">
-								{{ session('status') }}
+	<div class="container py-5">
+		<div class="row justify-content-center py-5">
+			<div class="col py-5">
+				<div class="row">
+					<div class="col-4">
+						<div class="card">
+							<div class="card-body">
+								<h5 class="card-title">Carousel Management</h5>
+								<p class="card-text">Navigate to list of banner.</p>
+								<a class="btn btn-primary" href="{{route('staff.banner_list')}}">Banner List</a>
 							</div>
-						@endif
-							{{ Auth::user()->name }}
-						<br>
-                    {{$msg}}
+						</div>
 					</div>
 				</div>
 			</div>

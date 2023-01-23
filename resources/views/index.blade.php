@@ -9,33 +9,17 @@
 	<div id="carousel" class="carousel slide carousel-fade" data-mdb-ride="carousel">
 
 		<div class="carousel-indicators">
-			<button type="button" data-mdb-target="#carousel" data-mdb-slide-to="0" class="active"></button>
-			<button type="button" data-mdb-target="#carousel" data-mdb-slide-to="1"></button>
-			<button type="button" data-mdb-target="#carousel" data-mdb-slide-to="2"></button>
-			<button type="button" data-mdb-target="#carousel" data-mdb-slide-to="3"></button>
-			<button type="button" data-mdb-target="#carousel" data-mdb-slide-to="4"></button>
+			@foreach ($banners as $row)
+				<button type="button" data-mdb-target="#carousel" data-mdb-slide-to="{{$loop->index}}" class="{{ $loop->first ? 'active' : '' }}"></button>
+			@endforeach
 		</div>
 
 		<div class="carousel-inner">
-			<div class="carousel-item active">
-				<img src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(1).webp" class="d-block w-100" />
+			@foreach ($banners as $row)
+			<div class="carousel-item {{ $loop->first ? 'active' : '' }}">
+				<img src="{{ asset('storage/images/'. $row->image) }}" alt="{{ $row->title }}" class="d-block w-100" />
 			</div>
-
-			<div class="carousel-item">
-				<img src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(2).webp" class="d-block w-100" />
-			</div>
-
-			<div class="carousel-item">
-				<img src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(3).webp" class="d-block w-100" />
-			</div>
-
-			<div class="carousel-item">
-				<img src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(4).webp" class="d-block w-100" />
-			</div>
-
-			<div class="carousel-item">
-				<img src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(5).webp" class="d-block w-100" />
-			</div>
+			@endforeach
 		</div>
 
 		<button class="carousel-control-prev" type="button" data-mdb-target="#carousel" data-mdb-slide="prev">
