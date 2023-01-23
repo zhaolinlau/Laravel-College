@@ -32,7 +32,7 @@ Route::middleware(['auth', 'user-role:staff'])->group(function () {
 	Route::get("/staff", [HomeController::class, 'staffHome'])->name("staff.home");
 });
 
-Route::middleware(['auth', 'user-role:admin', 'checkIPAdd'])->group(function () {
+Route::middleware(['auth', 'user-role:admin', 'checkheader', 'checkIPAdd'])->group(function () {
 	Route::get("/admin", [HomeController::class, 'adminHome'])->name("admin.home");
 	Route::get('/admin/staff_list', [AdminController::class, 'readStaff'])->name("admin.staff_list");
 	Route::get('/admin/staff_list/{id}/profile', [AdminController::class, 'readProfile']);
