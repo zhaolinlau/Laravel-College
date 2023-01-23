@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ApplicationController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\BannerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,9 +19,7 @@ use App\Http\Controllers\AdminController;
 |
 */
 
-Route::get('/', function () {
-	return view('index');
-});
+Route::get('/', [BannerController::class, 'showBanner']);
 
 Auth::routes();
 
