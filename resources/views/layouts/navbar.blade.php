@@ -51,11 +51,10 @@
 					</li>
 					@endif
 
-					@if (Route::has('register'))
 					<li class="nav-item">
-						<a href="{{ route('register') }}" class="btn btn-primary"><b>Apply Now</b></a>
+						<a href="/application" class="btn btn-primary"><b>Apply Now</b></a>
 					</li>
-					@endif
+
 					@endauth
 					@else
 					<li class="nav-item dropdown">

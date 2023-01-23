@@ -41,7 +41,7 @@
             </ul>
         </div><br />
         @endif
-        <form method="post" action="{{ route('applications.store') }}">
+        <form method="post" action="">
             <div class="form-group">
                 @csrf
                 <label for="description">Level</label><br/>
