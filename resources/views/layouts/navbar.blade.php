@@ -40,50 +40,71 @@
 				</li>
 				<div class="d-flex align-items-center">
 					@guest
-						@if (Route::has('login'))
-							@auth
-								<li class="nav-item">
-									<a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
-								</li>
-							@else
-								<li class="nav-item me-2">
-									<a href="{{ route('login') }}" class="btn btn-outline-minor"><b>Login</b></a>
-								</li>
-							@endif
-
-							@if (Route::has('register'))
-								<li class="nav-item">
-									<a href="{{ route('register') }}" class="btn btn-primary"><b>Apply Now</b></a>
-								</li>
-							@endif
-						@endauth
+					@if (Route::has('login'))
+					@auth
+					<li class="nav-item">
+						<a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
+					</li>
 					@else
-						<li class="nav-item dropdown">
-							<a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-								aria-haspopup="true" aria-expanded="false" v-pre>
-								{{ Auth::user()->name }}
+					<li class="nav-item me-2">
+						<a href="{{ route('login') }}" class="btn btn-outline-minor"><b>Login</b></a>
+					</li>
+					@endif
+
+					@if (Route::has('register'))
+					<li class="nav-item">
+						<a href="{{ route('register') }}" class="btn btn-primary"><b>Apply Now</b></a>
+					</li>
+					@endif
+					@endauth
+					@else
+					<li class="nav-item dropdown">
+						<a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+							aria-haspopup="true" aria-expanded="false" v-pre>
+							{{ auth()->user()->name }}
+						</a>
+
+						<div class="dropdown-menu dropdown-menu" aria-labelledby="navbarDropdown">
+							@if(auth()->user()->role == 'admin')
+							<a class="dropdown-item" href="/admin">
+								{{ __('Dashboard') }}
 							</a>
 
-							<div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-								<a class="dropdown-item" href="/admin">
-									{{ __('Dashboard') }}
-								</a>
+							<a class="dropdown-item" href="/admin/profile">
+								{{ __('My Profile') }}
+							</a>
+							@endif
 
-								<a class="dropdown-item" href="/admin/profile">
-									{{ __('My Profile') }}
-								</a>
+							@if(auth()->user()->role == 'staff')
+							<a class="dropdown-item" href="/staff">
+								{{ __('Dashboard') }}
+							</a>
+							
+							<a class="dropdown-item" href="/staff/profile">
+								{{ __('My Profile') }}
+							</a>
+							@endif
 
-								<a class="dropdown-item" href="{{ route('logout') }}"
-									onclick="event.preventDefault();
+							@if(auth()->user()->role == 'student')
+							<a class="dropdown-item" href="/student">
+								{{ __('Dashboard') }}
+							</a>
+							
+							<a class="dropdown-item" href="/student/profile">
+								{{ __('My Profile') }}
+							</a>
+							@endif
+
+							<a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                   document.getElementById('logout-form').submit();">
-									{{ __('Logout') }}
-								</a>
+								{{ __('Logout') }}
+							</a>
 
-								<form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-									@csrf
-								</form>
-							</div>
-						</li>
+							<form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+								@csrf
+							</form>
+						</div>
+					</li>
 					@endguest
 				</div>
 			</ul>
