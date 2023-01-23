@@ -123,7 +123,7 @@
 			const forms = document.querySelectorAll('.needs-validation')
 			Array.from(forms).forEach(form => {
 				form.addEventListener('submit', event => {
-					if (!form.checkValidity()) {
+					if (!form.checkValidity()){
 						event.preventDefault()
 						event.stopPropagation()
 					}
@@ -135,20 +135,10 @@
 
 	<script>
 		$.fn.dataTable.Buttons.defaults.dom.button.className = 'btn btn-primary';
-		$('#staff_list').DataTable({
+		$('#course_list').DataTable({
 			language: {
-				searchPlaceholder: "Search by a field..."
+				searchPlaceholder: "Search by a course..."
 			},
-			dom: 'Bfrtip',
-			buttons: [
-				'pageLength',
-				{
-					extend: 'collection',
-					text: 'Export',
-					buttons: ['csv', 'excel', 'pdf'],
-				},
-				'print',
-			]
 		});
 	</script>
 @endsection
