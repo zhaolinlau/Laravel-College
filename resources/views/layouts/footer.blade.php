@@ -1,4 +1,4 @@
-<footer class="text-center text-lg-start bg-white text-muted position-absolute top-100 w-100">
+<footer class="text-center text-lg-start bg-white text-muted">
 
 	<section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
 
@@ -37,9 +37,8 @@
 						<i class="fas fa-graduation-cap me-3 text-secondary"></i>Laravel College
 					</h6>
 					<p>
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero maxime deleniti natus. Nihil corporis, quod
-						distinctio, recusandae culpa dolore voluptatem tempore vitae laborum tempora accusantium, voluptates hic
-						doloribus modi fuga.
+						At Laravel College, we provide a comprehensive education that prepares students for success in the modern world. Our
+						dedicated faculty creates an engaging and empowering learning experience.
 					</p>
 				</div>
 

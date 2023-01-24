@@ -53,7 +53,7 @@
 
 					<div class="col-12">
 						<button type="submit" class="btn btn-primary" onclick="return confirm('Confirm to update?')">Update</button>
-						<button class="btn btn-danger" onclick="history.back();">Cancel</button>
+						<a class="btn btn-danger" href="{{route('admin.staff_list')}}">Cancel</a>
 					</div>
 				</form>
 			</div>

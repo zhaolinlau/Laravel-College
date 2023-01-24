@@ -31,13 +31,13 @@ class BannerController extends Controller
 	{
 		$request->validate([
 			'image' => 'required|image|mimes:jpeg,jpg,png,webp',
-			'title' => 'required',
 			'publish' => 'required|boolean'
 		]);
 
 		$image = $request->file('image')->getClientOriginalName();
 		$banner = new Banner;
 		$banner->title = $request->title;
+		$banner->description = $request->description;
 		$banner->image = $image;
 		$banner->publish = $request->publish;
 		$request->file('image')->storeAs('/images/', $image);
@@ -58,7 +58,6 @@ class BannerController extends Controller
 	{
 		$request->validate([
 			'image' => 'sometimes|image|mimes:jpeg,jpg,png,webp',
-			'title' => 'required',
 			'publish' => 'required|boolean'
 		]);
 
@@ -71,6 +70,7 @@ class BannerController extends Controller
 				$banner->image = $image;
 			}
 			$banner->title = $request->title;
+			$banner->description = $request->description;
 			$banner->publish = $request->publish;
 			$banner->save();
 		}

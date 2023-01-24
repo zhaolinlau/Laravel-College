@@ -6,10 +6,10 @@
 
 @section('content')
 	@include('layouts.navbar')
-	<div class="container">
-		<div class="row">
-			<div class="col-md-6 position-absolute top-50 start-50 translate-middle">
-				<div class="card">
+	<div class="container py-5">
+		<div class="row py-5">
+			<div class="col-md-6 offset-3 py-5">
+				<div class="card my-5">
 					<div class="card-header">{{ __('Login') }}</div>
 
 					<div class="card-body">

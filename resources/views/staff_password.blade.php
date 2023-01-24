@@ -31,7 +31,7 @@
 					<div class="col-6 offset-3">
 						<button type="submit" class="btn btn-primary" onclick="return confirm('Confirm to reset?')">Reset
 							Password</button>
-						<button class="btn btn-danger" onclick="history.back();">Cancel</button>
+						<a class="btn btn-danger" href="{{route('admin.staff_list')}}">Cancel</a>
 					</div>
 				</form>
 			</div>

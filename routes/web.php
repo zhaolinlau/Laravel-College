@@ -46,7 +46,7 @@ Route::middleware(['auth', 'user-role:admin', 'checkheader'])->group(function ()
 	Route::post('/admin/staff_list/create', [AdminController::class, 'createStaff']);
 	Route::get('/admin/staff_list/{id}/delete', [AdminController::class, 'deleteStaff']);
 	Route::get('/admin/staff_list/{id}/reset_form', [AdminController::class, 'readPassword']);
-	Route::post('/admin/staff_list/{id}/reset_password', [AdminController::class, 'resetPassword']);
+	Route::post('/admin/staff_list/{id}/reset_password', [AdminController::class, 'resetPassword'])->name('admin.staff_password');
 });
 
 Route::get('/about_us', function () {

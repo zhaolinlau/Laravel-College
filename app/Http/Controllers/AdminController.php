@@ -9,7 +9,7 @@ class AdminController extends Controller
 {
 	public function readStaff()
 	{
-		$staffs = User::where('role', 1)->get();
+		$staffs = User::where('role', 1)->orderBy('id', 'desc')->get();
 		return view('staff_list', ['staffs' => $staffs]);
 	}
 
@@ -21,6 +21,14 @@ class AdminController extends Controller
 
 	public function updateStaff(Request $request, $id)
 	{
+		$request->validate([
+			'staff_id' => 'required',
+			'name' => 'required',
+			'email' => 'required|email',
+			'phone_number' => 'required',
+			'faculty' => 'required',
+		]);
+
 		$staff = User::find($id);
 		$staff->update($request->all());
 
@@ -30,6 +38,15 @@ class AdminController extends Controller
 
 	public function createStaff(Request $request)
 	{
+		$request->validate([
+			'staff_id' => 'required',
+			'name' => 'required',
+			'email' => 'required|email',
+			'password' => 'required',
+			'phone_number' => 'required',
+			'faculty' => 'required',
+		]);
+
 		$staff = new User;
 		$staff->staff_id=$request->staff_id;
 		$staff->name=$request->name;
@@ -50,6 +67,10 @@ class AdminController extends Controller
 
 	public function resetPassword(Request $request, $id)
 	{
+		$request->only(['password']);
+		$request->validate([
+			'password' => 'required',
+		]);
 		$staff = User::find($id);
 		$staff->password = bcrypt($request->password);
 		$staff->save();

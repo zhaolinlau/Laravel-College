@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="h-100">
 
 <head>
 	<meta charset="utf-8">
@@ -13,7 +13,7 @@
 		href="https://cdn.datatables.net/v/bs5/jszip-2.5.0/dt-1.13.1/b-2.3.3/b-colvis-2.3.3/b-html5-2.3.3/b-print-2.3.3/datatables.min.css" />
 </head>
 
-<body>
+<body class="pt-5 mt-2 h-100">
 	<div id="app">
 		<main>
 			@yield('content')

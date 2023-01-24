@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-	Dashboard
+	Staff List
 @endsection
 
 @section('content')
@@ -16,9 +16,9 @@
 						</button>
 					</div>
 
-					<div class="col-12">
-						<table class="table table-striped full-width" id="staff_list">
-							<thead>
+					<div class="col-12 table-responsive">
+						<table class="table full-width table-hover" id="staff_list">
+							<thead class="table-light">
 								<tr>
 									<th>No</th>
 									<th>Staff ID</th>
@@ -42,13 +42,13 @@
 										<td>{{ $row->phone_number }}</td>
 										<td>{{ $row->faculty }}</td>
 										<td>
-											<a href="/staff/staff_list/{{ $row->id }}/profile" class="btn btn-info">Profile</a>
+											<a href="/admin/staff_list/{{ $row->id }}/profile" class="btn btn-info">Profile</a>
 										</td>
 										<td>
-											<a href="/staff/staff_list/{{ $row->id }}/reset_form" class="btn btn-minor">Reset</a>
+											<a href="/admin/staff_list/{{ $row->id }}/reset_form" class="btn btn-minor">Reset</a>
 										</td>
 										<td>
-											<a href="/staff/staff_list/{{ $row->id }}/delete" class="btn btn-danger" title="Delete Lecturer"
+											<a href="/admin/staff_list/{{ $row->id }}/delete" class="btn btn-danger" title="Delete Lecturer"
 												onclick="return confirm('Confirm to delete?')">Delete</a>
 										</td>
 									</tr>
@@ -174,13 +174,14 @@
 	</script>
 
 	<script>
-		$.fn.dataTable.Buttons.defaults.dom.button.className = 'btn btn-primary';
+		$.fn.dataTable.Buttons.defaults.dom.button.className = 'btn btn-link';
 		$('#staff_list').DataTable({
 			language: {
 				searchPlaceholder: "Search by a field..."
 			},
 			dom: 'Bfrtip',
 			buttons: [
+				'colvis',
 				'pageLength',
 				{
 					extend: 'collection',

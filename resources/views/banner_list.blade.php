@@ -16,13 +16,14 @@
 						</button>
 					</div>
 
-					<div class="col-12">
-						<table class="table table-striped full-width" id="staff_list">
-							<thead>
+					<div class="col-12 table-responsive">
+						<table class="table table-hover full-width" id="banner_list">
+							<thead class="table-light">
 								<tr>
 									<th>No</th>
-									<th>Title</th>
 									<th>Image</th>
+									<th>Title</th>
+									<th>Description</th>
 									<th>Publish</th>
 									<th>Modification</th>
 									<th>Preview</th>
@@ -34,14 +35,27 @@
 								@foreach ($banners as $row)
 									<tr>
 										<td>{{ $loop->iteration }}</td>
-										<td>{{ $row->title }}</td>
 										<td>{{ $row->image }}</td>
+										@if ($row->title)
+											<td>{{ $row->title }}</td>
+										@else
+											<td>No title available.</td>
+										@endif
+
+										@if ($row->title)
+											<td>
+												<textarea class="form-control" cols="30" rows="4" readonly>{{ $row->description }}</textarea>
+											</td>
+										@else
+											<td>No description available.</td>
+										@endif
+
 										<td>{{ $row->publish }}</td>
 										<td>
 											<a href="/staff/banner_list/{{ $row->id }}/banner" class="btn btn-info">Modify</a>
 										</td>
 										<td>
-											<a href="{{asset('storage/images/'.$row->image)}}" class="btn btn-secondary" target="_blank">View</a>
+											<a href="{{ asset('storage/images/' . $row->image) }}" class="btn btn-secondary" target="_blank">View</a>
 										</td>
 										<td>
 											<a href="/staff/banner_list/{{ $row->id }}/delete" class="btn btn-danger" title="Delete Lecturer"
@@ -54,8 +68,9 @@
 							<tfoot>
 								<tr>
 									<th>No</th>
-									<th>Title</th>
 									<th>Image</th>
+									<th>Title</th>
+									<th>Description</th>
 									<th>Publish</th>
 									<th>Modification</th>
 									<th>Preview</th>
@@ -83,12 +98,17 @@
 					<div class="modal-body">
 
 						<div class="row g-3">
+							<div class="col-12">
+								<label class="form-label" for="image">Image</label>
+								<input type="file" id="image" class="form-control" name="image" required>
+								<div class="invalid-feedback">
+									Please select an image.
+								</div>
+							</div>
+
 							<div class="col-8">
 								<label class="form-label" for="title">Title</label>
-								<input type="text" id="title" class="form-control" name="title" required>
-								<div class="invalid-feedback">
-									Please fill out this field.
-								</div>
+								<input type="text" id="title" class="form-control" name="title">
 							</div>
 
 							<div class="col-4">
@@ -102,12 +122,10 @@
 									Please select Yes or No to publish.
 								</div>
 							</div>
+
 							<div class="col-12">
-								<label class="form-label" for="image">Image</label>
-								<input type="file" id="image" class="form-control" name="image" required>
-								<div class="invalid-feedback">
-									Please select an image.
-								</div>
+								<label class="form-label" for="description">Title</label>
+								<textarea name="description" class="form-control" id="description" rows="4"></textarea>
 							</div>
 						</div>
 					</div>
@@ -147,13 +165,15 @@
 	</script>
 
 	<script>
-		$.fn.dataTable.Buttons.defaults.dom.button.className = 'btn btn-primary';
-		$('#staff_list').DataTable({
+		$.fn.dataTable.Buttons.defaults.dom.button.className = 'btn btn-link';
+		$('#banner_list').DataTable({
 			language: {
-				searchPlaceholder: "Search by a field..."
+				searchPlaceholder: "Search by a field...",
+				searchInput: ""
 			},
 			dom: 'Bfrtip',
 			buttons: [
+				'colvis',
 				'pageLength',
 				{
 					extend: 'collection',
