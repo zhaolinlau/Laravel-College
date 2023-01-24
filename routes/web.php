@@ -74,7 +74,7 @@ Route::middleware(['auth', 'user-role:staff', 'checkheader'])->group(function(){
 
 
 //FAQ
-Route::middleware(['auth', 'user-role:staff', 'checkIPAdd'])->group(function(){
+Route::middleware(['auth', 'user-role:staff', 'checkIPAdd:127.0.0.1', 'checkheader'])->group(function(){
     Route::get('/faqstaff','App\Http\Controllers\FAQcontroller@FAQindex');
     Route::post('/faqstaff/createProgramme','App\Http\Controllers\FAQcontroller@create1');
     Route::post('/faqstaff/createAdmission','App\Http\Controllers\FAQcontroller@create2');
@@ -86,7 +86,7 @@ Route::middleware(['auth', 'user-role:staff', 'checkIPAdd'])->group(function(){
     Route::get('/faqstaff/{id}/deleteAdmission','App\Http\Controllers\FAQcontroller@delete2');
 });
 
-Route::middleware(['auth', 'user-role:student', 'checkIPAdd'])->group(function(){
+Route::middleware(['checkIPAdd:127.0.0.1', 'checkheader'])->group(function(){
     Route::get('/faqstudent','App\Http\Controllers\FAQcontroller@FAQindexview');
     Route::get('/faqstudent/{id}/viewProgramme','App\Http\Controllers\FAQcontroller@view1');
     Route::get('/faqstudent/{id}/viewAdmission','App\Http\Controllers\FAQcontroller@view2');
