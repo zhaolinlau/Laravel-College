@@ -61,14 +61,16 @@ Route::middleware(['auth', 'user-role:admin', 'checkheader'])->group(function(){
     Route::get('/contactStaff/{id}/delete','App\Http\Controllers\ContactController@delete');
 });
 
+
 //student application
 Route::middleware(['auth', 'user-role:student','checkheader'])->group(function () {
-	Route::get('/application', 'App\Http\Controllers\ApplicationController@create');
+	Route::get('/create_application', 'App\Http\Controllers\ApplicationController@create');
 });
 
-Route::middleware(['auth', 'user-role:admin', 'checkheader'])->group(function(){
-    Route::get('/application', 'App\Http\Controllers\ApplicationController@index');
+Route::middleware(['auth', 'user-role:staff', 'checkheader'])->group(function(){
+    Route::get('/index_application', [ApplicationController::class, 'index'])->name("index_application");
 });
+
 
 //FAQ
 Route::middleware(['auth', 'user-role:admin', 'checkIPAdd'])->group(function(){
