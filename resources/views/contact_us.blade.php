@@ -19,7 +19,7 @@
 						<div class="card-body">
 							<h3>Drop us a message</h3>
 							<p>We are here for you! How can we help?</p>
-							<form class="row g-3 needs-validation" method="POST" action="/Contact/insert" novalidate>
+							<form class="row g-3 needs-validation" method="POST" action="/contact_us/insert"novalidate>
 								@csrf
 								<div class="col-md-6">
 									<div class="form-outline">
