@@ -4,13 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\faq_programme;
-use App\Models\faqadmissions;
+use App\Models\faqadmission;
 
 class FAQcontroller extends Controller
 {
     public function faqindex(){
         $data_faqprogramme=faq_programme::all();
-        $data_faqadmission=faqadmissions::all();
+        $data_faqadmission=faqadmission::all();
         return view('faqindex',[
             'data_faqprogramme'=>$data_faqprogramme,
             'data_faqadmission'=>$data_faqadmission
@@ -23,7 +23,7 @@ class FAQcontroller extends Controller
     }
 
     public function create2(Request $request) {
-        \App\Models\faqadmissions::create($request->all());
+        \App\Models\faqadmission::create($request->all());
         return redirect('/faqdata')->with('success', 'New Data Inserted !');
     }
 
@@ -33,7 +33,7 @@ class FAQcontroller extends Controller
     }
 
     public function edit2($id) {
-        $data_faqadmission=faqadmissions::find($id);
+        $data_faqadmission=faqadmission::find($id);
         return view('editFAQ2',['data_faqadmission'=>$data_faqadmission]);
     }
 
@@ -44,7 +44,7 @@ class FAQcontroller extends Controller
     }
 
     public function update2(Request $request, $id) {
-        $data_faqadmission=faqadmissions::find($id);
+        $data_faqadmission=faqadmission::find($id);
         $data_faqadmission->update($request->all());
         return redirect('/faqdata')->with('success', 'Data Successfully Updated !');
     }
@@ -56,7 +56,7 @@ class FAQcontroller extends Controller
     }
 
     public function delete2($id) {
-        $data_faqadmission=faqadmissions::find($id);
+        $data_faqadmission=faqadmission::find($id);
         $data_faqadmission->delete($data_faqadmission);
         return redirect('/faqdata')->with('success', 'Data Successfully Deleted !');
     }

@@ -40,7 +40,7 @@
                     </table>
 
                     <!-- ADMISSIONS -->
-                    <table class="table table-hover">
+                    <table class="table table-hover" style="margin-bottom:40px;">
                         <tr>
                             <td colspan=2><b>ADMISSIONS</b></td>
                             <td colspan=2>

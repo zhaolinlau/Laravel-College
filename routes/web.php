@@ -74,7 +74,7 @@ Route::middleware(['auth', 'user-role:staff', 'checkheader'])->group(function(){
 
 
 //FAQ
-Route::middleware(['auth', 'user-role:admin', 'checkIPAdd'])->group(function(){
+Route::middleware(['auth', 'user-role:staff', 'checkIPAdd'])->group(function(){
     Route::get('/faqdata','App\Http\Controllers\FAQcontroller@FAQindex');
     Route::post('/faqdata/createProgramme','App\Http\Controllers\FAQcontroller@create1');
     Route::post('/faqdata/createAdmission','App\Http\Controllers\FAQcontroller@create2');
@@ -85,6 +85,7 @@ Route::middleware(['auth', 'user-role:admin', 'checkIPAdd'])->group(function(){
     Route::get('/faqdata/{id}/deleteProgramme','App\Http\Controllers\FAQcontroller@delete1');
     Route::get('/faqdata/{id}/deleteAdmission','App\Http\Controllers\FAQcontroller@delete2');
 });
+
 
 //Course Student
 Route::middleware(['auth', 'user-role:student', 'checkheader'])->group(function(){
@@ -130,7 +131,6 @@ Route::get('/degree_InfoTech', function () {
 });
 
 //Course Staff
-
 Route::middleware(['auth', 'user-role:staff', 'checkheader'])->group(function(){
     Route::get('/staffAddinfo', [CourseInfosController::class, 'index'])->name("staffAddinfo");
 });
