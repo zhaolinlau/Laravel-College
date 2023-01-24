@@ -87,6 +87,12 @@
 										{{ __('My Profile') }}
 									</a>
 								</li>
+
+								<li>
+									<a class="dropdown-item" href="/staff/{{auth()->user()->id}}/reset_password">
+										{{ __('Change Password') }}
+									</a>
+								</li>
 							@endif
 
 							@if (auth()->user()->role == 'student')

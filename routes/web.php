@@ -43,6 +43,10 @@ Route::middleware(['auth', 'user-role:staff', 'checkheader'])->group(function ()
 		return view('staff_myprofile');
 	});
 	Route::post('/staff/{id}/update', [StaffController::class, 'updateProfile']);
+	Route::get('/staff/{id}/reset_password', function () {
+		return view('staff_changepwd');
+	});
+	Route::post('/staff/{id}/change_password', [StaffController::class, 'changePassword']);
 });
 
 Route::middleware(['auth', 'user-role:admin', 'checkheader'])->group(function () {

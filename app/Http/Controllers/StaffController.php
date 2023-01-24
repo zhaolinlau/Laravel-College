@@ -33,6 +33,18 @@ class StaffController extends Controller
 		return redirect()->route('staff.home');
 	}
 
+	public function changePassword(Request $request, $id)
+	{
+		$request->only(['password']);
+		$request->validate([
+			'password' => 'required',
+		]);
+		$staff = User::find($id);
+		$staff->password = bcrypt($request->password);
+		$staff->save();
+		return redirect()->route('staff.home');
+	}
+
 	public function updateInfo(Request $request, $id)
 	{
 		$_course_details = User::find($id);
