@@ -41,19 +41,20 @@
 				<div class="d-flex align-items-center">
 					@guest
 					@if (Route::has('login'))
-						@auth
-							<li class="nav-item">
-								<a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
-							</li>
-							@else
-							<li class="nav-item me-2">
-								<a href="{{ route('login') }}" class="btn btn-outline-minor"><b>Login</b></a>
-							</li>
-						@endauth
+					@auth
+					<li class="nav-item">
+						<a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
+					</li>
+					@else
+					<li class="nav-item me-2">
+						<a href="{{ route('login') }}" class="btn btn-outline-minor"><b>Login</b></a>
+					</li>
 					@endif
 
+					@endauth
+
 					<li class="nav-item">
-						<a href="/create_application" class="btn btn-primary"><b>Apply Now</b></a>
+						<a href="/application" class="btn btn-primary"><b>Apply Now</b></a>
 					</li>
 
 					@else

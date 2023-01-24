@@ -27,9 +27,9 @@
 						</div>
 						<div class="card">
 							<div class="card-body">
-								<h5 class="card-title">Carousel Management</h5>
+								<h5 class="card-title">Student Application</h5>
 								<p class="card-text">Navigate to list of student application.</p>
-								<a class="btn btn-primary" href="/index_application">Student Application</a>
+								<a class="btn btn-primary" href="/index_application">View Application</a>
 							</div>
 						</div>
 						<div class="card">

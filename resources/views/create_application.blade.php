@@ -1,13 +1,5 @@
 @extends('layouts.app')
 
-    <head>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta http-equiv="X-UA-Compatible" content="ie=edge">
-      <title>Student Application</title>
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-   </head>
-
 @section('title')
 	STUDENT APPLICATION
 @endsection
@@ -20,118 +12,221 @@
         margin-top: 20px;
         }
         .header {
-        padding: 20px;
+        padding: 100px;
         text-align: center;
         }
+
     </style>
-    <div class="header">
-        <h1>YOUR APPLICATION</h1>
+    <div class="bg-image" style="background-image: url('https://image.cnbcfm.com/api/v1/image/105382858-1533706147272gettyimages-155033354.jpeg?v=1650376166&w=1600&h=900');height: 60vh">
+        <div class="header text-white">
+            <h1><b>CLICK BELOW TO REGISTER YOUR APPLICATION</b></h1>
+        </div>
+        <div class="d-grid gap- col-2 mx-auto" >
+            <button type="button" class="btn btn-primary btn-rounded btn-lg" data-bs-toggle="modal" data-bs-target="#applicationform">
+                Add Application
+            </button>
+        </div>
     </div>
     <div class="card push-top">
     <div class="card-header">
-        Fill in the information below to send your application.
-    </div>
-    <div class="card-body">
-        @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div><br />
-        @endif
-        <form method="post" action="">
-            <div class="form-group">
-                @csrf
-                <label for="description">Level</label><br/>
-                <label class="radio-inline"><input type="radio" name="level"> Postgraduate</label>
-                <label class="radio-inline"><input type="radio" name="level"> Undergraduate</label>
-            </div>
-            <div class="form-group">
-                <label for="description">Nationality</label><br/>
-                <label class="radio-inline"><input type="radio" name="nationality"> Malaysian</label>
-                <label class="radio-inline"><input type="radio" name="nationality"> Non-Malaysian</label>
-            </div>
-            <div class="form-group">
-                <label for="description">Campus</label><br/>
-                <label class="radio-inline"><input type="radio" name="campus"> Cyberjaya</label>
-                <label class="radio-inline"><input type="radio" name="campus"> Penang</label>
-            </div>
-            <div class="form-group">
-                <label for="description">Choose Programme 1:</label>
-                <select class="form-control" name="programme1">
-                    <option>Diploma in Creative Multimedia</option>
-                    <option>Diploma in Finance</option>
-                    <option>Diploma in Information Technology</option>
-                    <option>Diploma in Accounting</option>
-                    <option>Degree in Financial Engineering (Hons.)</option>
-                    <option>Degree in Engineering (Hons.) Electronics Majoring in Computer</option>
-                    <option>Degree in Computer Science (Hons.)</option>
-                    <option>Degree in Information Technology (Hons.) Information System</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="description">Choose Programme 1:</label>
-                <select class="form-control" name="programme2">
-                    <option>Diploma in Creative Multimedia</option>
-                    <option>Diploma in Finance</option>
-                    <option>Diploma in Information Technology</option>
-                    <option>Diploma in Accounting</option>
-                    <option>Degree in Financial Engineering (Hons.)</option>
-                    <option>Degree in Engineering (Hons.) Electronics Majoring in Computer</option>
-                    <option>Degree in Computer Science (Hons.)</option>
-                    <option>Degree in Information Technology (Hons.) Information System</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="description">Choose Programme 1:</label>
-                <select class="form-control" name="programme3">
-                    <option>Diploma in Creative Multimedia</option>
-                    <option>Diploma in Finance</option>
-                    <option>Diploma in Information Technology</option>
-                    <option>Diploma in Accounting</option>
-                    <option>Degree in Financial Engineering (Hons.)</option>
-                    <option>Degree in Engineering (Hons.) Electronics Majoring in Computer</option>
-                    <option>Degree in Computer Science (Hons.)</option>
-                    <option>Degree in Information Technology (Hons.) Information System</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="fullname">Full Name</label>
-                <input type="text" class="form-control" name="fullname"/>
-            </div>
-            <div class="form-group">
-                <label for="nric">NRIC</label>
-                <input type="text" class="form-control" name="nric"/>
-            </div>
-            <div class="form-group">
-                <label for="phone">Contact Number</label>
-                <input type="tel" class="form-control" name="phone"/>
-            </div>
-            <div class="form-group">
-                <label for="email">Email Address</label>
-                <input type="email" class="form-control" name="email"/>
-            </div>
-            <div class="form-group">
-                <label for="guardianname">Guardian Full Name</label>
-                <input type="text" class="form-control" name="guardianname"/>
-            </div>
-            <div class="form-group">
-                <label for="gaurdianphone">Guardian Contact Number</label>
-                <input type="tel" class="form-control" name="guardianphone"/>
-            </div>
-            <div class="form-group">
-                <label for="guardiannric">Guardian NRIC</label>
-                <input type="text" class="form-control" name="guardiannric"/>
-            </div>
-            <div class="form-group">
-                <label for="guardianemail">Email Address</label>
-                <input type="email" class="form-control" name="guardianemail"/>
-            </div>
-            <button type="submit" class="btn btn-block btn-danger mx-auto d-block" style="max-width:200px;background-color: #3a9b8c;">SUBMIT APPLICATION</button>
-        </form>
-    </div>
+    <div class="modal fade" id="applicationform" tabindex="-1" aria-labelledby="Label" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<form action="{{route('applications.store', $application->id)}}" class="needs-validation" method="POST" novalidate>
+					@csrf
+					<div class="modal-header">
+						<h1 class="modal-title fs-" id="Label">Student Application</h1>
+					</div>
+					<div class="modal-body">
+
+						<div class="row g-3">
+                            <div class="col-6">
+								<label class="form-label" for="fullname">LEVEL</label>
+								    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="level" id="level1"/>
+                                        <label class="form-check-label" for="level1"> Postgraduate </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="level" id="level1"/>
+                                        <label class="form-check-label" for="level1"> Undergraduate </label>
+                                    </div>
+								<div class="invalid-feedback">
+                                    This field is required.
+								</div>
+							</div>
+
+                            <div class="col-6">
+								<label class="form-label" for="fullname">NATIONALITY</label>
+								    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="nationality" id="nationality1"/>
+                                        <label class="form-check-label" for="nationality1"> Malaysian </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="nationality" id="nationality2"/>
+                                        <label class="form-check-label" for="nationality2"> Non-Malaysian </label>
+                                    </div>
+								<div class="invalid-feedback">
+                                    This field is required.
+								</div>
+							</div>
+
+                            <div class="col-6">
+								<label class="form-label" for="campus">CAMPUS</label>
+                                <div class="form-group">
+                                    <select class="form-control" id="campus" name="campus">
+                                        <option disabled selected> - Choose One -</option>
+                                        <option>Cyberjaya</option>
+                                        <option>Penang</option>
+                                    </select>
+                                </div>
+								<div class="invalid-feedback">
+                                    This field is required.
+								</div>
+							</div>
+
+                            <div class="col-6">
+								<label class="form-label" for="programme1">PROGRAMME 1</label>
+                                <div class="form-group">
+                                    <select class="form-control" id="programme1" name="programme1">
+                                        <option disabled selected> - Choose Programme -</option>
+                                        <option>Diploma in Creative Multimedia</option>
+                                        <option>Diploma in Finance</option>
+                                        <option>Diploma in Accounting</option>
+                                        <option>Diploma in Information Technology</option>
+                                        <option>Bachelor of Financial Engineering</option>
+                                        <option>Bachelor of Engineering (Hons.) Electronics Majoring in Computer</option>
+                                        <option>Bachelor of Computer Science (Hons.)</option>
+                                        <option>Bachelor of Information Technology (Hons.) Information Systems</option>
+                                    </select>
+                                </div>
+								<div class="invalid-feedback">
+                                    Please choose one programme in this field.
+								</div>
+							</div>
+
+                            <div class="col-6">
+								<label class="form-label" for="programme2">PROGRAMME 2</label>
+                                <div class="form-group">
+                                    <select class="form-control" id="programme2" name="programme2">
+                                        <option disabled selected> - Choose Programme -</option>
+                                        <option>Diploma in Creative Multimedia</option>
+                                        <option>Diploma in Finance</option>
+                                        <option>Diploma in Accounting</option>
+                                        <option>Diploma in Information Technology</option>
+                                        <option>Bachelor of Financial Engineering</option>
+                                        <option>Bachelor of Engineering (Hons.) Electronics Majoring in Computer</option>
+                                        <option>Bachelor of Computer Science (Hons.)</option>
+                                        <option>Bachelor of Information Technology (Hons.) Information Systems</option>
+                                    </select>
+                                </div>
+								<div class="invalid-feedback">
+                                    Please choose one programme in this field.
+								</div>
+							</div>
+
+                            <div class="col-6">
+								<label class="form-label" for="programme3">PROGRAMME 3</label>
+                                <div class="form-group">
+                                    <select class="form-control" id="programme3" name="programme3">
+                                        <option disabled selected> - Choose Programme -</option>
+                                        <option>Diploma in Creative Multimedia</option>
+                                        <option>Diploma in Finance</option>
+                                        <option>Diploma in Accounting</option>
+                                        <option>Diploma in Information Technology</option>
+                                        <option>Bachelor of Financial Engineering</option>
+                                        <option>Bachelor of Engineering (Hons.) Electronics Majoring in Computer</option>
+                                        <option>Bachelor of Computer Science (Hons.)</option>
+                                        <option>Bachelor of Information Technology (Hons.) Information Systems</option>
+                                    </select>
+                                </div>
+								<div class="invalid-feedback">
+                                    Please choose one programme in this field.
+								</div>
+							</div>
+
+							<div class="col-6">
+								<label class="form-label" for="fullname">FULL NAME</label>
+								<input type="text" id="fullname" class="form-control" name="fullname" required>
+								<div class="invalid-feedback">
+                                    This field is required.
+								</div>
+							</div>
+
+							<div class="col-6">
+								<label class="form-label" for="nric">NRIC</label>
+								<input type="text" id="nric" class="form-control" name="nric" required>
+								<div class="invalid-feedback">
+                                    This field is required.
+								</div>
+							</div>
+
+							<div class="col-6">
+								<label class="form-label" for="phone">CONTACT NUMBER</label>
+								<input type="tel" id="phone" class="form-control" name="phone" required>
+								<div class="invalid-feedback">
+									This field is required.
+								</div>
+							</div>
+
+							<div class="col-6">
+								<label class="form-label" for="email">EMAIL</label>
+								<input type="email" id="email" class="form-control" name="email" required>
+								<div class="invalid-feedback">
+                                    This field is required.
+								</div>
+							</div>
+
+							<div class="col-6">
+								<label class="form-label" for="files">DOCUMENTS</label>
+								<input type="file" id="files" class="form-control" name="files" required>
+								<div class="invalid-feedback">
+                                    This field is required.
+								</div>
+							</div>
+
+							<div class="col-6">
+								<label class="form-label" for="guardianname">GUARDIAN NAME</label>
+								<input type="text" id="guardianname" class="form-control" name="guardianname" required>
+								<div class="invalid-feedback">
+                                    This field is required.
+								</div>
+							</div>
+
+                            <div class="col-6">
+								<label class="form-label" for="guardiannric">GUARDIAN NRIC</label>
+								<input type="text" id="guardiannric" class="form-control" name="guardiannric" required>
+								<div class="invalid-feedback">
+                                    This field is required.
+								</div>
+							</div>
+
+                            <div class="col-6">
+								<label class="form-label" for="guardianemail">GUARDIAN EMAIL</label>
+								<input type="email" id="guardianemail" class="form-control" name="guardianemail" required>
+								<div class="invalid-feedback">
+                                    This field is required.
+								</div>
+							</div>
+
+                            <div class="col-6">
+								<label class="form-label" for="guardianphone">GUARDIAN CONTACT NUMBER</label>
+								<input type="tel" id="guardianphone" class="form-control" name="guardianphone" required>
+								<div class="invalid-feedback">
+                                    This field is required.
+								</div>
+							</div>
+
+
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="submit" class="btn btn-primary">Add</button>
+						<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
 
     @include('layouts.footer')
 @endsection

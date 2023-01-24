@@ -71,17 +71,19 @@ Route::middleware(['auth', 'user-role:staff', 'checkheader'])->group(function(){
 
 
 //student application
-Route::middleware(['auth', 'user-role:student','checkheader'])->group(function () {
-	Route::get('/create_application', 'App\Http\Controllers\ApplicationController@create');
-});
+	Route::get('/application', 'App\Http\Controllers\ApplicationController@create');
+	Route::get('/application/edit', 'App\Http\Controllers\ApplicationController@edit');
+	Route::post('/application/update', 'App\Http\Controllers\ApplicationController@update');
+	Route::get('/application/delete', 'App\Http\Controllers\ApplicationController@delete');
+
 
 Route::middleware(['auth', 'user-role:staff', 'checkheader'])->group(function(){
-    Route::get('/index_application', [ApplicationController::class, 'index'])->name("index_application");
+    Route::get('/index_application', [StaffController::class, 'readApplication'])->name("index_application");
 });
 
 
 //FAQ
-Route::middleware(['auth', 'user-role:staff', 'checkIPAdd'])->group(function(){
+Route::middleware(['auth', 'user-role:staff', 'checkIPAdd:127.0.0.1', 'checkheader'])->group(function(){
     Route::get('/faqstaff','App\Http\Controllers\FAQcontroller@FAQindex');
     Route::post('/faqstaff/createProgramme','App\Http\Controllers\FAQcontroller@create1');
     Route::post('/faqstaff/createAdmission','App\Http\Controllers\FAQcontroller@create2');
@@ -93,7 +95,7 @@ Route::middleware(['auth', 'user-role:staff', 'checkIPAdd'])->group(function(){
     Route::get('/faqstaff/{id}/deleteAdmission','App\Http\Controllers\FAQcontroller@delete2');
 });
 
-Route::middleware(['auth', 'user-role:student', 'checkIPAdd'])->group(function(){
+Route::middleware(['checkIPAdd:127.0.0.1', 'checkheader'])->group(function(){
     Route::get('/faqstudent','App\Http\Controllers\FAQcontroller@FAQindexview');
     Route::get('/faqstudent/{id}/viewProgramme','App\Http\Controllers\FAQcontroller@view1');
     Route::get('/faqstudent/{id}/viewAdmission','App\Http\Controllers\FAQcontroller@view2');
