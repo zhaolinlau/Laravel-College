@@ -50,19 +50,12 @@ Route::middleware(['auth', 'user-role:admin', 'checkheader'])->group(function ()
 });
 
 //ContactUs
-
-Route::get('/contact_us','App\Http\Controllers\ContactController@contactindex');
-Route::post('/Contact/insert','App\Http\Controllers\ContactController@insert');
-
-Route::middleware(['auth', 'user-role:admin', 'checkheader'])->group(function(){
-	Route::get('/contactStaff', [ContactController::class, 'contactStaffindex'])->name("contactStaff");
-    Route::get('/contactStaff','App\Http\Controllers\ContactController@contactStaffindex');
-	Route::get('/contactStaff/{id}/edit','App\Http\Controllers\ContactController@edit');
-	Route::post('/contactStaff/{id}/update','App\Http\Controllers\ContactController@update');
-    Route::get('/contactStaff/{id}/delete','App\Http\Controllers\ContactController@delete');
+Route::middleware(['checkIPAdd:127.0.0.1', 'checkheader'])->group(function(){
+	Route::get('/contact_us','App\Http\Controllers\ContactController@contactindex');
+	Route::post('/Contact/insert','App\Http\Controllers\ContactController@insert');
 });
-Route::middleware(['auth', 'user-role:staff', 'checkheader'])->group(function(){
-	Route::get('/contactStaff', [ContactController::class, 'contactStaffindex'])->name("contactStaff");
+
+Route::middleware(['auth', 'user-role:staff', 'checkIPAdd:127.0.0.1', 'checkheader'])->group(function(){
     Route::get('/contactStaff','App\Http\Controllers\ContactController@contactStaffindex');
 	Route::get('/contactStaff/{id}/edit','App\Http\Controllers\ContactController@edit');
 	Route::post('/contactStaff/{id}/update','App\Http\Controllers\ContactController@update');

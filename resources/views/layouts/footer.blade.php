@@ -58,7 +58,7 @@
 						<a href="/faqstudent">FAQs</a>
 					</div>
 					<div>
-						<a href="#!">Contact Us</a>
+						<a href="/contact_us">Contact Us</a>
 					</div>
 					<div>
 						<a href="#!">Login</a>
