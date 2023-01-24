@@ -18,6 +18,21 @@ class StaffController extends Controller
 		return view('staffAddinfo', ['staffsAdd' => $_course_details]);
 	}
 
+	public function updateProfile(Request $request, $id) {
+		$request->validate([
+			'staff_id' => 'required',
+			'name' => 'required',
+			'email' => 'required|email',
+			'phone_number' => 'required',
+			'faculty' => 'required',
+		]);
+
+		$staff = User::find($id);
+		$staff->update($request->all());
+
+		return redirect()->route('staff.home');
+	}
+
 	public function updateInfo(Request $request, $id)
 	{
 		$_course_details = User::find($id);

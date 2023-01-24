@@ -21,9 +21,17 @@ use App\Http\Controllers\CourseInfosController;
 |
 */
 
+Auth::routes();
+
 Route::get('/', [BannerController::class, 'showBanner']);
 
-Auth::routes();
+Route::middleware(['auth', 'user-role:staff', 'checkheader'])->group(function () {
+	Route::get('/staff/banner_list', [BannerController::class, 'readBanner'])->name("staff.banner_list");
+	Route::post('/staff/banner_list/upload', [BannerController::class, 'uploadBanner']);
+	Route::get('/staff/banner_list/{id}/delete', [BannerController::class, 'deleteBanner']);
+	Route::post('/staff/banner_list/{id}/modify', [BannerController::class, 'modifyBanner']);
+	Route::get('/staff/banner_list/{id}/banner', [BannerController::class, 'Banner']);
+});
 
 Route::middleware(['auth', 'user-role:student'])->group(function () {
 	Route::get("/student", [HomeController::class, 'studentHome'])->name("student.home");
@@ -31,11 +39,10 @@ Route::middleware(['auth', 'user-role:student'])->group(function () {
 
 Route::middleware(['auth', 'user-role:staff', 'checkheader'])->group(function () {
 	Route::get("/staff", [HomeController::class, 'staffHome'])->name("staff.home");
-	Route::get('/staff/banner_list', [BannerController::class, 'readBanner'])->name("staff.banner_list");
-	Route::post('/staff/banner_list/upload', [BannerController::class, 'uploadBanner']);
-	Route::get('/staff/banner_list/{id}/delete', [BannerController::class, 'deleteBanner']);
-	Route::post('/staff/banner_list/{id}/modify', [BannerController::class, 'modifyBanner']);
-	Route::get('/staff/banner_list/{id}/banner', [BannerController::class, 'Banner']);
+	Route::get('/staff/{id}/profile', function () {
+		return view('staff_myprofile');
+	});
+	Route::post('/staff/{id}/update', [StaffController::class, 'updateProfile']);
 });
 
 Route::middleware(['auth', 'user-role:admin', 'checkheader'])->group(function () {
@@ -54,114 +61,112 @@ Route::get('/about_us', function () {
 });
 
 //ContactUs
-Route::middleware(['checkIPAdd:127.0.0.1', 'checkheader'])->group(function(){
-	Route::get('/contact_us','App\Http\Controllers\ContactController@contactindex');
-	Route::post('/contact_us/insert','App\Http\Controllers\ContactController@insert');
+Route::middleware(['checkIPAdd:127.0.0.1', 'checkheader'])->group(function () {
+	Route::get('/contact_us', 'App\Http\Controllers\ContactController@contactindex');
+	Route::post('/contact_us/insert', 'App\Http\Controllers\ContactController@insert');
 });
-Route::middleware(['auth', 'user-role:staff', 'checkheader'])->group(function(){
-    Route::get('/contactStaff','App\Http\Controllers\ContactController@contactStaffindex');
-	Route::get('/contactStaff/{id}/edit','App\Http\Controllers\ContactController@edit');
-	Route::post('/contactStaff/{id}/update','App\Http\Controllers\ContactController@update');
-    Route::get('/contactStaff/{id}/delete','App\Http\Controllers\ContactController@delete');
+Route::middleware(['auth', 'user-role:staff', 'checkheader'])->group(function () {
+	Route::get('/contactStaff', 'App\Http\Controllers\ContactController@contactStaffindex');
+	Route::get('/contactStaff/{id}/edit', 'App\Http\Controllers\ContactController@edit');
+	Route::post('/contactStaff/{id}/update', 'App\Http\Controllers\ContactController@update');
+	Route::get('/contactStaff/{id}/delete', 'App\Http\Controllers\ContactController@delete');
 });
 
 
 //student application
-	Route::get('/application', 'App\Http\Controllers\ApplicationController@create');
-	Route::get('/application/edit', 'App\Http\Controllers\ApplicationController@edit');
-	Route::post('/application/update', 'App\Http\Controllers\ApplicationController@update');
-	Route::get('/application/delete', 'App\Http\Controllers\ApplicationController@delete');
+Route::get('/application', 'App\Http\Controllers\ApplicationController@create');
+Route::get('/application/edit', 'App\Http\Controllers\ApplicationController@edit');
+Route::post('/application/update', 'App\Http\Controllers\ApplicationController@update');
+Route::get('/application/delete', 'App\Http\Controllers\ApplicationController@delete');
 
 
-Route::middleware(['auth', 'user-role:staff', 'checkheader'])->group(function(){
-    Route::get('/index_application', [StaffController::class, 'readApplication'])->name("index_application");
+Route::middleware(['auth', 'user-role:staff', 'checkheader'])->group(function () {
+	Route::get('/index_application', [StaffController::class, 'readApplication'])->name("index_application");
 });
 
 
 //FAQ
-Route::middleware(['auth', 'user-role:staff', 'checkIPAdd:127.0.0.1', 'checkheader'])->group(function(){
-    Route::get('/faqstaff','App\Http\Controllers\FAQcontroller@FAQindex');
-    Route::post('/faqstaff/createProgramme','App\Http\Controllers\FAQcontroller@create1');
-    Route::post('/faqstaff/createAdmission','App\Http\Controllers\FAQcontroller@create2');
-    Route::get('/faqstaff/{id}/editProgramme','App\Http\Controllers\FAQcontroller@edit1');
-    Route::get('/faqstaff/{id}/editAdmission','App\Http\Controllers\FAQcontroller@edit2');
-    Route::post('/faqstaff/{id}/updateProgramme','App\Http\Controllers\FAQcontroller@update1');
-    Route::post('/faqstaff/{id}/updateAdmission','App\Http\Controllers\FAQcontroller@update2');
-    Route::get('/faqstaff/{id}/deleteProgramme','App\Http\Controllers\FAQcontroller@delete1');
-    Route::get('/faqstaff/{id}/deleteAdmission','App\Http\Controllers\FAQcontroller@delete2');
+Route::middleware(['auth', 'user-role:staff', 'checkIPAdd:127.0.0.1', 'checkheader'])->group(function () {
+	Route::get('/faqstaff', 'App\Http\Controllers\FAQcontroller@FAQindex');
+	Route::post('/faqstaff/createProgramme', 'App\Http\Controllers\FAQcontroller@create1');
+	Route::post('/faqstaff/createAdmission', 'App\Http\Controllers\FAQcontroller@create2');
+	Route::get('/faqstaff/{id}/editProgramme', 'App\Http\Controllers\FAQcontroller@edit1');
+	Route::get('/faqstaff/{id}/editAdmission', 'App\Http\Controllers\FAQcontroller@edit2');
+	Route::post('/faqstaff/{id}/updateProgramme', 'App\Http\Controllers\FAQcontroller@update1');
+	Route::post('/faqstaff/{id}/updateAdmission', 'App\Http\Controllers\FAQcontroller@update2');
+	Route::get('/faqstaff/{id}/deleteProgramme', 'App\Http\Controllers\FAQcontroller@delete1');
+	Route::get('/faqstaff/{id}/deleteAdmission', 'App\Http\Controllers\FAQcontroller@delete2');
 });
 
-Route::middleware(['checkIPAdd:127.0.0.1', 'checkheader'])->group(function(){
-    Route::get('/faqstudent','App\Http\Controllers\FAQcontroller@FAQindexview');
-    Route::get('/faqstudent/{id}/viewProgramme','App\Http\Controllers\FAQcontroller@view1');
-    Route::get('/faqstudent/{id}/viewAdmission','App\Http\Controllers\FAQcontroller@view2');
+Route::middleware(['checkIPAdd:127.0.0.1', 'checkheader'])->group(function () {
+	Route::get('/faqstudent', 'App\Http\Controllers\FAQcontroller@FAQindexview');
+	Route::get('/faqstudent/{id}/viewProgramme', 'App\Http\Controllers\FAQcontroller@view1');
+	Route::get('/faqstudent/{id}/viewAdmission', 'App\Http\Controllers\FAQcontroller@view2');
 });
 
 
 //Course Student
-Route::middleware(['auth', 'user-role:student', 'checkheader'])->group(function(){
-Route::get('/diploma', function () {
-	return view('diploma');
-});
+Route::middleware(['auth', 'user-role:student', 'checkheader'])->group(function () {
+	Route::get('/diploma', function () {
+		return view('diploma');
+	});
 
-Route::get('/degree', function () {
-	return view('degree');
-});
+	Route::get('/degree', function () {
+		return view('degree');
+	});
 
-Route::get('/diploma_creative_multimedia', function () {
-	return view('course1');
-});
+	Route::get('/diploma_creative_multimedia', function () {
+		return view('course1');
+	});
 
-Route::get('/diploma_finance', function () {
-	return view('course2');
-});
+	Route::get('/diploma_finance', function () {
+		return view('course2');
+	});
 
-Route::get('/diploma_accounting', function () {
-	return view('course3');
-});
+	Route::get('/diploma_accounting', function () {
+		return view('course3');
+	});
 
-Route::get('/diploma_InfoTech', function () {
-	return view('course4');
-});
+	Route::get('/diploma_InfoTech', function () {
+		return view('course4');
+	});
 
-Route::get('/degree_financialEng', function () {
-	return view('degree1');
-});
+	Route::get('/degree_financialEng', function () {
+		return view('degree1');
+	});
 
-Route::get('/degree_EngElectronics', function () {
-	return view('degree2');
-});
+	Route::get('/degree_EngElectronics', function () {
+		return view('degree2');
+	});
 
-Route::get('/degree_ScienceComp', function () {
-	return view('degree3');
-});
+	Route::get('/degree_ScienceComp', function () {
+		return view('degree3');
+	});
 
-Route::get('/degree_InfoTech', function () {
-	return view('degree4');
-});
+	Route::get('/degree_InfoTech', function () {
+		return view('degree4');
+	});
 });
 
 //Course Staff
-Route::middleware(['auth', 'user-role:staff', 'checkheader'])->group(function(){
-    Route::get('/staffAddinfo', [CourseInfosController::class, 'index'])->name("staffAddinfo");
+Route::middleware(['auth', 'user-role:staff', 'checkheader'])->group(function () {
+	Route::get('/staffAddinfo', [CourseInfosController::class, 'index'])->name("staffAddinfo");
 });
 
-Route::middleware(['auth', 'user-role:staff', 'checkheader'])->group(function(){
-Route::get('/staffAdd', function () {
-	return view('staffAddinfo');
-});
+Route::middleware(['auth', 'user-role:staff', 'checkheader'])->group(function () {
+	Route::get('/staffAdd', function () {
+		return view('staffAddinfo');
+	});
 
-Route::get('/addCourse', function () {
-	return view('staffAddinfo');
-});
+	Route::get('/addCourse', function () {
+		return view('staffAddinfo');
+	});
 
-Route::get('/editCourse', function () {
-	return view('editCourse');
-});
+	Route::get('/editCourse', function () {
+		return view('editCourse');
+	});
 
-Route::get('/deleteCourse', function () {
-	return view('deleteCourse');
+	Route::get('/deleteCourse', function () {
+		return view('deleteCourse');
+	});
 });
-});
-
-

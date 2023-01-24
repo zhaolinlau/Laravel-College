@@ -83,7 +83,7 @@
 								</li>
 
 								<li>
-									<a class="dropdown-item" href="/staff/profile">
+									<a class="dropdown-item" href="/staff/{{auth()->user()->id}}/profile">
 										{{ __('My Profile') }}
 									</a>
 								</li>
