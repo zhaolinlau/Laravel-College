@@ -31,11 +31,11 @@ Route::middleware(['auth', 'user-role:student'])->group(function () {
 
 Route::middleware(['auth', 'user-role:staff', 'checkheader'])->group(function () {
 	Route::get("/staff", [HomeController::class, 'staffHome'])->name("staff.home");
-	Route::get('/staff/banner_list', [StaffController::class, 'readBanner'])->name("staff.banner_list");
-	Route::post('/staff/banner_list/upload', [StaffController::class, 'uploadBanner']);
-	Route::get('/staff/banner_list/{id}/delete', [StaffController::class, 'deleteBanner']);
-	Route::post('/staff/banner_list/{id}/modify', [StaffController::class, 'modifyBanner']);
-	Route::get('/staff/banner_list/{id}/banner', [StaffController::class, 'Banner']);
+	Route::get('/staff/banner_list', [BannerController::class, 'readBanner'])->name("staff.banner_list");
+	Route::post('/staff/banner_list/upload', [BannerController::class, 'uploadBanner']);
+	Route::get('/staff/banner_list/{id}/delete', [BannerController::class, 'deleteBanner']);
+	Route::post('/staff/banner_list/{id}/modify', [BannerController::class, 'modifyBanner']);
+	Route::get('/staff/banner_list/{id}/banner', [BannerController::class, 'Banner']);
 });
 
 Route::middleware(['auth', 'user-role:admin', 'checkheader'])->group(function () {
@@ -47,6 +47,10 @@ Route::middleware(['auth', 'user-role:admin', 'checkheader'])->group(function ()
 	Route::get('/admin/staff_list/{id}/delete', [AdminController::class, 'deleteStaff']);
 	Route::get('/admin/staff_list/{id}/reset_form', [AdminController::class, 'readPassword']);
 	Route::post('/admin/staff_list/{id}/reset_password', [AdminController::class, 'resetPassword']);
+});
+
+Route::get('/about_us', function () {
+	return view('about_us');
 });
 
 //ContactUs
