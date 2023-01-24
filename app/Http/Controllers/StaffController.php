@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Banner;
+use App\Models\Application;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -110,4 +111,20 @@ class StaffController extends Controller
 		$_course_details->delete($course);
 		return redirect()->route('staffAddInfo');
 	}
+
+	public function readApplication()
+	{
+		$applications = Application::all();
+		foreach ($applications as $row) {
+			if ($row->publish == 1) {
+				$row->publish = "Yes";
+			} elseif ($row->publish == 0) {
+				$row->publish = "No";
+			}
+		}
+		return view('index_application', ['applications' => $applications]);
+	}
+
 }
+
+

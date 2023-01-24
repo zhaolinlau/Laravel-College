@@ -63,12 +63,14 @@ Route::middleware(['auth', 'user-role:admin', 'checkheader'])->group(function(){
 
 
 //student application
-Route::middleware(['auth', 'user-role:student','checkheader'])->group(function () {
-	Route::get('/create_application', 'App\Http\Controllers\ApplicationController@create');
-});
+	Route::get('/application', 'App\Http\Controllers\ApplicationController@create');
+	Route::get('/application/edit', 'App\Http\Controllers\ApplicationController@edit');
+	Route::post('/application/update', 'App\Http\Controllers\ApplicationController@update');
+	Route::get('/application/delete', 'App\Http\Controllers\ApplicationController@delete');
+
 
 Route::middleware(['auth', 'user-role:staff', 'checkheader'])->group(function(){
-    Route::get('/index_application', [ApplicationController::class, 'index'])->name("index_application");
+    Route::get('/index_application', [StaffController::class, 'readApplication'])->name("index_application");
 });
 
 

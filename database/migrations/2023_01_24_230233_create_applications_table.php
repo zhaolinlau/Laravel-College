@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('nric'); 
             $table->string('phone');
             $table->string('email');
+            $table->string('files');
             $table->string('guardianname');
             $table->string('guardianphone'); 
             $table->string('guardiannric');
