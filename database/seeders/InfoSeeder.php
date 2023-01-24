@@ -14,6 +14,30 @@ class InfoSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $courses = [
+			[	'courseID' => 'BCS1234',
+				'courseName' => 'Non-Malaysian',
+				'faculty' => 'Penang',
+				'details' => 'Diploma In Finnace'
+			],
+			[
+				'courseID' => 'BCN2345',
+				'courseName' => 'Malaysian',
+				'faculty' => 'Cyberjaya',
+				'details' => 'Degree in Computer Science (Hons.)',
+				
+            ],
+            [
+				'courseID' => 'BCF7021',
+				'courseName' => 'Malaysian',
+				'faculty' => 'Cyberjaya',
+				'details' => 'Degree in Computer Science (Hons.)',
+				
+			]
+		];
+
+		foreach ($courses as $key => $courses) {
+			Course::create($courses);
+		}
     }
 }

@@ -8,6 +8,7 @@ use App\Http\Controllers\ApplicationController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\StaffController;
+use App\Http\Controllers\CourseInfosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -129,6 +130,11 @@ Route::get('/degree_InfoTech', function () {
 });
 
 //Course Staff
+
+Route::middleware(['auth', 'user-role:staff', 'checkheader'])->group(function(){
+    Route::get('/staffAddinfo', [CourseInfosController::class, 'index'])->name("staffAddinfo");
+});
+
 Route::middleware(['auth', 'user-role:staff', 'checkheader'])->group(function(){
 Route::get('/staffAdd', function () {
 	return view('staffAddinfo');
