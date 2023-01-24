@@ -80,34 +80,34 @@ class StaffController extends Controller
 
 	public function readStaff()
 	{
-		$courseinfo = User::where('role', 1)->get();
-		return view('staffAddinfo', ['staffsAdd' => $courseinfo]);
+		$_course_details = User::where('role', 1)->get();
+		return view('staffAddinfo', ['staffsAdd' => $_course_details]);
 	}
 
 	public function updateInfo(Request $request, $id)
 	{
-		$courseinfo = User::find($id);
-		$courseinfo->update($request->all());
+		$_course_details = User::find($id);
+		$_course_details->update($request->all());
 
 		return redirect()->route('staffAddInfo');
 	}
 
 	public function createInfo(Request $request)
 	{
-		$courseinfo = new User;
-		$courseinfo->courseID=$request->courseID;
-		$courseinfo->courseName=$request->courseName;
-		$courseinfo->faculty=$request->faculty;
-		$courseinfo->details = $request->details;
-		$courseinfo->role = 1;
-		$courseinfo->save();
+		$_course_details = new User;
+		$_course_details->courseID=$request->courseID;
+		$_course_details->courseName=$request->courseName;
+		$_course_details->faculty=$request->faculty;
+		$_course_details->details = $request->details;
+		$_course_details->role = 1;
+		$_course_details->save();
 		return redirect()->route('staffAddInfo');
 	}
 
 	public function deleteInfo($id)
 	{
-		$courseinfo = User::find($id);
-		$courseinfo->delete($staff);
+		$_course_details = User::find($id);
+		$_course_details->delete($course);
 		return redirect()->route('staffAddInfo');
 	}
 }

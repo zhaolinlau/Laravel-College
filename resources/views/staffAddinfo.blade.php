@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-	Staff Access
+	Staff Course Access
 @endsection
 
 @section('content')

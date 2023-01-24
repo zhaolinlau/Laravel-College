@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class CourseInfos extends Model
 {
-    public $table = 'courseinfo';
     public $fillable = ['courseID','courseName', 'faculty', 'details'];
     use HasFactory;
 }
