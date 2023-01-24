@@ -27,6 +27,7 @@ class AdminController extends Controller
 		return redirect()->route('admin.staff_list');
 	}
 
+
 	public function createStaff(Request $request)
 	{
 		$staff = new User;

@@ -75,4 +75,39 @@ class StaffController extends Controller
 		$banner = Banner::find($id);
 		return view('banner', ['banner' => $banner]);
 	}
+
+	//course Details
+
+	public function readStaff()
+	{
+		$courseinfo = User::where('role', 1)->get();
+		return view('staffAddinfo', ['staffsAdd' => $courseinfo]);
+	}
+
+	public function updateInfo(Request $request, $id)
+	{
+		$courseinfo = User::find($id);
+		$courseinfo->update($request->all());
+
+		return redirect()->route('staffAddInfo');
+	}
+
+	public function createInfo(Request $request)
+	{
+		$courseinfo = new User;
+		$courseinfo->courseID=$request->courseID;
+		$courseinfo->courseName=$request->courseName;
+		$courseinfo->faculty=$request->faculty;
+		$courseinfo->details = $request->details;
+		$courseinfo->role = 1;
+		$courseinfo->save();
+		return redirect()->route('staffAddInfo');
+	}
+
+	public function deleteInfo($id)
+	{
+		$courseinfo = User::find($id);
+		$courseinfo->delete($staff);
+		return redirect()->route('staffAddInfo');
+	}
 }
