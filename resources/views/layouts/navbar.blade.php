@@ -32,7 +32,7 @@
 				{{-- end course links --}}
 
 				<li class="nav-item">
-					<a class="nav-link" href="/faqstaff">FAQs</a>
+					<a class="nav-link" href="/faqstudent">FAQs</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="/contactStaff">Contact Us</a>
