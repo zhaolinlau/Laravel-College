@@ -32,7 +32,7 @@
 				{{-- end course links --}}
 
 				<li class="nav-item">
-					<a class="nav-link" href="/faqdata">FAQs</a>
+					<a class="nav-link" href="/faqstaff">FAQs</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="/contactStaff">Contact Us</a>
@@ -50,8 +50,10 @@
 						@endauth
 					@endif
 
+					@endauth
+
 					<li class="nav-item">
-						<a href="/create_application" class="btn btn-primary"><b>Apply Now</b></a>
+						<a href="/application" class="btn btn-primary"><b>Apply Now</b></a>
 					</li>
 				@else
 					<li class="nav-item dropdown">

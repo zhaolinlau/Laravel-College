@@ -18,6 +18,7 @@ class Application extends Model
                            'nric',
                            'phone',
                            'email',
+                           'files',
                            'guardianname',
                            'guardianphone',
                            'guardiannric',

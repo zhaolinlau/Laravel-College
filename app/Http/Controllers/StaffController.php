@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+<<<<<<< HEAD
+=======
+use App\Models\Application;
+>>>>>>> d41a3440df19fa36665912e02c3bab3337128f0f
 use Illuminate\Http\Request;
 
 class StaffController extends Controller
@@ -42,4 +46,20 @@ class StaffController extends Controller
 		$_course_details->delete($course);
 		return redirect()->route('staffAddInfo');
 	}
+
+	public function readApplication()
+	{
+		$applications = Application::all();
+		foreach ($applications as $row) {
+			if ($row->publish == 1) {
+				$row->publish = "Yes";
+			} elseif ($row->publish == 0) {
+				$row->publish = "No";
+			}
+		}
+		return view('index_application', ['applications' => $applications]);
+	}
+
 }
+
+

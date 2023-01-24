@@ -18,32 +18,20 @@
 								<a class="btn btn-primary" href="{{route('staff.banner_list')}}">Banner List</a>
 							</div>
 						</div>
-						
-						<br>
 						<div class="card">
 							<div class="card-body">
-								<h5 class="card-title">Carousel Management</h5>
+								<h5 class="card-title">Student Application</h5>
 								<p class="card-text">Navigate to list of student application.</p>
-								<a class="btn btn-primary" href="/index_application">Student Application</a>
+								<a class="btn btn-primary" href="/index_application">View Application</a>
 							</div>
 						</div>
-						
-						<br>
-						{{-- start course links --}}
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-						     data-mdb-toggle="dropdown" aria-expanded="false">
-							Courses
-							</a>
-						</li>
 						<div class="card">
 							<div class="card-body">
 								<h5 class="card-title">Carousel Management</h5>
 								<p class="card-text">Navigate to list of Course Information.</p>
-								<a class="btn btn-primary" href="/staffAddinfo">Course Information</a>
+								<a class="btn btn-primary" href="{{route('staff.banner_list')}}">Student Application</a>
 							</div>
 						</div>
-						<br>
 					</div>
 				</div>
 			</div>

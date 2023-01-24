@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class faqadmissions extends Model
+class faqadmission extends Model
 {
     use HasFactory;
     protected $fillable=['Question','Answer'];
