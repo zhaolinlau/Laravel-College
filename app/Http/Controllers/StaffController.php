@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers;
 
-<<<<<<< HEAD
-=======
+use App\Models\User;
 use App\Models\Application;
->>>>>>> d41a3440df19fa36665912e02c3bab3337128f0f
 use Illuminate\Http\Request;
 
 class StaffController extends Controller
