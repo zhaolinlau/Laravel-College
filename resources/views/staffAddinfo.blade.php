@@ -17,7 +17,7 @@
 					</div>
 
 					<div class="col-12">
-						<table class="table table-striped full-width" id="course_list">
+						<table class="table table-striped full-width" id="courseAddinfo">
 							<thead>
 								<tr>
 									<th>No</th>
@@ -31,18 +31,18 @@
 							</thead>
 
 							<tbody>
-								@foreach ($staffs as $row)
+								@foreach ($_course_details as $row)
 									<tr>
 										<td>{{ $loop->iteration }}</td>
-										<td>{{ $row->course_id }}</td>
-										<td>{{ $row->course_name }}</td>
-										<td>{{ $row->faculty }}</td>
+										<td>{{ $row->courseID}}</td>
+										<td>{{ $row->courseName}}</td>
+										<td>{{ $row->faculty}}</td>
 										<td>{{ $row->details}}</td>
 										<td>
-											<a href="/staff/course_list/{{ $row->id }}/reset_form" class="btn btn-minor">Reset</a>
+											<a href="/staff/staffAddinfo/{{ $row->id }}/reset_form" class="btn btn-minor">Reset</a>
 										</td>
 										<td>
-											<a href="/staff/course_list/{{ $row->id }}/delete" class="btn btn-danger" title="Delete Course"
+											<a href="/staff/staffAddinfo/{{ $row->id }}/delete" class="btn btn-danger" title="Delete Course"
 												onclick="return confirm('Confirm to delete?')">Delete</a>
 										</td>
 									</tr>
@@ -54,7 +54,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="modal fade" id="staffform" tabindex="-1" aria-labelledby="Label" aria-hidden="true">
+	<div class="modal fade" id="courseform" tabindex="-1" aria-labelledby="Label" aria-hidden="true">
 		<div class="modal-dialog modal-dialog-centered">
 			<div class="modal-content">
 				<form action="/staff/staffAddinfo/create" class="needs-validation" method="POST" novalidate>
@@ -64,10 +64,10 @@
 						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					</div>
 					<div class="modal-body">
-
+					
 						<div class="row g-3">
 							<div class="col-6">
-								<label class="form-label" for="staff_id">Course ID</label>
+								<label class="form-label" for="courseID">Course ID</label>
 								<input type="text" id="course_id" class="form-control" name="course_id" required>
 								<div class="invalid-feedback">
 									Please fill out this field.
@@ -75,7 +75,7 @@
 							</div>
 
 							<div class="col-6">
-								<label class="form-label" for="name">Course Name</label>
+								<label class="form-label" for="courseName">Course Name</label>
 								<input type="text" id="name" class="form-control" name="name" required>
 								<div class="invalid-feedback">
 									Please fill out this field.
@@ -135,7 +135,7 @@
 
 	<script>
 		$.fn.dataTable.Buttons.defaults.dom.button.className = 'btn btn-primary';
-		$('#course_list').DataTable({
+		$('#staffAddinfo').DataTable({
 			language: {
 				searchPlaceholder: "Search by a course..."
 			},

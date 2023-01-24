@@ -33,7 +33,7 @@
 				{{-- end course links --}}
 
 				<li class="nav-item">
-					<a class="nav-link" href="/faqdata">FAQs</a>
+					<a class="nav-link" href="/faqstaff">FAQs</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="/contactStaff">Contact Us</a>
@@ -79,7 +79,7 @@
 							<a class="dropdown-item" href="/staff">
 								{{ __('Dashboard') }}
 							</a>
-							
+
 							<a class="dropdown-item" href="/staff/profile">
 								{{ __('My Profile') }}
 							</a>
@@ -89,7 +89,7 @@
 							<a class="dropdown-item" href="/student">
 								{{ __('Dashboard') }}
 							</a>
-							
+
 							<a class="dropdown-item" href="/student/profile">
 								{{ __('My Profile') }}
 							</a>

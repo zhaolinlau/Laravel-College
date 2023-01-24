@@ -4,29 +4,31 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\CourseDetails;
+
 class CourseInfosController extends Controller
 {
-    public function faqindex(){
-        $data_courseinfo=courseinfo::all();
+    public function index(){
+        $courses=CourseInfos::all();
         return view('staffAddinfo',[
-            'data_courseinfo'=>$data_courseinfo,
+            'courses'=>$courses,
         ]);
     }
 
     public function edit($id) {
-        $data_courseinfo=$data_courseinfo::find($id);
-        return view('editCourse',['data_courseinfo'=>$data_courseinfo]);
+        $courses=$courses::find($id);
+        return view('editCourse',['courses'=>$courses]);
     }
 
     public function update(Request $request, $id) {
-        $data_courseinfo=$data_courseinfo::find($id);
-        $data_courseinfo->update($request->all());
-        return redirect('/ ')->with('success', 'Data Successfully Updated !');
+        $courses=$courses::find($id);
+        $courses->update($request->all());
+        return redirect('/')->with('success', 'Data Successfully Updated !');
     }
 
     public function delete($id) {
-        $data_courseinfo=$data_courseinfo::find($id);
-        $data_courseinfo->delete($data_courseinfo);
+        $courses=$courses::find($id);
+        $courses->delete($courses);
         return redirect('/ ')->with('success', 'Data Successfully Deleted !');
     }
 }
