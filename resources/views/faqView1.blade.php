@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-	Update FAQ Programme
+	FAQ Programme
 @endsection
 
 @section('content')
