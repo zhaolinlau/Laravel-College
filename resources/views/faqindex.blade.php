@@ -33,8 +33,8 @@
                         <tr style="background-color: #f8f7f5; border: 4px solid white;">
                             <td style="width:60px; padding-top: 15px; padding-bottom:15px;">{{$faq_programme->id}}</td>
                             <td style="width:550px; padding-top: 15px; padding-bottom:15px;">{{$faq_programme->Question}}</td>
-                            <td style="padding-top: 15px; padding-bottom:15px;"><a href="faqdata/{{$faq_programme->id}}/editProgramme"><i class="fa-solid fa-angle-right"></i></a></td>
-                            <td style="padding-top: 15px; padding-bottom:15px;"><a href="faqdata/{{$faq_programme->id}}/deleteProgramme" onclick="return confirm('Confirm delete ?')"><i class="fa-solid fa-trash" style="color: red;"></i></a></td>
+                            <td style="padding-top: 15px; padding-bottom:15px;"><a href="faqstaff/{{$faq_programme->id}}/editProgramme"><i class="fa-solid fa-angle-right"></i></a></td>
+                            <td style="padding-top: 15px; padding-bottom:15px;"><a href="faqstaff/{{$faq_programme->id}}/deleteProgramme" onclick="return confirm('Confirm delete ?')"><i class="fa-solid fa-trash" style="color: red;"></i></a></td>
                         </tr>
                         @endforeach
                     </table>
@@ -54,8 +54,8 @@
                         <tr style="background-color: #f8f7f5; border: 4px solid white;">
                             <td style="width:60px; padding-top: 15px; padding-bottom:15px;">{{$faqadmission->id}}</td>
                             <td style="width:550px; padding-top: 15px; padding-bottom:15px;">{{$faqadmission->Question}}</td>
-                            <td style="padding-top: 15px; padding-bottom:15px;"><a href="faqdata/{{$faqadmission->id}}/editAdmission"><i class="fa-solid fa-angle-right"></i></a></td>
-                            <td style="padding-top: 15px; padding-bottom:15px;"><a href="faqdata/{{$faqadmission->id}}/deleteAdmission" onclick="return confirm('Confirm delete ?')"><i class="fa-solid fa-trash" style="color: red;"></i></a></td>
+                            <td style="padding-top: 15px; padding-bottom:15px;"><a href="faqstaff/{{$faqadmission->id}}/editAdmission"><i class="fa-solid fa-angle-right"></i></a></td>
+                            <td style="padding-top: 15px; padding-bottom:15px;"><a href="faqstaff/{{$faqadmission->id}}/deleteAdmission" onclick="return confirm('Confirm delete ?')"><i class="fa-solid fa-trash" style="color: red;"></i></a></td>
                         </tr>
                         @endforeach
                     </table>
@@ -73,7 +73,7 @@
             </div>
             <div class="modal-body">
 
-                <form action="/faqdata/createProgramme" method="POST">
+                <form action="/faqstaff/createProgramme" method="POST">
                 {{csrf_field()}}
                     <div class="form-floating" style="margin-bottom:20px;">
                         <textarea name="Question" class="form-control" placeholder="Enter question here" id="floatingtextarea" style="min-height:100px;"></textarea>
@@ -100,7 +100,7 @@
             </div>
             <div class="modal-body">
 
-                <form action="/faqdata/createAdmission" method="POST">
+                <form action="/faqstaff/createAdmission" method="POST">
                 {{csrf_field()}}
                     <div class="form-floating" style="margin-bottom:20px;">
                         <textarea name="Question" class="form-control" placeholder="Enter question here" id="floatingtextarea" style="min-height:100px;"></textarea>

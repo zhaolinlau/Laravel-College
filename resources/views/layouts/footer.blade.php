@@ -55,7 +55,7 @@
 						<a href="#!">Courses</a>
 					</div>
 					<div>
-						<a href="/faqdata">FAQs</a>
+						<a href="/faqstaff">FAQs</a>
 					</div>
 					<div>
 						<a href="#!">Contact Us</a>

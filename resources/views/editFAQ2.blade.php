@@ -18,7 +18,7 @@
             <b><h3 style="padding:10px; margin-top: 20px; margin-bottom: 40px;">UPDATE FAQ FOR ADMISSIONS</h3></b>
 
                 <div class="col-6" style="margin:auto;">
-                    <form action="/faqdata/{{$data_faqadmission->id}}/updateAdmission" method="POST">
+                    <form action="/faqstaff/{{$data_faqadmission->id}}/updateAdmission" method="POST">
                     {{csrf_field()}}
                         <div class="form-floating" style="margin-bottom:20px;">
                             <textarea name="Question" class="form-control" placeholder="Enter question here" id="floatingtextarea" style="min-height:100px;">{{$data_faqadmission->Question}}</textarea>
