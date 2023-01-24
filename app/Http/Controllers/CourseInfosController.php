@@ -23,7 +23,7 @@ class CourseInfosController extends Controller
     public function update(Request $request, $id) {
         $courses=$courses::find($id);
         $courses->update($request->all());
-        return redirect('/ ')->with('success', 'Data Successfully Updated !');
+        return redirect('/')->with('success', 'Data Successfully Updated !');
     }
 
     public function delete($id) {
