@@ -8,11 +8,30 @@ use Illuminate\Validation\ValidationException;
 
 class AdminController extends Controller
 {
+	public function updateProfile(Request $request, $id)
+	{
+		try {
+			$request->validate([
+				'admin_id' => 'required|unique:users,admin_id,' . $id,
+				'email' => 'required|email|unique:users,email,' . $id,
+				'name' => 'required',
+				'phone_number' => 'required',
+			]);
+
+			$staff = User::find($id);
+			$staff->update($request->all());
+
+			return redirect()->route('admin.home');
+		} catch (ValidationException) {
+			return redirect()->back()->with('error', 'Email or Admin ID already exists!');
+		}
+	}
+
 	public function changePassword(Request $request, $id)
 	{
 		$request->only(['password']);
 		$request->validate([
-			'password' => 'required',
+			'password' => 'required|min:8',
 		]);
 		$admin = User::find($id);
 		$admin->password = bcrypt($request->password);
@@ -60,7 +79,7 @@ class AdminController extends Controller
 				'staff_id' => 'required|unique:users',
 				'name' => 'required',
 				'email' => 'required|email|unique:users',
-				'password' => 'required',
+				'password' => 'required|min:8',
 				'phone_number' => 'required',
 				'faculty' => 'required',
 			]);
@@ -90,7 +109,7 @@ class AdminController extends Controller
 	{
 		$request->only(['password']);
 		$request->validate([
-			'password' => 'required',
+			'password' => 'required|min:8',
 		]);
 		$staff = User::find($id);
 		$staff->password = bcrypt($request->password);

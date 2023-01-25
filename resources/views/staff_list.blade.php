@@ -121,9 +121,9 @@
 
 							<div class="col-6">
 								<label class="form-label" for="password">Password</label>
-								<input type="password" id="password" class="form-control" name="password" required>
+								<input type="password" id="password" class="form-control" minlength="8" name="password" required>
 								<div class="invalid-feedback">
-									Please fill out this field.
+									The password must be at least 8 characters.
 								</div>
 							</div>
 

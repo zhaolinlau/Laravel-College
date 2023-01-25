@@ -62,6 +62,10 @@ Route::middleware(['auth', 'user-role:admin', 'checkheader'])->group(function ()
 		return view('admin_changepwd');
 	});
 	Route::post('/admin/{id}/change_password', [AdminController::class, 'changePassword']);
+	Route::get('/admin/{id}/profile', function () {
+		return view('admin_myprofile');
+	});
+	Route::post('/admin/{id}/update', [AdminController::class, 'updateProfile']);
 });
 
 Route::get('/about_us', function () {
