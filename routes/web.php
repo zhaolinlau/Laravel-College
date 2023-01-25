@@ -43,7 +43,7 @@ Route::middleware(['auth', 'user-role:staff', 'checkheader'])->group(function ()
 		return view('staff_myprofile');
 	});
 	Route::post('/staff/{id}/update', [StaffController::class, 'updateProfile']);
-	Route::get('/staff/{id}/reset_password', function () {
+	Route::get('/staff/{id}/change_password', function () {
 		return view('staff_changepwd');
 	});
 	Route::post('/staff/{id}/change_password', [StaffController::class, 'changePassword']);
@@ -58,6 +58,14 @@ Route::middleware(['auth', 'user-role:admin', 'checkheader'])->group(function ()
 	Route::get('/admin/staff_list/{id}/delete', [AdminController::class, 'deleteStaff']);
 	Route::get('/admin/staff_list/{id}/reset_form', [AdminController::class, 'readPassword']);
 	Route::post('/admin/staff_list/{id}/reset_password', [AdminController::class, 'resetPassword'])->name('admin.staff_password');
+	Route::get('/admin/{id}/change_password', function () {
+		return view('admin_changepwd');
+	});
+	Route::post('/admin/{id}/change_password', [AdminController::class, 'changePassword']);
+	Route::get('/admin/{id}/profile', function () {
+		return view('admin_myprofile');
+	});
+	Route::post('/admin/{id}/update', [AdminController::class, 'updateProfile']);
 });
 
 Route::get('/about_us', function () {
@@ -79,10 +87,11 @@ Route::middleware(['auth', 'user-role:staff', 'checkheader'])->group(function ()
 
 //student application
 Route::get('/application', 'App\Http\Controllers\ApplicationController@create');
-Route::post('/show_application/{id}', 'App\Http\Controllers\ApplicationController@store');
-Route::get('/edit_application/{id}', 'App\Http\Controllers\ApplicationController@edit');
-Route::post('/show_application/{id}', 'App\Http\Controllers\ApplicationController@update');
-Route::get('/main_application/{id}', 'App\Http\Controllers\ApplicationController@delete');
+Route::post('/show_application', 'App\Http\Controllers\ApplicationController@store');
+Route::post('/show_application/{id}/show', 'App\Http\Controllers\ApplicationController@show');
+Route::get('/edit_application/{id}/edit', 'App\Http\Controllers\ApplicationController@edit');
+Route::post('/show_application/{id}/update', 'App\Http\Controllers\ApplicationController@update');
+Route::post('/show_application/{id}/destroy', 'App\Http\Controllers\ApplicationController@delete');
 
 
 Route::middleware(['auth', 'user-role:staff', 'checkheader'])->group(function () {

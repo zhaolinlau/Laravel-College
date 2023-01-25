@@ -9,7 +9,7 @@
 	<div class="container py-5">
 		<div class="row justify-content-center py-5">
 
-			<div class="col py-5">
+			<div class="col">
 				@if (session('error'))
 					<div class="alert alert-danger alert-dismissible fade show" role="alert">
 						<strong>{{ session('error') }}</strong>
@@ -121,9 +121,9 @@
 
 							<div class="col-6">
 								<label class="form-label" for="password">Password</label>
-								<input type="password" id="password" class="form-control" name="password" required>
+								<input type="password" id="password" class="form-control" minlength="8" name="password" required>
 								<div class="invalid-feedback">
-									Please fill out this field.
+									The password must be at least 8 characters.
 								</div>
 							</div>
 

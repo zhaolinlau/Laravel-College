@@ -1,13 +1,5 @@
 @extends('layouts.app')
 
-    <head>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta http-equiv="X-UA-Compatible" content="ie=edge">
-      <title>Student Application</title>
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-   </head>
-
 @section('title')
 	UPDATE STUDENT APPLICATION
 @endsection
@@ -39,7 +31,7 @@
                 </ul>
             </div><br />
             @endif
-            <form action="{{route('applications.update', $application->id)}}" class="needs-validation" method="POST" novalidate>
+            <form action="/show_application/{{$applications->id}}/update" class="needs-validation" method="POST" novalidate>
 					@csrf
 					<div class="modal-header">
 						<h1 class="modal-title fs-" id="Label">Student Application</h1>
@@ -50,11 +42,11 @@
                             <div class="col-6">
 								<label class="form-label" for="fullname">LEVEL</label>
 								    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="level" id="level1"/>
+                                        <input class="form-check-input" type="radio" name="level" id="level1" value="{{$application->level}}">
                                         <label class="form-check-label" for="level1"> Postgraduate </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="level" id="level1"/>
+                                        <input class="form-check-input" type="radio" name="level" id="level1" value="{{$application->level}}">
                                         <label class="form-check-label" for="level1"> Undergraduate </label>
                                     </div>
 								<div class="invalid-feedback">
@@ -65,11 +57,11 @@
                             <div class="col-6">
 								<label class="form-label" for="fullname">NATIONALITY</label>
 								    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="nationality" id="nationality1"/>
+                                        <input class="form-check-input" type="radio" name="nationality" id="nationality1" value="{{$application->nationality}}">
                                         <label class="form-check-label" for="nationality1"> Malaysian </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="nationality" id="nationality2"/>
+                                        <input class="form-check-input" type="radio" name="nationality" id="nationality2" value="{{$application->nationality}}">
                                         <label class="form-check-label" for="nationality2"> Non-Malaysian </label>
                                     </div>
 								<div class="invalid-feedback">
@@ -80,7 +72,7 @@
                             <div class="col-6">
 								<label class="form-label" for="campus">CAMPUS</label>
                                 <div class="form-group">
-                                    <select class="form-control" id="campus" name="campus">
+                                    <select class="form-control" id="campus" name="campus" value="{{$application->campus}}">
                                         <option disabled selected> - Choose One -</option>
                                         <option>Cyberjaya</option>
                                         <option>Penang</option>
@@ -94,7 +86,7 @@
                             <div class="col-6">
 								<label class="form-label" for="programme1">PROGRAMME 1</label>
                                 <div class="form-group">
-                                    <select class="form-control" id="programme1" name="programme1">
+                                    <select class="form-control" id="programme1" name="programme1" value="{{$application->programme1}}">
                                         <option disabled selected> - Choose Programme -</option>
                                         <option>Diploma in Creative Multimedia</option>
                                         <option>Diploma in Finance</option>
@@ -114,7 +106,7 @@
                             <div class="col-6">
 								<label class="form-label" for="programme2">PROGRAMME 2</label>
                                 <div class="form-group">
-                                    <select class="form-control" id="programme2" name="programme2">
+                                    <select class="form-control" id="programme2" name="programme2" value="{{$application->programme2}}">
                                         <option disabled selected> - Choose Programme -</option>
                                         <option>Diploma in Creative Multimedia</option>
                                         <option>Diploma in Finance</option>
@@ -134,7 +126,7 @@
                             <div class="col-6">
 								<label class="form-label" for="programme3">PROGRAMME 3</label>
                                 <div class="form-group">
-                                    <select class="form-control" id="programme3" name="programme3">
+                                    <select class="form-control" id="programme3" name="programme3" value="{{$application->programme3}}">
                                         <option disabled selected> - Choose Programme -</option>
                                         <option>Diploma in Creative Multimedia</option>
                                         <option>Diploma in Finance</option>
@@ -153,7 +145,7 @@
 
 							<div class="col-6">
 								<label class="form-label" for="fullname">FULL NAME</label>
-								<input type="text" id="fullname" class="form-control" name="fullname" required>
+								<input type="text" id="fullname" class="form-control" name="fullname" value="{{$application->fullname}}" required>
 								<div class="invalid-feedback">
                                     This field is required.
 								</div>
@@ -161,7 +153,7 @@
 
 							<div class="col-6">
 								<label class="form-label" for="nric">NRIC</label>
-								<input type="text" id="nric" class="form-control" name="nric" required>
+								<input type="text" id="nric" class="form-control" name="nric" value="{{$application->nric}}" required>
 								<div class="invalid-feedback">
                                     This field is required.
 								</div>
@@ -169,7 +161,7 @@
 
 							<div class="col-6">
 								<label class="form-label" for="phone">CONTACT NUMBER</label>
-								<input type="tel" id="phone" class="form-control" name="phone" required>
+								<input type="tel" id="phone" class="form-control" name="phone" value="{{$application->phone}}" required>
 								<div class="invalid-feedback">
 									This field is required.
 								</div>
@@ -177,7 +169,7 @@
 
 							<div class="col-6">
 								<label class="form-label" for="email">EMAIL</label>
-								<input type="email" id="email" class="form-control" name="email" required>
+								<input type="email" id="email" class="form-control" name="email" value="{{$application->email}}"required>
 								<div class="invalid-feedback">
                                     This field is required.
 								</div>
@@ -185,7 +177,7 @@
 
 							<div class="col-6">
 								<label class="form-label" for="files">DOCUMENTS</label>
-								<input type="file" id="files" class="form-control" name="files" required>
+								<input type="file" id="files" class="form-control" name="files" value="{{$application->files}}" required>
 								<div class="invalid-feedback">
                                     This field is required.
 								</div>
@@ -193,7 +185,7 @@
 
 							<div class="col-6">
 								<label class="form-label" for="guardianname">GUARDIAN NAME</label>
-								<input type="text" id="guardianname" class="form-control" name="guardianname" required>
+								<input type="text" id="guardianname" class="form-control" name="guardianname" value="{{$application->guardianname}}" required>
 								<div class="invalid-feedback">
                                     This field is required.
 								</div>
@@ -201,7 +193,7 @@
 
                             <div class="col-6">
 								<label class="form-label" for="guardiannric">GUARDIAN NRIC</label>
-								<input type="text" id="guardiannric" class="form-control" name="guardiannric" required>
+								<input type="text" id="guardiannric" class="form-control" name="guardiannric" value="{{$application->guardiannric}}" required>
 								<div class="invalid-feedback">
                                     This field is required.
 								</div>
@@ -209,7 +201,7 @@
 
                             <div class="col-6">
 								<label class="form-label" for="guardianemail">GUARDIAN EMAIL</label>
-								<input type="email" id="guardianemail" class="form-control" name="guardianemail" required>
+								<input type="email" id="guardianemail" class="form-control" name="guardianemail" value="{{$application->guardianemail}}" required>
 								<div class="invalid-feedback">
                                     This field is required.
 								</div>
@@ -217,7 +209,7 @@
 
                             <div class="col-6">
 								<label class="form-label" for="guardianphone">GUARDIAN CONTACT NUMBER</label>
-								<input type="tel" id="guardianphone" class="form-control" name="guardianphone" required>
+								<input type="tel" id="guardianphone" class="form-control" name="guardianphone" value="{{$application->guardianphone}}" required>
 								<div class="invalid-feedback">
                                     This field is required.
 								</div>
@@ -233,5 +225,22 @@
 				</form>
         </div>
     </div>
+    @include('layouts.footer')
+	<script>
+		(() => {
+			'use strict';
 
+			const forms = document.querySelectorAll('.needs-validation');
+
+			Array.prototype.slice.call(forms).forEach((form) => {
+				form.addEventListener('submit', (event) => {
+					if (!form.checkValidity()) {
+						event.preventDefault();
+						event.stopPropagation();
+					}
+					form.classList.add('was-validated');
+				}, false);
+			});
+		})();
+	</script>
 @endsection

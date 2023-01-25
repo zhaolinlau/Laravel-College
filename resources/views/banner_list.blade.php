@@ -8,7 +8,13 @@
 	@include('layouts.navbar')
 	<div class="container py-5">
 		<div class="row justify-content-center py-5">
-			<div class="col py-5">
+			<div class="col">
+				@if (session('error'))
+					<div class="alert alert-danger alert-dismissible fade show" role="alert">
+						<strong>{{ session('error') }}</strong>
+						<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+					</div>
+				@endif
 				<div class="row g-3">
 					<div class="col">
 						<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staffform">
@@ -58,7 +64,7 @@
 											<a href="{{ asset('storage/images/' . $row->image) }}" class="btn btn-secondary" target="_blank">View</a>
 										</td>
 										<td>
-											<a href="/staff/banner_list/{{ $row->id }}/delete" class="btn btn-danger" title="Delete Lecturer"
+											<a href="/staff/banner_list/{{ $row->id }}/delete" class="btn btn-danger"
 												onclick="return confirm('Confirm to delete?')">Delete</a>
 										</td>
 									</tr>
@@ -100,15 +106,15 @@
 						<div class="row g-3">
 							<div class="col-12">
 								<label class="form-label" for="image">Image</label>
-								<input type="file" id="image" class="form-control" name="image" required>
+								<input type="file" id="image" class="form-control" name="image" accept=".jpg,.jpeg,.png" required>
 								<div class="invalid-feedback">
-									Please select an image.
+									Please select an image. (Allowed formats: .jpeg, .jpg, .png)
 								</div>
 							</div>
 
 							<div class="col-8">
 								<label class="form-label" for="title">Title</label>
-								<input type="text" id="title" class="form-control" name="title">
+								<input type="text" id="title" class="form-control" name="title" maxlength="50">
 							</div>
 
 							<div class="col-4">
@@ -119,13 +125,13 @@
 									<option value="0">No</option>
 								</select>
 								<div class="invalid-feedback">
-									Please select Yes or No to publish.
+									Please select Yes / No.
 								</div>
 							</div>
 
 							<div class="col-12">
-								<label class="form-label" for="description">Title</label>
-								<textarea name="description" class="form-control" id="description" rows="4"></textarea>
+								<label class="form-label" for="description">Description</label>
+								<textarea name="description" class="form-control" id="description" rows="4" maxlength="100"></textarea>
 							</div>
 						</div>
 					</div>

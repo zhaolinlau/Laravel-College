@@ -6,17 +6,15 @@
 
 @section('content')
 	@include('layouts.navbar')
-	<div class="container">
-		<section>
-			<div class="col-md-6 position-absolute top-50 start-50 translate-middle">
-
+	<div class="container py-5">
+		<div class="row justify-content-center py-5">
+			<div class="col-6 py-4">
 					@if (session()->has('success'))
 						<div class="alert alert-success alert-dismissible fade show mx-auto" role="alert">
 							{{ session('success') }}
 							<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 						</div>
 					@endif
-
 					<div class="card">
 						<div class="card-body">
 							<h3>Drop us a message</h3>
@@ -77,7 +75,6 @@
 										@enderror
 									</div>
 								</div>
-
 								<div class="col-md-6">
 									<div class="form-outline">
 										<input type="text" id="status" name="status" class="form-control" required>
@@ -93,15 +90,14 @@
 									<button class="btn btn-primary" type="submit">Send</button>
 									<button class="btn btn-outline-danger" data-mdb-ripple-color="danger" type="reset">Reset</button>
 								</div>
-
 							</form>
 						</div>
 					</div>
+				</div>
 			</div>
 		</section>
 	</div>
-
-	@include('layouts.footer')
+@include('layouts.footer')
 	<script>
 		(() => {
 			'use strict';

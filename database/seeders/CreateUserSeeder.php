@@ -21,7 +21,7 @@ class CreateUserSeeder extends Seeder
 				'email' => 'student@gmail.com',
 				'phone_number' => '0987654321',
 				'role' => 0,
-				'password' => bcrypt('123456'),
+				'password' => bcrypt('12345678'),
 			],
 			[
 				'staff_id' => 'staff111',
@@ -30,7 +30,7 @@ class CreateUserSeeder extends Seeder
 				'phone_number' => '0123456789',
 				'faculty' => 'computing',
 				'role' => 1,
-				'password' => bcrypt('123456'),
+				'password' => bcrypt('12345678'),
 			],
 			[
 				'staff_id' => 'staff222',
@@ -39,7 +39,7 @@ class CreateUserSeeder extends Seeder
 				'phone_number' => '0123456789',
 				'faculty' => 'mechanical',
 				'role' => 1,
-				'password' => bcrypt('123456'),
+				'password' => bcrypt('12345678'),
 			],
 			[
 				'staff_id' => 'staff333',
@@ -48,7 +48,7 @@ class CreateUserSeeder extends Seeder
 				'phone_number' => '0123456789',
 				'faculty' => 'electrical',
 				'role' => 1,
-				'password' => bcrypt('123456'),
+				'password' => bcrypt('12345678'),
 			],
 			[
 				'admin_id' => 'admin111',
@@ -56,7 +56,7 @@ class CreateUserSeeder extends Seeder
 				'email' => 'admin1@gmail.com',
 				'phone_number' => '10293847756',
 				'role' => 2,
-				'password' => bcrypt('123456'),
+				'password' => bcrypt('12345678'),
 			],
 			[
 				'admin_id' => 'admin222',
@@ -64,7 +64,7 @@ class CreateUserSeeder extends Seeder
 				'email' => 'admin2@gmail.com',
 				'phone_number' => '1234567890',
 				'role' => 2,
-				'password' => bcrypt('123456'),
+				'password' => bcrypt('12345678'),
 			],
 			[
 				'admin_id' => 'admin333',
@@ -72,7 +72,7 @@ class CreateUserSeeder extends Seeder
 				'email' => 'admin3@gmail.com',
 				'phone_number' => '6758493021',
 				'role' => 2,
-				'password' => bcrypt('123456'),
+				'password' => bcrypt('12345678'),
 			],
 
 		];

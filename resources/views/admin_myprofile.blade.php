@@ -15,11 +15,11 @@
 				</div>
 			@endif
 			<div class="col p-5">
-				<form action="/staff/{{ auth()->user()->id }}/update" class="row p-5 g-3 shadow rounded-5 needs-validation" method="POST" novalidate>
+				<form action="/admin/{{ auth()->user()->id }}/update" class="row p-5 g-3 shadow rounded-5 needs-validation" method="POST" novalidate>
 					@csrf
 					<div class="col-6">
-						<label class="form-label" for="staff_id">Staff ID</label>
-						<input type="text" id="staff_id" class="form-control" name="staff_id" value="{{ auth()->user()->staff_id }}" required>
+						<label class="form-label" for="admin_id">Admin ID</label>
+						<input type="text" id="admin_id" class="form-control" name="admin_id" value="{{ auth()->user()->admin_id }}" required>
 						<div class="invalid-feedback">
 							Please fill out this field.
 						</div>
@@ -44,14 +44,6 @@
 					<div class="col-6">
 						<label class="form-label" for="phone_number">Phone Number</label>
 						<input type="tel" id="phone_number" class="form-control" name="phone_number" value="{{ auth()->user()->phone_number }}" required>
-						<div class="invalid-feedback">
-							Please fill out this field.
-						</div>
-					</div>
-					
-					<div class="col-6">
-						<label class="form-label" for="faculty">Faculty</label>
-						<input type="tel" id="faculty" class="form-control" name="faculty" value="{{ auth()->user()->faculty }}" required>
 						<div class="invalid-feedback">
 							Please fill out this field.
 						</div>
