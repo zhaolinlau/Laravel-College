@@ -88,8 +88,8 @@
 								</div>
 
 								<div class="col-12">
-									<button class="btn btn-primary" type="submit">Send</button>
-									<button class="btn btn-outline-danger" data-mdb-ripple-color="danger" type="reset">Reset</button>
+									<button class="btn btn-primary" type="submit">UPDATE</button>
+									<button class="btn btn-outline-danger" data-mdb-ripple-color="danger" type="reset">RESET</button>
 								</div>
 
 							</form>
