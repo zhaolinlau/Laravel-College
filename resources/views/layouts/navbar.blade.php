@@ -69,6 +69,12 @@
 								</li>
 
 								<li>
+									<a class="dropdown-item" href="/admin/{{auth()->user()->id}}/reset_password">
+										{{ __('Change Password') }}
+									</a>
+								</li>
+
+								<li>
 									<a class="dropdown-item" href="/admin/profile">
 										{{ __('My Profile') }}
 									</a>
