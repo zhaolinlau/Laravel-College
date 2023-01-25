@@ -14,9 +14,12 @@ class CourseInfosController extends Controller
             'courses'=>$courses,
         ]);
     }
-
+    public function Courseindex(){
+        $courses= \App\Models\CourseDetails::all();
+        return view('staffAddnfo',['courses'=> $courses]);
+    }
     public function edit($id) {
-        $courses=$courses::find($id);
+        $courses = \App\Models\CourseDetails::find($id);
         return view('editCourse',['courses'=>$courses]);
     }
 
@@ -31,4 +34,6 @@ class CourseInfosController extends Controller
         $courses->delete($courses);
         return redirect('/ ')->with('success', 'Data Successfully Deleted !');
     }
+
+   
 }

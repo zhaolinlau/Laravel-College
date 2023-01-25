@@ -39,7 +39,7 @@
 										<td>{{ $row->faculty}}</td>
 										<td>{{ $row->details}}</td>
 										<td>
-											<a href="/staff/staffAddinfo/{{ $row->id }}/reset_form" class="btn btn-minor">Reset</a>
+											<a href="/staff/staffAddinfo/{{ $row->id }}/reset_form" class="btn btn-minor">EDIT</a>
 										</td>
 										<td>
 											<a href="/staff/staffAddinfo/{{ $row->id }}/delete" class="btn btn-danger" title="Delete Course"
