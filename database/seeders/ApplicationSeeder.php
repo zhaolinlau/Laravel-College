@@ -48,6 +48,40 @@ class ApplicationSeeder extends Seeder
 				'guardianphone' => '700204022782',
 				'guardiannric' => '0137372341',
 				'guardianemail' => 'roslindaali@gmail.com'
+			],
+			[
+				'level' => 'Undergraduate',
+				'nationality' => 'Non-Malaysian',
+				'campus' => 'Cyberjaya',
+				'programme1' => 'Degree in Information Technology (Hons.) Information System',
+				'programme2' => 'Degree in Financial Engineering (Hons.)',
+				'programme3' => 'Degree in Computer Science (Hons.)',
+				'fullname' => 'Azy Lee',
+				'nric' => '980809011273',
+				'phone' => '0812676588',
+				'email' => 'azylee@gmail.com',
+				'files' => 'Azy.pdf',
+                'guardianname' => 'Boh Lee',
+				'guardianphone' => '75475687782',
+				'guardiannric' => '085656743',
+				'guardianemail' => 'bohlee@gmail.com'
+			],
+			[
+				'level' => 'Undergraduate',
+				'nationality' => 'Malaysian',
+				'campus' => 'Penang',
+				'programme1' => 'Diploma in Accounting',
+				'programme2' => 'Diploma In Finnace',
+				'programme3' => 'Diploma in Information Technology',
+				'fullname' => 'Amira Binti Azmi',
+				'nric' => '990111061278',
+				'phone' => '0112658568',
+				'email' => 'miraa@gmail.com',
+				'files' => 'amira.pdf',
+                'guardianname' => 'Azmi Bin Bukri',
+				'guardianphone' => '740204022789',
+				'guardiannric' => '0156768876',
+				'guardianemail' => 'azmi@gmail.com'
 			]
 		];
 
