@@ -31,7 +31,7 @@
                 </ul>
             </div><br />
             @endif
-            <form action="/main_application/{{$applications->id}}/update" class="needs-validation" method="POST" novalidate>
+            <form action="/show_application/{{$applications->id}}/update" class="needs-validation" method="POST" novalidate>
 					@csrf
 					<div class="modal-header">
 						<h1 class="modal-title fs-" id="Label">Student Application</h1>

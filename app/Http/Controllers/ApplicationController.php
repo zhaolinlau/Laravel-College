@@ -55,7 +55,7 @@ class ApplicationController extends Controller
             'guardianemail' => 'required|max:255',
         ]);
         $applications = Application::create($storeData);
-        return redirect('/main_application')->with('success', 'Your application have been sent!');
+        return redirect('/show_application')->with('success', 'Your application have been sent!');
     }
 
     /**

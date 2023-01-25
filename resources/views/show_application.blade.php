@@ -22,9 +22,9 @@
         <h1>STUDENT APPLICATION DETAILS</h1>
     </div>
     <div class="push-top">
-        @if(session()->get('success'))
+        @if(session()->post('success'))
             <div class="alert alert-success">
-            {{ session()->get('success') }}  
+            {{ session()->post('success') }}  
             </div><br />
         @endif
         <table class="table">
@@ -82,6 +82,7 @@
                     <tr>
                         <td>
 							<a href="/edit_application/{{ $row->id }}/edit" class="btn btn-secondary" target="_blank">Update</a>
+                            <a href="/show_application/{{ $row->id }}/destroy" class="btn btn-danger" title="Delete Application" onclick="return confirm('Confirm to delete?')">Delete</a>
 						</td>						
                     </tr>
                 @endforeach
