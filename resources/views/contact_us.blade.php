@@ -90,14 +90,14 @@
 									<button class="btn btn-primary" type="submit">Send</button>
 									<button class="btn btn-outline-danger" data-mdb-ripple-color="danger" type="reset">Reset</button>
 								</div>
-
 							</form>
 						</div>
 					</div>
 				</div>
+			</div>
 		</section>
 	</div>
-	@include('layouts.footer')
+@include('layouts.footer')
 	<script>
 		(() => {
 			'use strict';

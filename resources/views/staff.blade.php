@@ -39,6 +39,15 @@
 							</div>
 						</div>
 					</div>
+					<div class="col-4">
+						<div class="card">
+							<div class="card-body">
+								<h5 class="card-title">Contact Response</h5>
+								<p class="card-text">Navigate to list of Student Response</p>
+								<a class="btn btn-primary" href="/contactStaff">Response List</a>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
