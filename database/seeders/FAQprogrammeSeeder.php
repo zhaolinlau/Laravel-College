@@ -35,6 +35,30 @@ class FAQprogrammeSeeder extends Seeder
 
                 Student > Admission > Programme > Programme fee',
             ],
+            [
+                'Question' => 'I am a fresh graduate. Can I enrol for the Master programme ?',
+                'Answer' => 'Yes, fresh graduates without any working experience is eligible to enrol for the following Masters programmes.
+
+                - Master of Marketing
+                - Master of Human Resource Management
+                - MA Visual Communication & Media Studies
+                - Master in Sustainable Development Management
+                - MSc Actuarial Science
+                - MSc Computer Science
+                - MSc Information Systems
+                - MSc Life Sciences
+                - MSc Psychology',
+            ],
+            [
+                'Question' => 'I would like to visit your campus, when is your Open Day ?',
+                'Answer' => 'Our Open Days are in the month of March, June and December of every year. However, you may :
+                (i) Schedule an appointment with our Education Councellor
+                (ii) Drop by our Admissions Office (Level H, East Building) during our business hours. Our team of Education Councellor will be available to assist on programme enquiries and admission procedures.',
+            ],
+            [
+                'Question' => 'When do I have to pay my outstanding Semester fees ?',
+                'Answer' => 'Semester fees will need to be settled by mid-semester, before the mid-semester tests.',
+            ],
         ];
 
         foreach ($faq_programmes as $key => $faq_programme){
