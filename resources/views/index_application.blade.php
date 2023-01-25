@@ -13,7 +13,7 @@
         }
 
     </style>
-    <div class="bg-image" style="background-image: url('https://w0.peakpx.com/wallpaper/262/173/HD-wallpaper-samsung-background-blue-edge-gradient-gray-plain-purple-simple-sky.jpg');height: 140vh">
+    <div class="bg-image" style="background-image: url('https://w0.peakpx.com/wallpaper/262/173/HD-wallpaper-samsung-background-blue-edge-gradient-gray-plain-purple-simple-sky.jpg');height: 220vh">
         <div class="header text-white">
             <h1><b> STUDENT APPLICATION</b></h1>
         </div> 

@@ -36,7 +36,7 @@
                                         <td>{{ $row->programme2 }}</td>
                                         <td>{{ $row->programme3 }}</td>
                                         <td>
-											<a href="/show_application" class="btn btn-secondary" target="_blank">View</a>
+											<a href="/main_application/{{ $row->id }}/show" class="btn btn-secondary" target="_blank">View</a>
 										</td>
 										<td>
 											<a href="/main_application/{{ $row->id }}/destroy" class="btn btn-danger" title="Delete Application"

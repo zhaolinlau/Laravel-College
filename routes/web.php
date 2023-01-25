@@ -78,11 +78,12 @@ Route::middleware(['auth', 'user-role:staff', 'checkheader'])->group(function ()
 
 
 //student application
-Route::get('/application', 'App\Http\Controllers\ApplicationController@create');
-Route::post('/show_application/{id}', 'App\Http\Controllers\ApplicationController@store');
-Route::get('/edit_application/{id}', 'App\Http\Controllers\ApplicationController@edit');
-Route::post('/show_application/{id}', 'App\Http\Controllers\ApplicationController@update');
-Route::get('/main_application/{id}', 'App\Http\Controllers\ApplicationController@delete');
+Route::any('/application', 'App\Http\Controllers\ApplicationController@create');
+Route::any('/show_application/store', 'App\Http\Controllers\ApplicationController@store');
+Route::any('/show_application/{id}/show', 'App\Http\Controllers\ApplicationController@show');
+Route::any('/edit_application/{id}/edit', 'App\Http\Controllers\ApplicationController@edit');
+Route::any('/main_application/{id}/update', 'App\Http\Controllers\ApplicationController@update');
+Route::any('/main_application/{id}/destroy', 'App\Http\Controllers\ApplicationController@delete');
 
 
 Route::middleware(['auth', 'user-role:staff', 'checkheader'])->group(function () {
