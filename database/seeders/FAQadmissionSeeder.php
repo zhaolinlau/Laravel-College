@@ -37,6 +37,19 @@ class FAQadmissionSeeder extends Seeder
                      Username : student-id@stdmail.uni.my
                      Password : uni@identification-number',
             ],
+            [
+                'Question' => 'Do students have to make validation before uploading the documents ?',
+                'Answer' => 'Students DO NOT have to make validation if the original documents are uploaded.
+                However, validation will be NEEDED if a copy of the original document is uploaded.',
+            ],
+            [
+                'Question' => 'What should be done if students do not have the transcript from the academic institution ?',
+                'Answer' => 'Students can temporarily upload the results slip of the previous semester. Students will need to immediately upload the complete transcript once they have received it from their academic institution through their student platform.',
+            ],
+            [
+                'Question' => 'What is the next step after settling the student payment and uploading the academic documents ?',
+                'Answer' => 'Students will need to complete their registration in the platform by clicking the checkbox for Disclaimer, Vow, and Matric Card Request.',
+            ],
         ];
 
         foreach ($faqadmissions as $key => $faqadmission){
