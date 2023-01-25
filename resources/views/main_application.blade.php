@@ -11,7 +11,7 @@
 			<div class="col py-5">
 				<div class="row g-3">
 					<div class="col-12">
-						<table class="table table-striped full-width" id="index_application">
+						<table class="table table-striped full-width" id="main_application">
 							<thead>
 								<tr>
 									<th>No</th>
@@ -36,7 +36,7 @@
                                         <td>{{ $row->programme2 }}</td>
                                         <td>{{ $row->programme3 }}</td>
                                         <td>
-											<a href="/show_application" class="btn btn-secondary" target="_blank">View</a>
+											<a href="/main_application/{{ $row->id }}/show" class="btn btn-secondary" target="_blank">View</a>
 										</td>
 										<td>
 											<a href="/main_application/{{ $row->id }}/destroy" class="btn btn-danger" title="Delete Application"

@@ -55,7 +55,7 @@ class ApplicationController extends Controller
             'guardianemail' => 'required|max:255',
         ]);
         $applications = Application::create($storeData);
-        return redirect()->route('show_application')->with('success', 'Your application have been sent!');
+        return redirect('/main_application')->with('success', 'Your application have been sent!');
     }
 
     /**
@@ -66,7 +66,7 @@ class ApplicationController extends Controller
      */
     public function show($id)
     {
-        $applications = Application::all();
+        $applications = Application::find($id);
         return view('show_application');
     }
 
@@ -109,7 +109,7 @@ class ApplicationController extends Controller
             'guardianemail' => 'required|max:255',
         ]);
         Application::whereId($id)->update($updateData);
-        return redirect()->route('show_application')->with('success', 'Your application has been updated');
+        return redirect('/main_application')->with('success', 'Your application has been updated');
     }
 
     /**
@@ -122,6 +122,6 @@ class ApplicationController extends Controller
     {
         $applications = Application::findOrFail($id);
         $applications->delete();
-        return redirect()->route('main_application')->with('success', 'Your application has been cancelled');
+        return redirect('/main_application')->with('success', 'Your application has been cancelled');
     }
 }

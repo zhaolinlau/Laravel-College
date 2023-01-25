@@ -32,7 +32,7 @@
     <div class="modal fade" id="applicationform" tabindex="-1" aria-labelledby="Label" aria-hidden="true">
 		<div class="modal-dialog modal-dialog-centered">
 			<div class="modal-content">
-				<form action="/show_application/{id}" class="needs-validation" method="POST" novalidate>
+				<form action="/main_application" class="needs-validation" method="POST" novalidate>
 					@csrf
 					<div class="modal-header">
 						<h1 class="modal-title fs-" id="Label">Student Application</h1>
@@ -41,7 +41,7 @@
 
 						<div class="row g-3">
                             <div class="col-6">
-								<label class="form-label" for="fullname">LEVEL</label>
+								<label class="form-label" for="level">LEVEL</label>
 								    <div class="form-check">
                                         <input class="form-check-input" type="radio" name="level" id="level1"/>
                                         <label class="form-check-label" for="level1"> Postgraduate </label>
@@ -56,7 +56,7 @@
 							</div>
 
                             <div class="col-6">
-								<label class="form-label" for="fullname">NATIONALITY</label>
+								<label class="form-label" for="nationality">NATIONALITY</label>
 								    <div class="form-check">
                                         <input class="form-check-input" type="radio" name="nationality" id="nationality1"/>
                                         <label class="form-check-label" for="nationality1"> Malaysian </label>
@@ -220,13 +220,29 @@
 						</div>
 					</div>
 					<div class="modal-footer">
-						<button type="submit" class="btn btn-primary">Add</button>
+						<button type="submit" class="btn btn-primary" href="/main_application/store">Add</button>
 						<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
 					</div>
 				</form>
 			</div>
 		</div>
 	</div>
-
     @include('layouts.footer')
+	<script>
+		(() => {
+			'use strict';
+
+			const forms = document.querySelectorAll('.needs-validation');
+
+			Array.prototype.slice.call(forms).forEach((form) => {
+				form.addEventListener('submit', (event) => {
+					if (!form.checkValidity()) {
+						event.preventDefault();
+						event.stopPropagation();
+					}
+					form.classList.add('was-validated');
+				}, false);
+			});
+		})();
+	</script>
 @endsection
