@@ -9,7 +9,7 @@
 	<div class="container py-5">
 		<div class="row justify-content-center py-5">
 
-			<div class="col py-5">
+			<div class="col">
 				@if (session('error'))
 					<div class="alert alert-danger alert-dismissible fade show" role="alert">
 						<strong>{{ session('error') }}</strong>
