@@ -29,55 +29,55 @@
         @endif
         <table class="table">
             <thead>
-                foreach ($applications as $applications)
+                foreach ($applications as $row)
                 <tr>
                     NO
-                    <td>{{$applications->id}}</td>
+                    <td>{{$$row->id}}</td>
                 </tr>
                 <td>Level
-                    <td>{{$applications->level}}</td>
+                    <td>{{$$row->level}}</td>
                 </td>
                 <td>Nationality
-                    <td>{{$applications->nationality}}</td>
+                    <td>{{$$row->nationality}}</td>
                 </td>
                 <td>Campus
-                    <td>{{$applications->campus}}</td>
+                    <td>{{$$row->campus}}</td>
                 </td>
                 <td>Programme 1
-                    <td>{{$applications->programme1}}</td>
+                    <td>{{$$row->programme1}}</td>
                 </td>
                 <td>Programme 2
-                    <td>{{$applications->programme2}}</td>
+                    <td>{{$$row->programme2}}</td>
                 </td>
                 <td>Programme 3
-                    <td>{{$applications->programme3}}</td>
+                    <td>{{$$row->programme3}}</td>
                 </td>
                 <td>Full Name
-                    <td>{{$applications->fullname}}</td>
+                    <td>{{$$row->fullname}}</td>
                 </td>
                 <td>NRIC
-                    <td>{{$applications->nric}}</td>
+                    <td>{{$$row->nric}}</td>
                 </td>
                 <td>Contact Number
-                    <td>{{$applications->phone}}</td>
+                    <td>{{$$row->phone}}</td>
                 </td>
                 <td>Email
-                    <td>{{$applications->email}}</td>
+                    <td>{{$$row->email}}</td>
                 </td>
                 <td>Document
-                    <td>{{$applications->files}}</td>
+                    <td>{{$$row->files}}</td>
                 </td>
                 <td>Guardian Name
-                    <td>{{$applications->guardianname}}</td>
+                    <td>{{$$row->guardianname}}</td>
                 </td>
                 <tr>Guardian Contact Number
-                    <td>{{$applications->guardianphone}}</td>
+                    <td>{{$$row->guardianphone}}</td>
                 </tr>
                 <tr>Guardian NRIC
-                    <td>{{$applications->guardiannric}}</td>
+                    <td>{{$$row->guardiannric}}</td>
                 </tr>
                 <tr>Guardian Email
-                    <td>{{$applications->guardianemail}}</td>
+                    <td>{{$$row->guardianemail}}</td>
                 </tr>
             </thead>
         </table>
