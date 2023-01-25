@@ -58,6 +58,10 @@ Route::middleware(['auth', 'user-role:admin', 'checkheader'])->group(function ()
 	Route::get('/admin/staff_list/{id}/delete', [AdminController::class, 'deleteStaff']);
 	Route::get('/admin/staff_list/{id}/reset_form', [AdminController::class, 'readPassword']);
 	Route::post('/admin/staff_list/{id}/reset_password', [AdminController::class, 'resetPassword'])->name('admin.staff_password');
+	Route::get('/admin/{id}/reset_password', function () {
+		return view('admin_changepwd');
+	});
+	Route::post('/admin/{id}/change_password', [AdminController::class, 'changePassword']);
 });
 
 Route::get('/about_us', function () {

@@ -8,6 +8,18 @@ use Illuminate\Validation\ValidationException;
 
 class AdminController extends Controller
 {
+	public function changePassword(Request $request, $id)
+	{
+		$request->only(['password']);
+		$request->validate([
+			'password' => 'required',
+		]);
+		$admin = User::find($id);
+		$admin->password = bcrypt($request->password);
+		$admin->save();
+		return redirect()->route('admin.home');
+	}
+
 	public function readStaff()
 	{
 		$staffs = User::where('role', 1)->orderBy('id', 'desc')->get();

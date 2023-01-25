@@ -67,6 +67,11 @@
 										{{ __('Dashboard') }}
 									</a>
 								</li>
+								<li>
+									<a class="dropdown-item" href="/admin/profile">
+										{{ __('My Profile') }}
+									</a>
+								</li>
 
 								<li>
 									<a class="dropdown-item" href="/admin/{{auth()->user()->id}}/reset_password">
@@ -74,11 +79,6 @@
 									</a>
 								</li>
 
-								<li>
-									<a class="dropdown-item" href="/admin/profile">
-										{{ __('My Profile') }}
-									</a>
-								</li>
 							@endif
 
 							@if (auth()->user()->role == 'staff')
