@@ -9,8 +9,8 @@
 	<div class="container py-5">
 		<div class="row justify-content-center py-5">
 			<div class="col py-5">
-				<div class="row py-5 my-5">
-					<div class="col-4" style="margin-bottom:25px;">
+				<div class="row g-5 py-3">
+					<div class="col-4">
 						<div class="card">
 							<div class="card-body">
 								<h5 class="card-title">Carousel Management</h5>
