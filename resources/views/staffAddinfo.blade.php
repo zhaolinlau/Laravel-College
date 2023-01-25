@@ -31,7 +31,7 @@
 							</thead>
 
 							<tbody>
-								@foreach ($_course_details as $row)
+								@foreach ($courses as $row)
 									<tr>
 										<td>{{ $loop->iteration }}</td>
 										<td>{{ $row->courseID}}</td>

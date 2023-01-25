@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class CourseDetails extends Model
 {
-    public $fillable = ['courseID','courseName', 'faculty', 'details'];
     use HasFactory;
+    public $fillable = ['courseID','courseName', 'faculty', 'details'];
+    
 }

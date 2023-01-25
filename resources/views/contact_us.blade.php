@@ -9,12 +9,14 @@
 	<div class="container">
 		<section>
 			<div class="col-md-6 position-absolute top-50 start-50 translate-middle">
+
 					@if (session()->has('success'))
 						<div class="alert alert-success alert-dismissible fade show mx-auto" role="alert">
 							{{ session('success') }}
 							<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 						</div>
 					@endif
+
 					<div class="card">
 						<div class="card-body">
 							<h3>Drop us a message</h3>
@@ -75,6 +77,7 @@
 										@enderror
 									</div>
 								</div>
+
 								<div class="col-md-6">
 									<div class="form-outline">
 										<input type="text" id="status" name="status" class="form-control" required>
@@ -94,9 +97,10 @@
 							</form>
 						</div>
 					</div>
-				</div>
+			</div>
 		</section>
 	</div>
+
 	@include('layouts.footer')
 	<script>
 		(() => {
