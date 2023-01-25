@@ -11,7 +11,7 @@
 			<div class="col py-5">
 				<div class="row g-3">
 					<div class="col-12">
-						<table class="table table-striped full-width" id="index_application">
+						<table class="table table-striped full-width" id="main_application">
 							<thead>
 								<tr>
 									<th>No</th>
