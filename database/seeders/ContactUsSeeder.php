@@ -8,29 +8,28 @@ use App\Models\Contacts;
 
 class ContactUsSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
-    public function run()
+	public function run()
     {
-        $Contacts = [
-			[	'level' => 'Undergraduate',
-				'nationality' => 'Non-Malaysian',
-				'campus' => 'Penang',
-				'programme1' => 'Diploma In Finnace',
-				'programme2' => 'Diploma in Accounting',
-				'programme3' => 'Diploma in Information Technology',
-				'fullname' => 'Alex Wang',
-				'nric' => '1427327481278',
-				'phone' => '9071272341',
-				'email' => 'alexwang@gmail.com',
-				'files' => 'TP.pdf',
-                'guardianname' => 'Danial Wang',
-				'guardianphone' => '7327481278',
-				'guardiannric' => '7627372341',
-				'guardianemail' => 'danialwang@gmail.com'
-			],
-    }
+		$contacts = [
+		[	'name' => 'Shammene',
+			'email' => 'shammene9905@gmail.com',
+			'phone_number' => '01126495501',
+			'subject' => 'Hi',
+			'Message' => 'Hello',
+			'status' => 'SUBMIT',
+		],
+		[
+			'name' => 'Hanim',
+			'email' => 'hanim@gmail.com',
+			'phone_number' => '0278866543',
+			'subject' => 'Hi',
+			'Message' => 'Hello',
+			'status' => 'SUBMIT',
+		]
+		];
+
+		foreach ($contacts as $key => $contacts) {
+			contacts::create($contacts);
+		}
+	}
 }
