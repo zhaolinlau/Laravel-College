@@ -155,7 +155,12 @@ Route::middleware(['auth', 'user-role:student', 'checkheader'])->group(function 
 
 //Course Staff
 Route::middleware(['auth', 'user-role:staff', 'checkheader'])->group(function () {
-	Route::get('/staffAddinfo', [CourseInfosController::class, 'index'])->name("staffAddinfo");
+	Route::get('/staffAddinfo', 'App\Http\Controllers\CourseInfosController@Courseindex');
+	Route::get('/staffAddinfo/{id}/edit', 'App\Http\Controllers\CourseInfosController@edit');
+	Route::get('/coursedata/{{$data_courseinfo->id}}/updateCourse', 'App\Http\Controllers\CourseInfosController@edit');
+	
+
+
 });
 
 Route::middleware(['auth', 'user-role:staff', 'checkheader'])->group(function () {
