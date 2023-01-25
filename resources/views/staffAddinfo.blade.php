@@ -8,10 +8,17 @@
 	@include('layouts.navbar')
 	<div class="container py-5">
 		<div class="row justify-content-center py-5">
+
 			<div class="col py-5">
+				@if (session('error'))
+					<div class="alert alert-danger alert-dismissible fade show" role="alert">
+						<strong>{{ session('error') }}</strong>
+						<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+					</div>
+				@endif
 				<div class="row g-3">
 					<div class="col">
-						<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#courseform">
+						<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#courseform" >
 							Add Course Information
 						</button>
 					</div>
@@ -39,25 +46,40 @@
 										<td>{{ $row->faculty}}</td>
 										<td>{{ $row->details}}</td>
 										<td>
-											<a href="/staff/staffAddinfo/{{ $row->id }}/reset_form" class="btn btn-minor">EDIT</a>
+											<a href="/staffAddinfo/{{ $row->id }}/edit" class="btn btn-info">Course</a>
 										</td>
+										
 										<td>
-											<a href="/staff/staffAddinfo/{{ $row->id }}/delete" class="btn btn-danger" title="Delete Course"
+											<a href="/staffAddinfo/{{ $row->id }}/delete" class="btn btn-danger" title="Delete Course"
 												onclick="return confirm('Confirm to delete?')">Delete</a>
 										</td>
 									</tr>
 								@endforeach
 							</tbody>
+
+							<tfoot>
+								<tr>
+									<th>No</th>
+									<th>Course ID</th>
+									<th>Course Name</th>
+									<th>Faculty</th>
+									<th>Details</th>
+									<th>View</th>
+									<th>Deletion</th>
+								</tr>
+							</tfoot>
+
 						</table>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+
 	<div class="modal fade" id="courseform" tabindex="-1" aria-labelledby="Label" aria-hidden="true">
 		<div class="modal-dialog modal-dialog-centered">
 			<div class="modal-content">
-				<form action="/staff/staffAddinfo/create" class="needs-validation" method="POST" novalidate>
+				<form action="/staffAddinfo/insert" class="needs-validation" method="POST" novalidate>
 					@csrf
 					<div class="modal-header">
 						<h1 class="modal-title fs-5" id="Label">Course Information</h1>
@@ -68,7 +90,7 @@
 						<div class="row g-3">
 							<div class="col-6">
 								<label class="form-label" for="courseID">Course ID</label>
-								<input type="text" id="course_id" class="form-control" name="course_id" required>
+								<input type="text" id="courseID" class="form-control" name="courseID" required>
 								<div class="invalid-feedback">
 									Please fill out this field.
 								</div>
@@ -76,7 +98,7 @@
 
 							<div class="col-6">
 								<label class="form-label" for="courseName">Course Name</label>
-								<input type="text" id="name" class="form-control" name="name" required>
+								<input type="text" id="courseName" class="form-control" name="courseName" required>
 								<div class="invalid-feedback">
 									Please fill out this field.
 								</div>
@@ -92,7 +114,7 @@
 
 							<div class="col-6">
 								<label class="form-label" for="details">Details</label>
-								<input type="details" id="details" class="form-control" name="details" required>
+								<input type="text" id="details" class="form-control" name="details" required>
 								<div class="invalid-feedback">
 									Please fill out this field.
 								</div>

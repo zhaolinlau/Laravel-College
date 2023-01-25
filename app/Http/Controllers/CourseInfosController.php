@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Models\CourseDetails;
+use App\Models\Course;
 
 class CourseInfosController extends Controller
 {
@@ -15,24 +15,31 @@ class CourseInfosController extends Controller
         ]);
     }
     public function Courseindex(){
-        $courses= \App\Models\CourseDetails::all();
-        return view('staffAddnfo',['courses'=> $courses]);
-    }
-    public function edit($id) {
-        $courses = \App\Models\CourseDetails::find($id);
-        return view('editCourse',['courses'=>$courses]);
+        $courses = \App\Models\Course::all();
+        return view('staffAddinfo',['courses'=> $courses]);
     }
 
-    public function update(Request $request, $id) {
-        $courses=$courses::find($id);
-        $courses->update($request->all());
-        return redirect('/')->with('success', 'Data Successfully Updated !');
+    public function insert(Request $request)
+	{
+		Course::insert($request->except(['_token']));
+		return redirect()->back()->with('success', 'Your message has been sent.');
+	}
+
+    public function edit($id) {
+        $courses = \App\Models\Course::find($id);
+        return view('/editCourse',['courses'=>$courses]);
+    }
+
+    public function update(Request $request, $id){
+        $courses = \App\Models\Course::find($id);
+        $courses -> update ($request -> all());
+        return redirect('/staffAddinfo')->with('success', 'Data Successfully Updated !');
     }
 
     public function delete($id) {
-        $courses=$courses::find($id);
+        $courses = \App\Models\Course::find($id);
         $courses->delete($courses);
-        return redirect('/ ')->with('success', 'Data Successfully Deleted !');
+        return redirect('/staffAddinfo')->with('success', 'Data Successfully Deleted !');
     }
 
    

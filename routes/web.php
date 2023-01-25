@@ -157,26 +157,8 @@ Route::middleware(['auth', 'user-role:student', 'checkheader'])->group(function 
 Route::middleware(['auth', 'user-role:staff', 'checkheader'])->group(function () {
 	Route::get('/staffAddinfo', 'App\Http\Controllers\CourseInfosController@Courseindex');
 	Route::get('/staffAddinfo/{id}/edit', 'App\Http\Controllers\CourseInfosController@edit');
-	Route::get('/coursedata/{{$data_courseinfo->id}}/updateCourse', 'App\Http\Controllers\CourseInfosController@edit');
-	
-
-
+	Route::post('/staffAddinfo/{id}/update', 'App\Http\Controllers\CourseInfosController@update');
+	Route::get('/staffAddinfo/{id}/delete', 'App\Http\Controllers\CourseInfosController@delete');
+	Route::post('/staffAddinfo/insert', 'App\Http\Controllers\CourseInfosController@insert');
 });
 
-Route::middleware(['auth', 'user-role:staff', 'checkheader'])->group(function () {
-	Route::get('/staffAdd', function () {
-		return view('staffAddinfo');
-	});
-
-	Route::get('/addCourse', function () {
-		return view('staffAddinfo');
-	});
-
-	Route::get('/editCourse', function () {
-		return view('editCourse');
-	});
-
-	Route::get('/deleteCourse', function () {
-		return view('deleteCourse');
-	});
-});

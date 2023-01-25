@@ -35,7 +35,7 @@
 							<div class="card-body">
 								<h5 class="card-title">Course list</h5>
 								<p class="card-text">Navigate to list of Course Information.</p>
-								<a class="btn btn-primary" href="/staffAddinfo">Student Application</a>
+								<a class="btn btn-primary" href="/staffAddinfo">View Course List</a>
 							</div>
 						</div>
 					</div>
