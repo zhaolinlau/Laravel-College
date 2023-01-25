@@ -37,7 +37,7 @@ class StaffController extends Controller
 	{
 		$request->only(['password']);
 		$request->validate([
-			'password' => 'required',
+			'password' => 'required|min:8',
 		]);
 		$staff = User::find($id);
 		$staff->password = bcrypt($request->password);

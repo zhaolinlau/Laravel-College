@@ -9,15 +9,15 @@
 	<div class="container p-md-5 my-5">
 		<div class="row d-flex justify-content-center p-5">
 			<div class="col p-md-5">
-				<form action="/staff/{{ auth()->user()->id }}/change_password"
+				<form action="/admin/{{ auth()->user()->id }}/change_password"
 					class="row p-5 g-3 shadow rounded-5 needs-validation" method="POST" novalidate>
 					@csrf
 					<h1 class="text-center">Reset Password</h1>
 					<div class="col-6 offset-3">
-						<label class="form-label" for="email">Staff Email</label>
+						<label class="form-label" for="email">Admin Email</label>
 						<input type="email" id="email" class="form-control" name="email" value="{{ auth()->user()->email }}" required disabled>
 						<div class="invalid-feedback">
-							Please enter an email.
+							Please fill out this field.
 						</div>
 					</div>
 					<div class="col-6 offset-3">
