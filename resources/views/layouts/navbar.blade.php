@@ -51,7 +51,7 @@
 					@endif
 
 					<li class="nav-item">
-						<a href="/create_application" class="btn btn-primary"><b>Apply Now</b></a>
+						<a href="/application" class="btn btn-primary"><b>Apply Now</b></a>
 					</li>
 				@else
 					<li class="nav-item dropdown">
