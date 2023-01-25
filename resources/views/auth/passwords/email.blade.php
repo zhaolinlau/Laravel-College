@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+@section('title')
+	Reset Password
+@endsection
 @section('content')
 	@include('layouts.navbar')
 	<div class="container py-5">

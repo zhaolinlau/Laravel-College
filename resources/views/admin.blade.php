@@ -6,8 +6,8 @@
 
 @section('content')
 	@include('layouts.navbar')
-	<div class="container py-5">
-		<div class="row justify-content-center py-5">
+	<div class="container py-5 my-5">
+		<div class="row justify-content-center py-5 my-5">
 			<div class="col py-5">
 				<div class="row">
 					<div class="col-4">

@@ -1,14 +1,14 @@
 @extends('layouts.app')
 
 @section('title')
-	Dashboard
+	Reset Password
 @endsection
 
 @section('content')
 	@include('layouts.navbar')
-	<div class="container p-md-5 my-5">
+	<div class="container p-5">
 		<div class="row d-flex justify-content-center p-5">
-			<div class="col p-md-5">
+			<div class="col p-5">
 				<form action="/admin/staff_list/{{ $staff->id }}/reset_password"
 					class="row p-5 g-3 shadow rounded-5 needs-validation" method="POST" novalidate>
 					@csrf
