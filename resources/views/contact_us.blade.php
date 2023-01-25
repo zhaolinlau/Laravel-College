@@ -6,9 +6,9 @@
 
 @section('content')
 	@include('layouts.navbar')
-	<div class="container">
-		<section>
-			<div class="col-md-6 position-absolute top-50 start-50 translate-middle">
+	<div class="container py-5">
+		<div class="row justify-content-center py-5">
+			<div class="col-6 py-4">
 					@if (session()->has('success'))
 						<div class="alert alert-success alert-dismissible fade show mx-auto" role="alert">
 							{{ session('success') }}
