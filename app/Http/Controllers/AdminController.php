@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException;
 
 class AdminController extends Controller
 {
@@ -21,42 +22,50 @@ class AdminController extends Controller
 
 	public function updateStaff(Request $request, $id)
 	{
-		$request->validate([
-			'staff_id' => 'required',
-			'name' => 'required',
-			'email' => 'required|email',
-			'phone_number' => 'required',
-			'faculty' => 'required',
-		]);
+		try {
+			$request->validate([
+				'staff_id' => 'required|unique:users,staff_id,' . $id,
+				'email' => 'required|email|unique:users,email,' . $id,
+				'name' => 'required',
+				'phone_number' => 'required',
+				'faculty' => 'required',
+			]);
 
-		$staff = User::find($id);
-		$staff->update($request->all());
+			$staff = User::find($id);
+			$staff->update($request->all());
 
-		return redirect()->route('admin.staff_list');
+			return redirect()->route('admin.staff_list');
+		} catch (ValidationException) {
+			return redirect()->back()->with('error', 'Email or Staff ID already exists!');
+		}
 	}
 
 
 	public function createStaff(Request $request)
 	{
-		$request->validate([
-			'staff_id' => 'required',
-			'name' => 'required',
-			'email' => 'required|email',
-			'password' => 'required',
-			'phone_number' => 'required',
-			'faculty' => 'required',
-		]);
+		try {
+			$request->validate([
+				'staff_id' => 'required|unique:users',
+				'name' => 'required',
+				'email' => 'required|email|unique:users',
+				'password' => 'required',
+				'phone_number' => 'required',
+				'faculty' => 'required',
+			]);
 
-		$staff = new User;
-		$staff->staff_id=$request->staff_id;
-		$staff->name=$request->name;
-		$staff->email=$request->email;
-		$staff->password = bcrypt($request->password);
-		$staff->phone_number=$request->phone_number;
-		$staff->faculty=$request->faculty;
-		$staff->role = 1;
-		$staff->save();
-		return redirect()->route('admin.staff_list');
+			$staff = new User();
+			$staff->staff_id = $request->staff_id;
+			$staff->name = $request->name;
+			$staff->email = $request->email;
+			$staff->password = bcrypt($request->password);
+			$staff->phone_number = $request->phone_number;
+			$staff->faculty = $request->faculty;
+			$staff->role = 1;
+			$staff->save();
+			return redirect()->route('admin.staff_list');
+		} catch(ValidationException) {
+			return redirect()->back()->with('error', 'Email or Staff ID already exists!');
+		}
 	}
 
 	public function readPassword($id)

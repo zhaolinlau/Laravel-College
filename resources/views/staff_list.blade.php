@@ -8,7 +8,14 @@
 	@include('layouts.navbar')
 	<div class="container py-5">
 		<div class="row justify-content-center py-5">
+
 			<div class="col py-5">
+				@if (session('error'))
+					<div class="alert alert-danger alert-dismissible fade show" role="alert">
+						<strong>{{ session('error') }}</strong>
+						<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+					</div>
+				@endif
 				<div class="row g-3">
 					<div class="col">
 						<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staffform">

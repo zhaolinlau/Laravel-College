@@ -8,8 +8,15 @@
 	@include('layouts.navbar')
 	<div class="container p-5">
 		<div class="row d-flex justify-content-center p-5">
+			@if (session('error'))
+				<div class="alert alert-danger alert-dismissible fade show" role="alert">
+					<strong>{{ session('error') }}</strong>
+					<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+				</div>
+			@endif
 			<div class="col p-5">
-				<form action="/admin/staff_list/{{ $staff->id }}/update" class="row p-5 g-3 shadow rounded-5 needs-validation" method="POST" novalidate>
+				<form action="/admin/staff_list/{{ $staff->id }}/update" class="row p-5 g-3 shadow rounded-5 needs-validation"
+					method="POST" novalidate>
 					@csrf
 					<div class="col-6">
 						<label class="form-label" for="staff_id">Staff ID</label>
@@ -37,12 +44,13 @@
 
 					<div class="col-6">
 						<label class="form-label" for="phone_number">Phone Number</label>
-						<input type="tel" id="phone_number" class="form-control" name="phone_number" value="{{ $staff->phone_number }}" required>
+						<input type="tel" id="phone_number" class="form-control" name="phone_number" value="{{ $staff->phone_number }}"
+							required>
 						<div class="invalid-feedback">
 							Please fill out this field.
 						</div>
 					</div>
-					
+
 					<div class="col-6">
 						<label class="form-label" for="faculty">Faculty</label>
 						<input type="tel" id="faculty" class="form-control" name="faculty" value="{{ $staff->faculty }}" required>
@@ -53,7 +61,7 @@
 
 					<div class="col-12">
 						<button type="submit" class="btn btn-primary" onclick="return confirm('Confirm to update?')">Update</button>
-						<a class="btn btn-danger" href="{{route('admin.staff_list')}}">Cancel</a>
+						<a class="btn btn-danger" href="{{ route('admin.staff_list') }}">Cancel</a>
 					</div>
 				</form>
 			</div>
