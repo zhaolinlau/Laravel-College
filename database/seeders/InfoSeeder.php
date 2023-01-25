@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
+
 class InfoSeeder extends Seeder
 {
     /**
@@ -24,20 +25,20 @@ class InfoSeeder extends Seeder
 				'courseID' => 'BCN2345',
 				'courseName' => 'Malaysian',
 				'faculty' => 'Cyberjaya',
-				'details' => 'Degree in Computer Science (Hons.)',
+				'details' => 'Degree in Computer Science (Hons.)'
 				
             ],
             [
 				'courseID' => 'BCF7021',
 				'courseName' => 'Malaysian',
 				'faculty' => 'Cyberjaya',
-				'details' => 'Degree in Computer Science (Hons.)',
+				'details' => 'Degree in Computer Science (Hons.)'
 				
 			]
 		];
 
 		foreach ($courses as $key => $courses) {
-			Course::create($courses);
+			courses::create($courses);
 		}
     }
 }
