@@ -8,6 +8,12 @@
 	@include('layouts.navbar')
 	<div class="container p-5">
 		<div class="row d-flex justify-content-center p-5">
+			@if (session('error'))
+				<div class="alert alert-danger alert-dismissible fade show" role="alert">
+					<strong>{{ session('error') }}</strong>
+					<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+				</div>
+			@endif
 			<div class="col p-5">
 				<form action="/staff/{{ auth()->user()->id }}/update" class="row p-5 g-3 shadow rounded-5 needs-validation" method="POST" novalidate>
 					@csrf

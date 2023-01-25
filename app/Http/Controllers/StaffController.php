@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Application;
 use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException;
 
 class StaffController extends Controller
 {
@@ -19,18 +20,22 @@ class StaffController extends Controller
 	}
 
 	public function updateProfile(Request $request, $id) {
-		$request->validate([
-			'staff_id' => 'required',
-			'name' => 'required',
-			'email' => 'required|email',
-			'phone_number' => 'required',
-			'faculty' => 'required',
-		]);
+		try {
+			$request->validate([
+				'staff_id' => 'required|unique:users,staff_id,' . $id,
+				'name' => 'required',
+				'email' => 'required|email|unique:users,email,' . $id,
+				'phone_number' => 'required',
+				'faculty' => 'required',
+			]);
 
-		$staff = User::find($id);
-		$staff->update($request->all());
+			$staff = User::find($id);
+			$staff->update($request->all());
 
-		return redirect()->route('staff.home');
+			return redirect()->route('staff.home');
+		} catch (ValidationException) {
+			return redirect()->back()->with('error', 'Email or Staff ID already exists!');
+		}
 	}
 
 	public function changePassword(Request $request, $id)

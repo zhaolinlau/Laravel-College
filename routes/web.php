@@ -43,7 +43,7 @@ Route::middleware(['auth', 'user-role:staff', 'checkheader'])->group(function ()
 		return view('staff_myprofile');
 	});
 	Route::post('/staff/{id}/update', [StaffController::class, 'updateProfile']);
-	Route::get('/staff/{id}/reset_password', function () {
+	Route::get('/staff/{id}/change_password', function () {
 		return view('staff_changepwd');
 	});
 	Route::post('/staff/{id}/change_password', [StaffController::class, 'changePassword']);
@@ -58,7 +58,7 @@ Route::middleware(['auth', 'user-role:admin', 'checkheader'])->group(function ()
 	Route::get('/admin/staff_list/{id}/delete', [AdminController::class, 'deleteStaff']);
 	Route::get('/admin/staff_list/{id}/reset_form', [AdminController::class, 'readPassword']);
 	Route::post('/admin/staff_list/{id}/reset_password', [AdminController::class, 'resetPassword'])->name('admin.staff_password');
-	Route::get('/admin/{id}/reset_password', function () {
+	Route::get('/admin/{id}/change_password', function () {
 		return view('admin_changepwd');
 	});
 	Route::post('/admin/{id}/change_password', [AdminController::class, 'changePassword']);

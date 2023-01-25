@@ -8,11 +8,11 @@
 	@include('layouts.navbar')
 	<div class="container p-md-5 my-5">
 		<div class="row d-flex justify-content-center p-5">
-			<div class="col p-md-5">
+			<div class="col-8">
 				<form action="/staff/{{ auth()->user()->id }}/change_password"
-					class="row p-5 g-3 shadow rounded-5 needs-validation" method="POST" novalidate>
+					class="row py-5 g-3 shadow rounded-5 needs-validation" method="POST" novalidate>
 					@csrf
-					<h1 class="text-center">Reset Password</h1>
+					<h1 class="text-center">Change Password</h1>
 					<div class="col-6 offset-3">
 						<label class="form-label" for="email">Staff Email</label>
 						<input type="email" id="email" class="form-control" name="email" value="{{ auth()->user()->email }}" required disabled>
