@@ -8,6 +8,12 @@
 	@include('layouts.navbar')
 <div class="container" style="margin-top: 20px">
     <div class="row">
+    @if (session()->has('success'))
+		<div class="alert alert-success alert-dismissible fade show mx-auto" role="alert">
+			{{ session('success') }}
+			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+		</div>
+	@endif
         <div class="col-md-12">
             <h2 style="text-align: center;margin-bottom: 30px">Response List Of Contact Us</h2>
             <table id="table_id" class="table table-striped table-bordered" cellspacing="0" width="100%">
