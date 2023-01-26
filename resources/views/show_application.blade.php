@@ -81,7 +81,7 @@
                     </tr>
                     <tr>
                         <td>
-							<a href="/edit_application/{{ $row->id }}/edit" class="btn btn-secondary" target="_blank">Update</a>
+							<a href="/show_application/{{ $row->id }}/edit" class="btn btn-secondary" target="_blank">Update</a>
                             <a href="/show_application/{{ $row->id }}/destroy" class="btn btn-danger" title="Delete Application" onclick="return confirm('Confirm to delete?')">Delete</a>
 						</td>						
                     </tr>

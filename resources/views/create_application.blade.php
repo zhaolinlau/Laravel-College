@@ -32,7 +32,7 @@
     <div class="modal fade" id="applicationform" tabindex="-1" aria-labelledby="Label" aria-hidden="true">
 		<div class="modal-dialog modal-dialog-centered">
 			<div class="modal-content">
-				<form action="/show_application" class="needs-validation" method="POST" novalidate>
+				<form action="/create_application/store" class="needs-validation" method="POST" novalidate>
 					@csrf
 					<div class="modal-header">
 						<h1 class="modal-title fs-" id="Label">Student Application</h1>
@@ -220,7 +220,7 @@
 						</div>
 					</div>
 					<div class="modal-footer">
-						<button type="submit" class="btn btn-primary" href="/main_application/store">Add</button>
+						<button type="submit" class="btn btn-primary">Add</button>
 						<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
 					</div>
 				</form>
