@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-
+use App\Models\Course;
 
 class InfoSeeder extends Seeder
 {
@@ -38,7 +38,7 @@ class InfoSeeder extends Seeder
 		];
 
 		foreach ($courses as $key => $courses) {
-			courses::create($courses);
+			course::create($courses);
 		}
     }
 }
