@@ -22,7 +22,14 @@ class ContactUsSeeder extends Seeder
 			'email' => 'hanim@gmail.com',
 			'phone_number' => '0278866543',
 			'subject' => 'Hi',
-			'Message' => 'Hello',
+			'Message' => 'How to make payment?',
+			'status' => 'SUBMIT',
+		],
+		[	'name' => 'Melisa',
+			'email' => 'Melisa@gmail.com',
+			'phone_number' => '0119897754',
+			'subject' => 'Hi',
+			'Message' => 'How to Apply for a Course?',
 			'status' => 'SUBMIT',
 		]
 		];
