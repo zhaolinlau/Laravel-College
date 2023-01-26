@@ -6,16 +6,18 @@
 
 @section('content')
 	@include('layouts.navbar')
+	<style>
+        .header {
+        padding: 30px;
+        text-align: center;
+        }
+    </style>
+	<div class="header text-white">
+            <h1><b> COURSE INFORMATION</b></h1>
+        </div> 
 	<div class="container py-5">
 		<div class="row justify-content-center py-5">
-
 			<div class="col py-5">
-				@if (session('error'))
-					<div class="alert alert-danger alert-dismissible fade show" role="alert">
-						<strong>{{ session('error') }}</strong>
-						<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-					</div>
-				@endif
 				<div class="row g-3">
 					<div class="col">
 						<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#courseform" >
@@ -27,13 +29,13 @@
 						<table class="table table-striped full-width" id="courseAddinfo">
 							<thead>
 								<tr>
-									<th>No</th>
-									<th>Course ID</th>
-									<th>Course Name</th>
-									<th>Faculty</th>
-									<th>Details</th>
-									<th>View</th>
-									<th>Deletion</th>
+									<th><b>No</th>
+									<th><b>Course ID</th>
+									<th><b>Course Name</th>
+									<th><b>Faculty</th>
+									<th><b>Details</th>
+									<th><b>View</th>
+									<th><b>Deletion</th>
 								</tr>
 							</thead>
 

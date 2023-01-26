@@ -86,11 +86,6 @@ body {
     design, implement and maintain information systems solutions for critical business 
     problems. Graduates of this programme will take leading roles in shaping our information-driven future.
     </p>
-
-    <div class="col-12">
-		<!--<button class="btn btn-primary" type="button">Enquire Now</button>-->
-        <button class="button button4">ENQUIRE NOW </button>
-	</div>
   </div>
 </div>
 

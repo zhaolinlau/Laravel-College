@@ -78,10 +78,6 @@ body {
     <p>Students will also learn about professional ethics and develop communication, presentation and teamwork skills that are deemed critical for success in today’s workforce. Both the technical and soft skills will prepare them for their degree studies, as well as for future employment.</p>
     <p>Upon completion of the diploma programme, students can opt for a related degree programme offered by the Faculty of Information Science and Technology (FIST) or Faculty of Computing and Informatics (FCI).</p>
 
-    <div class="col-12">
-		<!--<button class="btn btn-primary" type="button">Enquire Now</button>-->
-        <button class="button button4">ENQUIRE NOW </button>
-	</div>
   </div>
 </div>
 

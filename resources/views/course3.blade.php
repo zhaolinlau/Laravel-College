@@ -78,10 +78,7 @@ body {
     <p>Students will also be equipped with some business skills such as economics, finance, investment, entrepreneurship and management, and will also be exposed to the real world experience through internship programme in various accounting firms and selected organisations. This programme is also recognised by professional accounting bodies at the international level.</p>
     <p>After completion of the diploma programme you can opt for a related degree programme from either FOB or FOM, except for the Bachelor of Financial Engineering (Hons.)</p>
 
-    <div class="col-12">
-		<!--<button class="btn btn-primary" type="button">Enquire Now</button>-->
-        <button class="button button4">ENQUIRE NOW </button>
-	</div>
+    
   </div>
 </div>
 

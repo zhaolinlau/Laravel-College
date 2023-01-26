@@ -85,12 +85,6 @@ body {
     degree programme from either the Faculty of Management (MMU 
     Cyberjaya campus) or the Faculty of Business (MMU Melaka campus).
     </p>
-    
-
-    <div class="col-12">
-		<!--<button class="btn btn-primary" type="button">Enquire Now</button>-->
-        <button class="button button4">ENQUIRE NOW </button>
-	</div>
   </div>
 </div>
 

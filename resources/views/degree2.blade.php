@@ -92,12 +92,6 @@ body {
     the industrial training, capstone and final year projects, which serve to cultivate skills 
     and capabilities in research, system design, practical problem-solving, and project management.
     </p>
-    
-
-    <div class="col-12">
-		<!--<button class="btn btn-primary" type="button">Enquire Now</button>-->
-        <button class="button button4">ENQUIRE NOW </button>
-	</div>
   </div>
 </div>
 

@@ -82,12 +82,7 @@ body {
         media trend,covers a wide spectrum of digital media technical modules ranging from 
         computer graphics, digital imaging, videography and interactive media.
     </p>
-    
 
-    <div class="col-12">
-		<!--<button class="btn btn-primary" type="button">Enquire Now</button>-->
-        <button class="button button4">ENQUIRE NOW </button>
-	</div>
   </div>
 </div>
 

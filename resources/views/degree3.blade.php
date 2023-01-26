@@ -80,11 +80,6 @@ body {
     specific skills. Students will also complete a final year project and undergo industrial 
     training to acquire practical industry experience.
     </p>
-
-    <div class="col-12">
-		<!--<button class="btn btn-primary" type="button">Enquire Now</button>-->
-        <button class="button button4">ENQUIRE NOW </button>
-	</div>
   </div>
 </div>
 

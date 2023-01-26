@@ -85,11 +85,6 @@ body {
     and Bloomberg for their Research Project greatly enhance their experience and resumes that will impress 
     potential employers.
     </p>
-
-    <div class="col-12">
-		<!--<button class="btn btn-primary" type="button">Enquire Now</button>-->
-        <button class="button button4">ENQUIRE NOW </button>
-	</div>
   </div>
 </div>
 
