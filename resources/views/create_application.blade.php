@@ -32,7 +32,7 @@
     <div class="modal fade" id="applicationform" tabindex="-1" aria-labelledby="Label" aria-hidden="true">
 		<div class="modal-dialog modal-dialog-centered">
 			<div class="modal-content">
-				<form action="/create_application/store" class="needs-validation" method="POST" novalidate>
+				<form action="/application/store" class="needs-validation" method="POST" novalidate>
 					@csrf
 					<div class="modal-header">
 						<h1 class="modal-title fs-" id="Label">Student Application</h1>
@@ -43,12 +43,12 @@
                             <div class="col-6">
 								<label class="form-label" for="level">LEVEL</label>
 								    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="level" id="level1"/>
+                                        <input class="form-check-input" type="radio" name="level" id="level" value="Postgraduate"/>
                                         <label class="form-check-label" for="level1"> Postgraduate </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="level" id="level1"/>
-                                        <label class="form-check-label" for="level1"> Undergraduate </label>
+                                        <input class="form-check-input" type="radio" name="level" id="level" value="Undergraduate"/>
+                                        <label class="form-check-label" for="level"> Undergraduate </label>
                                     </div>
 								<div class="invalid-feedback">
                                     This field is required.
@@ -58,12 +58,12 @@
                             <div class="col-6">
 								<label class="form-label" for="nationality">NATIONALITY</label>
 								    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="nationality" id="nationality1"/>
-                                        <label class="form-check-label" for="nationality1"> Malaysian </label>
+                                        <input class="form-check-input" type="radio" name="nationality" id="nationality" value="Malaysian"/>
+                                        <label class="form-check-label" for="nationality"> Malaysian </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="nationality" id="nationality2"/>
-                                        <label class="form-check-label" for="nationality2"> Non-Malaysian </label>
+                                        <input class="form-check-input" type="radio" name="nationality" id="nationality" value="Non-Malaysian"/>
+                                        <label class="form-check-label" for="nationality"> Non-Malaysian </label>
                                     </div>
 								<div class="invalid-feedback">
                                     This field is required.
@@ -192,6 +192,14 @@
 								</div>
 							</div>
 
+							<div class="col-6">
+								<label class="form-label" for="guardianphone">GUARDIAN NUMBER</label>
+								<input type="tel" id="guardianphone" class="form-control" name="guardianphone" required>
+								<div class="invalid-feedback">
+                                    This field is required.
+								</div>
+							</div>
+
                             <div class="col-6">
 								<label class="form-label" for="guardiannric">GUARDIAN NRIC</label>
 								<input type="text" id="guardiannric" class="form-control" name="guardiannric" required>
@@ -203,14 +211,6 @@
                             <div class="col-6">
 								<label class="form-label" for="guardianemail">GUARDIAN EMAIL</label>
 								<input type="email" id="guardianemail" class="form-control" name="guardianemail" required>
-								<div class="invalid-feedback">
-                                    This field is required.
-								</div>
-							</div>
-
-                            <div class="col-6">
-								<label class="form-label" for="guardianphone">GUARDIAN CONTACT NUMBER</label>
-								<input type="tel" id="guardianphone" class="form-control" name="guardianphone" required>
 								<div class="invalid-feedback">
                                     This field is required.
 								</div>

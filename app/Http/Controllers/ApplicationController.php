@@ -50,12 +50,12 @@ class ApplicationController extends Controller
             'email' => 'required|max:255',
             'files' => 'required',
             'guardianname' => 'required|max:255',
-            'guardianphone' => 'required|numeric',
             'guardiannric' => 'required|max:255',
+            'guardianphone' => 'required|numeric',
             'guardianemail' => 'required|max:255',
         ]);
         $applications = Application::create($storeData);
-        return redirect('/show_application')->with('success', 'Your application have been sent!');
+        return redirect()->route('show_application')->with('success', 'Your application have been sent!');
     }
 
     /**
@@ -64,10 +64,10 @@ class ApplicationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        $applications = Application::find($id);
-        return view('show_application');
+        $applications = Application::all();
+        return view('show_application', ['applications' => $applications]);
     }
 
     /**
@@ -79,7 +79,7 @@ class ApplicationController extends Controller
     public function edit($id)
     {
         $applications = Application::findOrFail($id);
-        return view('edit_application');
+        return view('edit_application', ['applications' => $applications]);
     }
 
     /**
@@ -104,12 +104,12 @@ class ApplicationController extends Controller
             'email' => 'required|max:255',
             'files' => 'required',
             'guardianname' => 'required|max:255',
-            'guardianphone' => 'required|numeric',
             'guardiannric' => 'required|max:255',
+            'guardianphone' => 'required|numeric',
             'guardianemail' => 'required|max:255',
         ]);
         Application::whereId($id)->update($updateData);
-        return redirect('/main_application')->with('success', 'Your application has been updated');
+        return redirect()->route('show_application')->with('success', 'Your application has been updated');
     }
 
     /**
@@ -122,6 +122,6 @@ class ApplicationController extends Controller
     {
         $applications = Application::findOrFail($id);
         $applications->delete();
-        return redirect('/main_application')->with('success', 'Your application has been cancelled');
+        return redirect()->route('main_application')->with('success', 'Your application has been cancelled');
     }
 }
