@@ -9,7 +9,7 @@
 	<div class="container p-5">
 		<div class="row d-flex justify-content-center p-5">
 			<div class="col p-5">
-				<form action="/staffAddinfo/{{ auth()->user()->id }}/update"  class="row p-5 g-3 shadow rounded-5 needs-validation" method="POST" novalidate>
+				<form action="/staffAddinfo/{{ auth()->user()->id }}/update" class="row p-5 g-3 shadow rounded-5 needs-validation" method="POST" novalidate>
 					@csrf
 					<div class="col-6">
 						<label class="form-label" for="courseID">Course ID</label>
