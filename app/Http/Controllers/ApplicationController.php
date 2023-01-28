@@ -16,7 +16,7 @@ class ApplicationController extends Controller
     public function index()
     {
         $applications = Application::all();
-        return view('main_application');
+        return view('index_application');
     }
 
     /**
