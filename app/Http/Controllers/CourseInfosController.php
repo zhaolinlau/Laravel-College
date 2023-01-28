@@ -27,11 +27,24 @@ class CourseInfosController extends Controller
 		return redirect()->back()->with('success', 'Your message has been sent.');
 	}
 
+<<<<<<< Updated upstream
 	public function edit($id)
 	{
 		$courses = Course::find($id);
 		return view('/editCourse', ['courses' => $courses]);
 	}
+=======
+    public function edit($id) {
+        $courses = \App\Models\Course::find($id);
+        return view('/editCourse',['courses'=>$courses]);
+    }
+
+    public function update(Request $request, $id){
+        $courses = \App\Models\Course::find($id);
+        $courses -> update($request -> all());
+        return redirect('/staffAddinfo')->with('success', 'Data Successfully Updated !');
+    }
+>>>>>>> Stashed changes
 
 	public function update(Request $request, $id)
 	{
