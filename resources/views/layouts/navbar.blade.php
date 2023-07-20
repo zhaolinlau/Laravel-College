@@ -68,17 +68,16 @@
 									</a>
 								</li>
 								<li>
-									<a class="dropdown-item" href="/admin/{{auth()->user()->id}}/profile">
+									<a class="dropdown-item" href="/admin/{{ auth()->user()->id }}/profile">
 										{{ __('My Profile') }}
 									</a>
 								</li>
 
 								<li>
-									<a class="dropdown-item" href="/admin/{{auth()->user()->id}}/change_password">
+									<a class="dropdown-item" href="/admin/{{ auth()->user()->id }}/change_password">
 										{{ __('Change Password') }}
 									</a>
 								</li>
-
 							@endif
 
 							@if (auth()->user()->role == 'staff')
@@ -89,13 +88,13 @@
 								</li>
 
 								<li>
-									<a class="dropdown-item" href="/staff/{{auth()->user()->id}}/profile">
+									<a class="dropdown-item" href="/staff/{{ auth()->user()->id }}/profile">
 										{{ __('My Profile') }}
 									</a>
 								</li>
 
 								<li>
-									<a class="dropdown-item" href="/staff/{{auth()->user()->id}}/change_password">
+									<a class="dropdown-item" href="/staff/{{ auth()->user()->id }}/change_password">
 										{{ __('Change Password') }}
 									</a>
 								</li>
@@ -122,8 +121,8 @@
 									{{ __('Logout') }}
 								</a>
 								<form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-								@csrf
-							</form>
+									@csrf
+								</form>
 							</li>
 
 						</ul>
