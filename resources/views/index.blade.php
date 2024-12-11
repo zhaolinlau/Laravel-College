@@ -21,7 +21,7 @@
 					<div class="carousel-inner">
 						@foreach ($banners as $row)
 							<div class="carousel-item {{ $loop->first ? 'active' : '' }}">
-								<img src="{{ asset('storage/images/' . $row->image) }}" alt="{{ $row->title }}" class="d-block w-100" />
+								<img src="{{ asset('img/banners/' . $row->image) }}" alt="{{ $row->title }}" class="d-block w-100" />
 								@if ($row->title || $row->description)
 									<div class="carousel-caption d-none d-md-block bg-black bg-opacity-50 rounded-9">
 										<h5>{{ $row->title }}</h5>

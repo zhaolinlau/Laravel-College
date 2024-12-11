@@ -38,26 +38,40 @@ class BannerController extends Controller
 				'publish' => 'required|boolean'
 			]);
 
-			$image = $request->file('image')->getClientOriginalName();
+			$originalName = $request->file('image')->getClientOriginalName();
+			$filename = time() . '_' . $originalName;
+
+			$destinationPath = public_path('img/banners');
+
+			$request->file('image')->move($destinationPath, $filename);
+
 			$banner = new Banner;
 			$banner->title = $request->title;
 			$banner->description = $request->description;
-			$banner->image = $image;
+			$banner->image =  $filename;
 			$banner->publish = $request->publish;
-			$request->file('image')->storeAs('/images/', $image);
 			$banner->save();
+
 			return redirect()->route('staff.banner_list');
 		} catch (ValidationException) {
 			return redirect()->back()->with('error', 'Only .jpeg, .jpg, and .png image formats are allowed to be uploaded.');
 		}
 	}
 
+
+
 	public function deleteBanner($id)
 	{
-		$banner = Banner::find($id);
-		$image = $banner->image;
+		$banner = Banner::findOrFail($id);
+
+		$imagePath = public_path('img/banners/' . $banner->image);
+
+		if (file_exists($imagePath)) {
+			unlink($imagePath);
+		}
+
 		$banner->delete();
-		Storage::delete('/images/' . $image);
+
 		return redirect()->route('staff.banner_list');
 	}
 
@@ -71,19 +85,26 @@ class BannerController extends Controller
 				'publish' => 'required|boolean'
 			]);
 
-			$banner = Banner::find($id);
-			if ($banner) {
-				if ($request->hasFile('image')) {
-					Storage::delete('/images/' . $banner->image);
-					$image = $request->file('image')->getClientOriginalName();
-					$request->file('image')->storeAs('/images/', $image);
-					$banner->image = $image;
+			$banner = Banner::findOrFail($id);
+
+			if ($request->hasFile('image')) {
+				$oldImagePath = public_path('img/banners/' . $banner->image);
+				if (file_exists($oldImagePath)) {
+					unlink($oldImagePath);
 				}
-				$banner->title = $request->title;
-				$banner->description = $request->description;
-				$banner->publish = $request->publish;
-				$banner->save();
+
+				$originalName = $request->file('image')->getClientOriginalName();
+				$filename = time() . '_' . $originalName;
+				$destinationPath = public_path('img/banners');
+				$request->file('image')->move($destinationPath, $filename);
+				$banner->image = $filename;
 			}
+
+			$banner->title = $request->title;
+			$banner->description = $request->description;
+			$banner->publish = $request->publish;
+			$banner->save();
+
 			return redirect()->route('staff.banner_list');
 		} catch (ValidationException) {
 			return redirect()->back()->with('error', 'Only .jpeg, .jpg, and .png image formats are allowed to be uploaded.');

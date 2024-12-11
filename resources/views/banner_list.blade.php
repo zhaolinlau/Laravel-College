@@ -61,7 +61,7 @@
 											<a href="/staff/banner_list/{{ $row->id }}/banner" class="btn btn-info">Modify</a>
 										</td>
 										<td>
-											<a href="{{ asset('storage/images/' . $row->image) }}" class="btn btn-secondary" target="_blank">View</a>
+											<a href="{{ asset('img/banners/' . $row->image) }}" class="btn btn-secondary" target="_blank">View</a>
 										</td>
 										<td>
 											<a href="/staff/banner_list/{{ $row->id }}/delete" class="btn btn-danger"
